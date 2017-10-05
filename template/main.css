@@ -1,0 +1,26 @@
+﻿
+#main{
+ margin-top: 50px;
+ margin-bottom: 91px;/*国駿 スクロールして余らないように*/
+ margin-left: 10px;
+ margin-right: 10px;
+ border: 2px double gray;
+ height: auto;/*autoに変更:猫派*/
+ background-color: white;
+}
+
+/*mein要素の末尾に改行を入れる*/
+#main::after {
+  content: "\A";
+  white-space: pre;
+}
+
+/*ここから追加分----------------------*/
+article section{
+  margin-left: 8%;
+  font-size: 20px;
+}
+
+article section h1{
+    margin-left: -3%;
+}

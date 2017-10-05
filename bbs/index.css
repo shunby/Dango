@@ -1,0 +1,10 @@
+table{
+  white-space: nowrap;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+th, td{
+  border-style: solid;
+  border-width:thin;
+}

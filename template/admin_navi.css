@@ -1,0 +1,48 @@
+#nav{
+}
+
+.individual{
+  float: left;
+  text-align: center;
+  width: 300px;
+  border: 1px solid gray;
+  margin-left: 50px;
+  padding-top: 5px;
+  border-radius: 6px;
+  height: 28px;
+  background-color: #edf0a1;
+}
+
+#top:active{
+  color: #5197ed;
+}
+
+.administrator{
+  float: left;
+  text-align: center;
+  width: 300px;
+  border: 1px solid gray;
+  padding-top: 5px;
+  border-radius: 6px;
+  height: 28px;
+  background-color: #edf0a1;
+}
+
+#questionnaire:active{
+ color: #5197ed;
+}
+
+.bbs{
+  float: left;
+  text-align: center;
+  width: 300px;
+  border: 1px solid gray;
+  padding-top: 5px;
+  border-radius: 6px;
+  height: 28px;
+  background-color: #edf0a1;
+}
+
+#quit:active{
+ color: #5197ed;
+}
