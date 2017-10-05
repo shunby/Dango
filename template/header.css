@@ -1,0 +1,40 @@
+#header{
+ background-image:url();
+
+ width: 906px;
+ margin: auto;
+ background-image: url(https://pbs.twimg.com/media/DI93b7pUQAICpN4.jpg:large);
+}
+
+header h1{/*#headerを追加:猫派*/
+ text-align: left;
+ margin-top: 0px;
+}
+
+header h1 a{/*クリックできるように:猫*/
+  text-decoration: none;
+  color: black;
+}
+
+header h2{/*#headerを追加:猫派*/
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+#cse-search-box{
+ width: 320px;
+ display: inline;
+ margin-left: 680px;
+ height: 25px;
+}
+
+.customsearch{
+  width: 150px;
+}
+
+.search{
+  border-radius: 5px;
+  background-color: #ffa200;
+  height: 25px;
+  display: inline;
+}

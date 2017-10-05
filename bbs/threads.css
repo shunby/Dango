@@ -1,0 +1,18 @@
+#returnTo{
+  z-index: 1500;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  background-color: #084cff;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+div#returnTo a{
+  color: #0dff00;
+}
+
+table{
+  white-space: nowrap;
+}

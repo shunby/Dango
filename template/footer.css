@@ -1,0 +1,40 @@
+#footer{
+  position: fixed;
+  bottom: 0;
+  width: 1000px;
+}
+
+.footerdiv{
+  background: #9ee4f0;
+  height: 60px;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.a{
+  float: left;
+  color: #666666;
+  border-bottom: 1px dashed gray;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.b{
+  float: left;
+  color: #666666;
+  border-bottom: 1px dashed gray;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.c{
+  float: left;
+  color: #666666;
+  border-bottom: 1px dashed gray;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.d:active{
+  color: #ed991a;
+}
