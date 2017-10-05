@@ -138,7 +138,7 @@ header h2{/*header指定 を追加:猫派*/
 
 #main{
  margin-top: 50px;
- margin-bottom: 100px;
+ margin-bottom: 83px;/*スクロールして余らない長さ*/
  margin-left: 10px;
  margin-right: 10px;
  border: 2px double gray;
