@@ -1,0 +1,14 @@
+order deny,allow
+deny from all
+allow from 221.241.47.51
+allow from 114.186.98.51
+allow from 118.241.98.180
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} (iPhone|Android.*Mobile|Windows.*Phone) [NC]
+RewriteCond %{QUERY_STRING} !mode=pc
+RewriteRule ^$ /sp/ [R,L]
+</IfModule>
+
+

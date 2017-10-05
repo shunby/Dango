@@ -1,0 +1,67 @@
+.messages{
+  list-style-type: none;
+  list-style-position: inside;
+}
+.messages li{
+  margin: 10px;
+}
+
+.message_content{
+  width: 90%;
+  border-style: solid;
+  border-radius: 15px;
+  border-width: thin;
+  border-color: gray;
+  display: flex;
+}
+
+
+.message_text{
+  vertical-align: top;
+  width:70%;
+  margin: 5px;
+  display: inline-block;
+}
+
+.message_info{
+  width:30%;
+  display: inline-block;
+  border-left-style: solid;
+  font-size: 15px;
+}
+
+.name{
+}
+
+.date{
+  font-size: 12px;
+}
+
+
+
+
+.noreline{
+  white-space: nowrap;
+}
+textarea{
+  padding-bottom: 30%;
+  width: 50%;
+}
+input#submit{
+  width: 20%;
+}
+
+#returnTo{
+  z-index: 1500;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  background-color: #084cff;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+div#returnTo a{
+  color: #0dff00;
+}

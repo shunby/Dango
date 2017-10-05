@@ -1,0 +1,103 @@
+
+#nav{
+
+}
+
+/*リンクのあたり判定を矩形に:猫*/
+.individual a, .administrator a, .bbs a{
+  display: block;
+  width: 100%;
+}
+
+.individual{
+  float: left;
+  text-align: center;
+  width: 300px;
+  border: 1px solid gray;
+  border-right: none;
+  margin-left: 46px;
+  padding-top: 5px;
+  height: 28px;
+  background-color: #edf0a1;
+}
+
+
+#blog:active{
+  color: #5197ed;
+}
+
+/*すべてのボタンに適用:猫*/
+.individual:hover, .administrator:hover, .bbs:hover{
+  background-color:#d5eba7;
+}
+
+.individual:hover > ul{
+  display: block;
+  color: ;
+  background-color:#edf0a1;
+  border:1px solid gray;
+  border-bottom: none;
+  position: relative;
+  top: 4px;
+  right: 1px;
+  width: 300px;
+}
+
+.individual > ul{
+  padding-left: 0px;
+  display: none;
+  margin: 0px;
+}
+
+.individual > ul:hover{
+  display: block;
+}
+
+.individual > ul > li{
+  border-bottom:1px solid gray;
+  padding-top:5px;
+  padding-bottom: ;
+  padding-left: ;
+  padding-right: ;
+}
+
+.individual > ul > li:hover{
+  color: ;
+  background-color:#d5eba7;
+}
+
+.individual > ul > li > a:active{
+  color:#5197ed;
+}
+
+.individual > ul > li > a{
+  text-decoration: none;
+}
+
+.administrator{
+  float: left;
+  text-align: center;
+  width: 300px;
+  border: 1px solid gray;
+  padding-top: 5px;
+  height: 28px;
+  background-color: #edf0a1;
+}
+
+#useful:active{
+ color: #5197ed;
+}
+
+.bbs{
+  float: left;
+  text-align: center;
+  width: 302px;
+  border: 1px solid gray;
+  padding-top: 5px;
+  height: 28px;
+  background-color: #edf0a1;
+}
+
+#board:active{
+ color: #5197ed;
+}
