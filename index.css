@@ -27,6 +27,8 @@ header h2{/*header指定 を追加:猫派*/
  display: inline;
  margin-left: 680px;
  height: 25px;
+ position: relative;
+ top: -10px;
 }
 
 .customsearch{
