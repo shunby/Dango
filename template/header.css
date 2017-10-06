@@ -26,6 +26,8 @@ header h2{/*#headerを追加:猫派*/
  display: inline;
  margin-left: 680px;
  height: 25px;
+ position: relative;
+ top: -5px; /*検索ボックスの位置がheader画像の下に詰まりすぎてるのを修正*/
 }
 
 .customsearch{
