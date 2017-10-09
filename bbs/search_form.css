@@ -4,7 +4,7 @@ form#search{
   border-radius: 3px;
   margin-bottom: 10px;
   padding: 10px 20px;
-  width: 85.7%;
+  width: 50%;
 }
 form#search > input, form#search > select{
   font-size: 17px;
