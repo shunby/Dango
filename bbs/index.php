@@ -43,6 +43,7 @@ $st = $pdo->query($search);
   <link href="../template/main.css" rel="stylesheet" type="text/css">
   <link href="../template/content.css" rel="stylesheet" type="text/css">
   <link href="../template/navi.css" rel="stylesheet" type="text/css">
+  <link href="search_form.css" rel="stylesheet" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -58,8 +59,9 @@ $st = $pdo->query($search);
 
     <article id="main">
       <section>
-        <h1>部屋検索</h1>
-        <form name="search" action="index.php" method="get">
+        <h1>部屋一覧</h1>
+        <!--検索-->
+        <form id=search name="search" action="index.php" method="get">
           部屋名
           <input type="text" name="name"></input><br>
           タイプ
@@ -68,11 +70,9 @@ $st = $pdo->query($search);
             <option value="user">ユーザー</option>
             <option value="system">運営</option>
           </select>
-          <input type="submit" value="検索"></input><br>
+          <input class=button type="submit" value="検索"></input><br>
         </form>
-
-        <h1>部屋一覧</h1>
-
+        <!--部屋-->
         <table>
           <tr><th>名前</th><th>タイプ</th></tr>
           <?php
