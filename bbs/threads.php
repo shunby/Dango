@@ -62,7 +62,7 @@ $roomname = ($st1->fetch())['name'];
         <form id="search" name="search" action="threads.php" method="get">
           スレッド名
           <input type="text" name="name"></input><br>
-          <input type="submit" value="検索"></input><br>
+          <input class = button type="submit" value="検索"></input><br>
           <?php
           echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
           ?>
