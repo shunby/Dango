@@ -55,10 +55,11 @@ $roomname = ($st1->fetch())['name'];
 
     <article id="main">
 
+
       <section>
-        <?php echo "<h1>{$roomname}</h1>" ?>
-        <h2>スレッド検索</h2>
-        <form name="search" action="threads.php" method="get">
+        <?php echo "<h2>{$roomname}</h2>" ?>
+        <!--検索フォーム-->
+        <form id="search" name="search" action="threads.php" method="get">
           スレッド名
           <input type="text" name="name"></input><br>
           <input type="submit" value="検索"></input><br>
@@ -66,10 +67,8 @@ $roomname = ($st1->fetch())['name'];
           echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
           ?>
         </form>
-      </section>
 
-      <section>
-        <h2>スレッド一覧</h2>
+        <!--スレッド一覧  -->
         <table>
           <tr><th>名前</th></tr>
           <?php
@@ -80,6 +79,7 @@ $roomname = ($st1->fetch())['name'];
           }
           ?>
         </table>
+
       </section>
 
       <section>
