@@ -13,6 +13,15 @@ div#returnTo a{
   color: #0dff00;
 }
 
+
 table{
+  border-spacing: 0;
   white-space: nowrap;
+  border-collapse: collapse;
+  width: 90%;
+}
+td, th{
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
 }
