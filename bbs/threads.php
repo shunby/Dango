@@ -66,7 +66,8 @@ $roomname = ($st1->fetch())['name'];
           echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
           ?>
         </form>
-
+      </section>
+      <section>
         <h2>スレッド一覧</h2>
         <table border="1">
           <tr><th>名前</th></tr>
