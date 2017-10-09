@@ -67,9 +67,10 @@ $roomname = ($st1->fetch())['name'];
           ?>
         </form>
       </section>
+
       <section>
         <h2>スレッド一覧</h2>
-        <table border="1">
+        <table>
           <tr><th>名前</th></tr>
           <?php
           $threadid = 0;
