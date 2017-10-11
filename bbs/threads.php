@@ -41,7 +41,9 @@ $roomname = ($st1->fetch())['name'];
   <link href="../template/content.css" rel="stylesheet" type="text/css">
   <link href="../template/main.css" rel="stylesheet" type="text/css">
   <link href="../template/navi.css" rel="stylesheet" type="text/css">
+  <link href="search_form.css" rel="stylesheet" type="text/css">
   <link href="" rel="shortcut icon">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -55,20 +57,28 @@ $roomname = ($st1->fetch())['name'];
 
     <article id="main">
 
+
       <section>
-        <?php echo "<h1>{$roomname}</h1>" ?>
-        <h2>スレッド検索</h2>
-        <form name="search" action="threads.php" method="get">
+        <?php echo <<<EOM
+        <h1 style='display: inline;'>{$roomname}</h1>
+        <span class='makeNew'>
+          [<a href="#">新規スレッド</a>]
+        </span>
+EOM;
+        ?>
+
+        <!--検索フォーム-->
+        <form id="search" name="search" action="threads.php" method="get">
           スレッド名
           <input type="text" name="name"></input><br>
-          <input type="submit" value="検索"></input><br>
+          <input class = button type="submit" value="検索"></input><br>
           <?php
           echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
           ?>
         </form>
 
-        <h2>スレッド一覧</h2>
-        <table border="1">
+        <!--スレッド一覧  -->
+        <table>
           <tr><th>名前</th></tr>
           <?php
           $threadid = 0;
@@ -78,30 +88,51 @@ $roomname = ($st1->fetch())['name'];
           }
           ?>
         </table>
+
       </section>
 
-      <section>
-        <h2>スレッド作成</h2>
-        <form name="makeThreadForm" method="post" action="makeThread.php" onsubmit="return checkbefore();">
-          スレッド名
-          <input type="input" name="name"></input>
-          <?php
-          echo "<input type=\"hidden\" name=\"roomid\" value=\"".$_GET['roomid']."\"></input>";
-          echo "<input type=\"hidden\" name=\"threadid\" value=\"".$threadid."\"></input>";
-          ?>
-          <input type="submit" value="作成"></input>
-        </form>
-      </section>
+
       <div id="returnTo">
         <a href="index.php" rel="nofollow">チャットルーム一覧へ戻る</a><br/>
       </div>
     </article>
 
+    <div id="overlay_makeThread">
+
+      <form name="makeThreadForm" method="post" action="makeThread.php" onsubmit="return checkbefore();">
+        <h1 style="margin: 0;">スレッド作成</h1>
+        スレッド名
+        <input type="input" name="name"></input>
+        <?php
+        echo "<input type=\"hidden\" name=\"roomid\" value=\"".$_GET['roomid']."\"></input>";
+        echo "<input type=\"hidden\" name=\"threadid\" value=\"".$threadid."\"></input>";
+        ?>
+        <input type="submit" value="作成"></input>
+      </form>
+    </div>
+
 
 
     <?php include "../template/footer.html" ?>
 
+
   </div>
+  <script type="text/javascript">
+    $(
+      function(){
+        $(".makeNew").on("click", function(){
+          $("#overlay_makeThread").fadeIn();
+        });
+
+        $(":not(.makeNew,#overlay_makeThread form)").click(function(ev){
+          if (!$(ev.target).closest(".makeNew,#overlay_makeThread form").length) {
+            $("#overlay_makeThread").fadeOut();
+          }
+
+        });
+      }
+    );
+  </script>
   <?php
   echo '<script type="text/javascript">';
   require "threads.js";
