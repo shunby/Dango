@@ -164,7 +164,7 @@ header h2{/*header指定 を追加:猫派*/
 
 .main-date{
  text-align: right;
- padding-right: 5px;
+ padding-right: 20px;
  display: block;
  margin-bottom: 30px;
 }
@@ -172,8 +172,8 @@ header h2{/*header指定 を追加:猫派*/
 .main-main{
  display: block;
  margin-bottom: 30px;
- margin-left: 20px;
- margin-right: 20px;
+ margin-left: 40px;
+ margin-right: 40px;
 }
 
 .main-before{
