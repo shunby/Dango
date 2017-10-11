@@ -9,6 +9,7 @@
 header h1{/*#headerを追加:猫派*/
  text-align: left;
  margin-top: 0px;
+ font-weight: lighter;
 }
 
 header h1 a{/*クリックできるように:猫*/
@@ -19,6 +20,7 @@ header h1 a{/*クリックできるように:猫*/
 header h2{/*#headerを追加:猫派*/
   text-align: left;
   margin-bottom: 0px;
+  font-weight: lighter;
 }
 
 #cse-search-box{
