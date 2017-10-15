@@ -1,103 +1,78 @@
 
 #nav{
-
+  width: 939.5px;
+  margin: 0px 46px 0px  46px;
+}
+#nav::after{
+  clear: both;
 }
 
-/*リンクのあたり判定を矩形に:猫*/
-.individual a, .administrator a, .bbs a{
+.navi_menu a{
   display: block;
   width: 100%;
 }
 
-.individual{
+.navi_menu{
   float: left;
   text-align: center;
-  width: 300px;
+  width: 24%;
   border: 1px solid gray;
-  border-right: none;
-  margin-left: 46px;
+  border-right: 0;
   padding-top: 5px;
   height: 28px;
   background-color: #edf0a1;
+  margin: 0;
+}
+.navi_menu:last-child{
+  border-right: 1px solid gray;
 }
 
-
-#blog:active{
+.navi_menu a:active{
   color: #5197ed;
 }
 
-/*すべてのボタンに適用:猫*/
-.individual:hover, .administrator:hover, .bbs:hover{
+.navi_menu:hover{
   background-color:#d5eba7;
 }
 
-.individual:hover > ul{
+.navi_menu:hover > .sub-menu{
   display: block;
   color: ;
   background-color:#edf0a1;
-  border:1px solid gray;
-  border-bottom: none;
   position: relative;
-  top: 4px;
+  top: 5px;
   right: 1px;
-  width: 300px;
+  width: 100.5%;
 }
 
-.individual > ul{
+.sub-menu{
   padding-left: 0px;
   display: none;
   margin: 0px;
 }
 
-.individual > ul:hover{
+.sub-menu:hover{
   display: block;
 }
 
-.individual > ul > li{
-  border-bottom:1px solid gray;
+.sub-menu-item{
+  border:1px solid gray;
+  border-bottom: none;
   padding-top:5px;
   padding-bottom: ;
   padding-left: ;
   padding-right: ;
 }
+.sub-menu-item:last-child{
+  border-bottom:1px solid gray;
+}
 
-.individual > ul > li:hover{
+
+.sub-menu-item:hover{
   color: ;
   background-color:#d5eba7;
 }
 
-.individual > ul > li > a:active{
-  color:#5197ed;
-}
-
-.individual > ul > li > a{
+.sub-menu-item > a{
   text-decoration: none;
-}
-
-.administrator{
-  float: left;
-  text-align: center;
-  width: 300px;
-  border: 1px solid gray;
-  padding-top: 5px;
-  height: 28px;
-  background-color: #edf0a1;
-}
-
-#useful:active{
- color: #5197ed;
-}
-
-.bbs{
-  float: left;
-  text-align: center;
-  width: 302px;
-  border: 1px solid gray;
-  padding-top: 5px;
-  height: 28px;
-  background-color: #edf0a1;
-}
-
-#board:active{
- color: #5197ed;
 }
