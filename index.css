@@ -220,7 +220,7 @@ header h2{/*header指定 を追加:猫派*/
   height:1px;
 }
 
-
+/*ここからfooter関係*/
 #footer{
   position: fixed;
   bottom: 0;
@@ -234,7 +234,7 @@ header h2{/*header指定 を追加:猫派*/
   padding-top: 30px;
 }
 
-.a{
+.footer_item{
   float: left;
   color: #666666;
   border-bottom: 1px dashed gray;
@@ -242,22 +242,6 @@ header h2{/*header指定 を追加:猫派*/
   margin-bottom: 20px;
 }
 
-.b{
-  float: left;
-  color: #666666;
-  border-bottom: 1px dashed gray;
-  margin-right: 15px;
-  margin-bottom: 20px;
-}
-
-.c{
-  float: left;
-  color: #666666;
-  border-bottom: 1px dashed gray;
-  margin-right: 15px;
-  margin-bottom: 20px;
-}
-
-.d:active{
+.footer_link:active{
   color: #ed991a;
 }
