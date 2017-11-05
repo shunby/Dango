@@ -1,0 +1,37 @@
+#content{
+  width: 1000px;
+  margin: auto;
+  background-color: #e0e0e0;
+}
+
+#main{
+ margin-top: 25px;
+ margin-bottom: 91px;/*国駿 スクロールして余らないように*/
+ margin-left: 10px;
+ margin-right: 10px;
+ padding: 5px;
+ border: 2px double gray;
+ height: auto;/*autoに変更:猫派*/
+ background-color: white;
+}
+
+.unit{
+  width: 560px;
+  display: inline-block;
+}
+
+.s1{
+  border-bottom: 2px solid #217fc4;
+}
+
+iframe{
+  margin-bottom: 5px;
+}
+
+.subunit{
+  float: right;
+  margin-top: 35px;
+  width: 380px;
+  margin-right: 10px;
+  font-size: 20px;
+}
