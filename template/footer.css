@@ -11,7 +11,7 @@
   padding-top: 30px;
 }
 
-.a{
+.footer_item{
   float: left;
   color: #666666;
   border-bottom: 1px dashed gray;
@@ -19,22 +19,6 @@
   margin-bottom: 20px;
 }
 
-.b{
-  float: left;
-  color: #666666;
-  border-bottom: 1px dashed gray;
-  margin-right: 15px;
-  margin-bottom: 20px;
-}
-
-.c{
-  float: left;
-  color: #666666;
-  border-bottom: 1px dashed gray;
-  margin-right: 15px;
-  margin-bottom: 20px;
-}
-
-.d:active{
+.footer_link:active{
   color: #ed991a;
 }
