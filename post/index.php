@@ -32,8 +32,7 @@
       <section>
         <h2>みんなの記事</h2>
         <p>
-          ・このページには読者の方から募集した投稿が載っています。<br>
-          ・記事を投稿したい場合は<a href="/questionnaire.php">お問い合わせ</a>から。
+          記事を投稿したい場合は<a href="/questionnaire.php">お問い合わせ</a>から。
         </p>
         <ul>
           <?php include "posts.html" ?>
