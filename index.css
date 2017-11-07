@@ -110,6 +110,11 @@ header h2{/*header指定 を追加:猫派*/
   padding-left: ;
   padding-right: ;
 }
+
+.sub-menu-item:first-child{
+  border-top: none;
+}
+
 .sub-menu-item:last-child{
   border-bottom:1px solid gray;
 }
