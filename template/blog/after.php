@@ -15,7 +15,7 @@
   </div>
 </div>
 <div class="main-tocontents">
-  <a href="#" style="text-decoration: none">目次へ</a>
+  <a href="index.php" style="text-decoration: none">目次へ</a>
 </div>
 </div>
 </main>
