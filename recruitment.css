@@ -1,0 +1,36 @@
+#content{
+
+}
+
+#main{
+   margin-top: 50px;
+   margin-bottom: 83px;/*スクロールして余らない長さ*/
+   margin-left: 10px;
+   margin-right: 10px;
+   border: 2px double gray;
+   height: auto;
+   background-color: white;
+}
+
+.p1{
+  font-size: 25px;
+  font-weight: bolder;
+  padding-left: 3px;
+}
+
+.p2{
+  font-size: 20px;
+  font-weight: bolder;
+  padding-left: 6px;
+}
+
+.p3{
+  position: relative;
+  top: -20px;
+  padding-left: 35px;
+}
+
+.p4{
+  padding-left: 20px;
+  margin-top: 30px;
+}
