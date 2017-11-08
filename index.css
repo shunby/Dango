@@ -247,6 +247,10 @@ header h2{/*header指定 を追加:猫派*/
   margin-bottom: 20px;
 }
 
+.footer_link{
+  font-size: 17px;
+}
+
 .footer_link:active{
   color: #ed991a;
 }
