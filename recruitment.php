@@ -8,7 +8,7 @@
     <meta name="author" content="だんご三兄弟">
     <meta name="http-equiv" content="300">
 
-    <?php include "/template/analytics.html" ?>
+    <?php include "template/analytics.html" ?>
     <link rel="stylesheet" href="recruitment.css">
     <link href="template/header.css" rel="stylesheet" type="text/css">
     <link href="template/footer.css" rel="stylesheet" type="text/css">

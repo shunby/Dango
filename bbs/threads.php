@@ -35,7 +35,7 @@ $roomname = ($st1->fetch())['name'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <?php include "/template/analytics.html" ?>
+  <?php include "../template/analytics.html" ?>
   <link href="threads.css" rel="stylesheet" type="text/css">
   <link href="../template/header.css" rel="stylesheet" type="text/css">
   <link href="../template/footer.css" rel="stylesheet" type="text/css">
