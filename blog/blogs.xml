@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blogs>
+  <blog>
+    <id>0</id>
+    <title>サンプル</title>
+    <link>/blog/00_SampleBlog.php</link>
+    <date>2017/10/11</date>
+
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+
+  </blog>
+</blogs>
