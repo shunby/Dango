@@ -32,7 +32,23 @@
       <section>
         <h1>ブログ一覧</h1>
         <ul id="blogs">
-          <?php include "blogs.html" ?><!-- ブログ一覧-->
+          <?php
+            $blogs = simplexml_load_file("blogs.xml");
+            foreach ($blogs->blog as $blog_elem) {
+              $tags_str = "";
+              foreach ($blog_elem->tags->tag as $tag) {
+                $tags_str = $tags_str." ".$tag;
+              }
+
+              echo <<<EOM
+              <li onclick="window.location.href = '{$blog_elem->link}'">
+                <a href={$blog_elem->link}>{$blog_elem->title}</a>({$blog_elem->date})
+                <hr>
+                <span class="tags">tags: {$tags_str}</span>
+              </li>
+EOM;
+            }
+           ?><!-- ブログ一覧-->
         </ul>
       </section>
     </article>
