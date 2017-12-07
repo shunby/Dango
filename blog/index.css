@@ -1,3 +1,16 @@
 #blogs{
-  
+  list-style: none;
+  width: 80%;
+}
+#blogs li:hover{
+  background: rgb(205, 205, 206);
+  cursor: pointer;
+}
+#blogs li{
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 2px;
 }

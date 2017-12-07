@@ -33,14 +33,7 @@
       <?php include $webroot."/template/blog/before.php" ?>
 
       <?php
-        $title = "title";//ここにタイトル
-        $year  = "1";//年
-        $month = "1";//月
-        $date  = "1";//日
-        $prev_link = "blog.php";//新しい記事のリンク
-        $next_link = "blog.php";//古い記事のリンク
-        $prev_title = "blog.php";//新しい記事のタイトル
-        $next_title = "blog.php";//古い記事のタイトル
+        $id = "0";
        ?>
 
       <!--ここから本文-->
