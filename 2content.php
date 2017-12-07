@@ -17,12 +17,8 @@
   </head>
   <body>
    <div id="content">
-    <header>
-      <?php include "template/header.html" ?>
-    </header>
-    <nav>
-      <?php include "template/navi.html" ?>
-    </nav>
+    <?php include "template/header.html" ?>
+    <?php include "template/navi.html" ?>
     <main id="main">
       <div class="unit">
         <h3 class="s1">
@@ -36,9 +32,7 @@
         <br>残りは表紙と目次の作成ですが、そんなものは北河の仕事です。あとはよろしくな<br>( ｀・∀・´)ﾉ
       </div>
     </main>
-    <footer>
-      <?php include "template/footer.html" ?>
-    </footer>
+    <?php include "template/footer.html" ?>
    </div>
   </body>
 </html>
