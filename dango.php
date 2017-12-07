@@ -9,13 +9,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?php include "template/analytics.html" ?>
+    <?php
+      $webroot = $_SERVER['DOCUMENT_ROOT'];
+      include $webroot."/template/analytics.html"
+     ?>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <link href="../template/header.css" rel="stylesheet" type="text/css">
-    <link href="../template/footer.css" rel="stylesheet" type="text/css">
-    <link href="../template/main.css" rel="stylesheet" type="text/css">
-    <link href="../template/content.css" rel="stylesheet" type="text/css">
-    <link href="../template/navi.css" rel="stylesheet" type="text/css">
+    <link href="/template/header.css" rel="stylesheet" type="text/css">
+    <link href="/template/footer.css" rel="stylesheet" type="text/css">
+    <link href="/template/main.css" rel="stylesheet" type="text/css">
+    <link href="/template/content.css" rel="stylesheet" type="text/css">
+    <link href="/template/navi.css" rel="stylesheet" type="text/css">
     <link href="" rel="shortcut icon">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -24,8 +27,8 @@
   </head>
   <body>
     <div id="content">
-      <?php include "../template/header.html" ?>
-      <?php include "../template/navi.html" ?>
+      <?php include $webroot."/template/header.html" ?>
+      <?php include $webroot."/template/navi.html" ?>
 
       <main>
         <div id="main">
@@ -60,7 +63,7 @@
 
       </div>
 
-      <?php include "../template/footer.html" ?>
+      <?php include $webroot."/template/footer.html" ?>
 
     </div>
   </body>
