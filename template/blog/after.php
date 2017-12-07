@@ -7,12 +7,12 @@
   </div>
 </div>
 <div class="main-after">
-  <img src="/image/blog/trn2.png" alt="" id="trn2">
   <div class="next-blog">
     <a id="next_link" href="#" style="text-decoration: none">
       <!--next_link-->
     </a>
   </div>
+  <img src="/image/blog/trn2.png" alt="" id="trn2">
 </div>
 <div class="main-tocontents">
   <a href="index.php" style="text-decoration: none">目次へ</a>

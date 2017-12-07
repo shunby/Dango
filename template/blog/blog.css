@@ -39,7 +39,7 @@
  width: 300px;
  text-align: center;
  position: relative;
- top: -22px;
+ top: -25px;
  left: 10px;
  height: auto;
 }
@@ -55,19 +55,19 @@
 }
 
 #trn2{
-  float: right;
   position: relative;
   top: 13px;
   right: 10px;
 }
 
 .next-blog{
-　display: inline-block;
+  display: inline-block;
   width: 300px;
   margin-left: 20px;
   text-align: center;
   position: relative;
-  top: 40px;
+  top: -25px;
+  right:10px
   height: auto;
 }
 
