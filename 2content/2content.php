@@ -7,18 +7,18 @@
 　　<meta name="author" content="だんご三兄弟">
     <meta name="http-equiv" content="300">
 
-    <?php include "template/analytics.html" ?>
+    <?php include "../template/analytics.html" ?>
     <link href="2content.css" rel="stylesheet" type="text/css">
-    <link href="template/header.css" rel="stylesheet" type="text/css">
-    <link href="template/footer.css" rel="stylesheet" type="text/css">
-    <link href="template/content.css" rel="stylesheet" type="text/css">
-    <link href="template/navi.css" rel="stylesheet" type="text/css">
-    <link href="bbs/search_form.css" rel="stylesheet" type="text/css">
+    <link href="/template/header.css" rel="stylesheet" type="text/css">
+    <link href="/template/footer.css" rel="stylesheet" type="text/css">
+    <link href="/template/content.css" rel="stylesheet" type="text/css">
+    <link href="/template/navi.css" rel="stylesheet" type="text/css">
+    <link href="/bbs/search_form.css" rel="stylesheet" type="text/css">
   </head>
   <body>
    <div id="content">
-    <?php include "template/header.html" ?>
-    <?php include "template/navi.html" ?>
+    <?php include "../template/header.html" ?>
+    <?php include "../template/navi.html" ?>
     <main id="main">
       <div class="unit">
         <h3 class="s1">
@@ -32,7 +32,7 @@
         <br>残りは表紙と目次の作成ですが、そんなものは北河の仕事です。あとはよろしくな<br>( ｀・∀・´)ﾉ
       </div>
     </main>
-    <?php include "template/footer.html" ?>
+    <?php include "../template/footer.html" ?>
    </div>
   </body>
 </html>
