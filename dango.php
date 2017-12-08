@@ -19,7 +19,33 @@
     <link href="/template/main.css" rel="stylesheet" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
+    <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
     <link href="" rel="shortcut icon">
+
+    <!--ここからブログ記事呼び出し処理-->
+    <?php
+      $blogs = simplexml_load_file("blog/blogs.xml");
+
+      $current_max = NULL;//検索した中での最新
+      foreach($blogs->blog as $blog_elem){
+        if(is_null($current_max) || $current_max->id < $blog_elem->id){
+          //まだ何も検索していないか、検索した中の最新よりも新しいものを見つけたら、最新を置き換える
+          $current_max = $blog_elem;
+        }
+      }
+      //javascriptの変数としてURL/タイトル/日付を記録
+      echo <<<EOM
+      <script>
+        var blog_url = "{$current_max->link}";
+        var blog_title = "{$current_max->title}";
+        var blog_date = "{$current_max->date}";
+      </script>
+EOM;
+     ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="load_blog_top.js"></script>
+    <!--ここまでブログ記事呼び出し処理-->
+
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -32,29 +58,8 @@
 
       <main>
         <div id="main">
-          <div class="main-title">
-            テスト
-          </div>
-          <div class="main-date">
-            2017/10/11
-          </div>
-          <div class="main-main">
-            テスト
-          </div>
-          <div class="main-before">
-            <img src="/image/blog/trn.png" alt="" id="trn">
-            <div class="before-blog">
-              <a href="#" style="text-decoration: none">テスト0テスト0テスト0テスト0テスト0テスト0テスト0テスト0</a>
-            </div>
-          </div>
-          <div class="main-after">
-            <img src="/image/blog/trn2.png" alt="" id="trn2">
-            <div class="next-blog">
-              <a href="#" style="text-decoration: none">テスト2</a>
-            </div>
-          </div>
-          <div class="main-tocontents">
-            <a href="blog/index.php" style="text-decoration: none">目次へ</a>
+          <div class="blog_top">
+            <!---ここにブログ記事の内容を表示-->
           </div>
         </div>
       </main>

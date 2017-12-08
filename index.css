@@ -1,134 +1,3 @@
-#content{
-  margin: auto;
-  width: 1000px;
-  background-color: #e0e0e0;
-}
-
-#header{
- background-image:url();
-
- width: 906px;
- margin: auto;
- background-image: url(https://pbs.twimg.com/media/DI93b7pUQAICpN4.jpg:large);
-}
-
-header h1{/*header指定 を追加:猫派*/
- text-align: left;/*左揃えに変更:猫派*/
- margin-top: 0px;
- font-weight: lighter;
-}
-
-header h2{/*header指定 を追加:猫派*/
-  text-align: left;/*左揃えに変更:猫派*/
-  margin-bottom: 0px;
-  font-weight: lighter;
-}
-
-#cse-search-box{
- width: 320px;
- display: inline;
- margin-left: 680px;
- height: 25px;
- position: relative;
- top: -5px; /*検索ボックスの位置がheader画像の下に詰まりすぎてるのを修正*/
-}
-
-.customsearch{
-  width: 150px;
-}
-
-.search{
-  border-radius: 5px;
-  background-color: #ffa200;
-  height: 25px;
-  display: inline;
-}
-
-/*ここからnavi関係*/
-
-#nav{
-  width: 939.5px;
-  margin: 0px 46px 0px  46px;
-}
-#nav::after{
-  clear: both;
-}
-
-.navi_menu a{
-  display: block;
-  width: 100%;
-}
-
-.navi_menu{
-  float: left;
-  text-align: center;
-  width: 24%;
-  border: 1px solid gray;
-  border-right: 0;
-  padding-top: 5px;
-  height: 28px;
-  background-color: #edf0a1;
-  margin: 0;
-}
-.navi_menu:last-child{
-  border-right: 1px solid gray;
-}
-
-.navi_menu a:active{
-  color: #5197ed;
-}
-
-.navi_menu:hover{
-  background-color:#d5eba7;
-}
-
-.navi_menu:hover > .sub-menu{
-  display: block;
-  color: ;
-  background-color:#edf0a1;
-  position: relative;
-  top: 5px;
-  right: 1px;
-  width: 100.5%;
-}
-
-.sub-menu{
-  padding-left: 0px;
-  display: none;
-  margin: 0px;
-}
-
-.sub-menu:hover{
-  display: block;
-}
-
-.sub-menu-item{
-  border:1px solid gray;
-  border-bottom: none;
-  padding-top:5px;
-  padding-bottom: ;
-  padding-left: ;
-  padding-right: ;
-}
-
-.sub-menu-item:first-child{
-  border-top: none;
-}
-
-.sub-menu-item:last-child{
-  border-bottom:1px solid gray;
-}
-
-
-.sub-menu-item:hover{
-  color: ;
-  background-color:#d5eba7;
-}
-
-.sub-menu-item > a{
-  text-decoration: none;
-}
-/*ここまでnavi関係*/
 
 #main{
  margin-top: 50px;
@@ -203,7 +72,7 @@ header h2{/*header指定 を追加:猫派*/
 }
 
 .next-blog{
-　display: inline-block;
+  display: inline-block;
   width: 300px;
   margin-left: 20px;
   text-align: center;
@@ -225,32 +94,9 @@ header h2{/*header指定 を追加:猫派*/
   height:1px;
 }
 
-/*ここからfooter関係*/
-#footer{
-  position: fixed;
-  bottom: 0;
-  width: 1000px;
-}
-
-.footerdiv{
-  background: #9ee4f0;
-  height: 60px;
-  margin: auto;
-  padding-top: 30px;
-}
-
-.footer_item{
-  float: left;
-  color: #666666;
-  border-bottom: 1px dashed gray;
-  margin-right: 15px;
-  margin-bottom: 20px;
-}
-
-.footer_link{
-  font-size: 17px;
-}
-
-.footer_link:active{
-  color: #ed991a;
+.blog_top{
+ display: block;
+ margin-bottom: 30px;
+ margin-left: 40px;
+ margin-right: 40px;
 }
