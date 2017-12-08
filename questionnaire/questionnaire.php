@@ -43,7 +43,8 @@
       <section>
         <h1>アンケート</h1>
         <form name="answer" action="questionnaire_complete.php" method="post" onSubmit="return checkBeforeSubmit();">
-          このサイトを見て、感想・問題点・要望などありましたらご記入ください。
+          「みんなの記事」への記事応募や、このサイトの感想などありましたらご記入ください。<br>
+          　※記事の応募をする場合は、<a href="../recruitment.php">記事募集要項</a>をご一読ください。
           <p>
             お名前
             <input name="name" type="text" id="name"></input>
