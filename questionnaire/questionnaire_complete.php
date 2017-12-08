@@ -1,5 +1,5 @@
 <?php
-  require "bbs/access.php";
+  require "../bbs/access.php";
 
   $name = htmlspecialchars($_POST['name']);
   $gender = htmlspecialchars($_POST['gender']);

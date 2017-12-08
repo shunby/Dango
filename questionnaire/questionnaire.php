@@ -11,13 +11,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <?php include "template/analytics.html" ?>
+  <?php include "../template/analytics.html" ?>
   <link href="questionnaire.css" rel="stylesheet" type="text/css">
-  <link href="template/footer.css" rel="stylesheet" type="text/css">
-  <link href="template/header.css" rel="stylesheet" type="text/css">
-  <link href="template/navi.css" rel="stylesheet" type="text/css">
-  <link href="template/main.css" rel="stylesheet" type="text/css">
-  <link href="template/content.css" rel="stylesheet" type="text/css">
+  <link href="/template/footer.css" rel="stylesheet" type="text/css">
+  <link href="/template/header.css" rel="stylesheet" type="text/css">
+  <link href="/template/navi.css" rel="stylesheet" type="text/css">
+  <link href="/template/main.css" rel="stylesheet" type="text/css">
+  <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -32,11 +32,11 @@
 <body >
   <div id="content">
     <?php
-    include "template/header.html";
+    include "../template/header.html";
     ?>
 
     <?php
-    include "template/navi.html";
+    include "../template/navi.html";
     ?>
 
     <article id="main">
@@ -92,7 +92,7 @@
     </article>
 
     <?php
-    include "template/footer.html";
+    include "../template/footer.html";
     ?>
 
     <script src="questionnaire.js"></script>
