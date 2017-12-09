@@ -58,6 +58,7 @@ EOM;
 
       <main>
         <div id="main">
+          <h2>最新のブログ記事</h2>
           <div class="blog_top">
             <!---ここにブログ記事の内容を表示-->
           </div>
