@@ -33,13 +33,16 @@
         <h1>ブログ一覧</h1>
         <ul id="blogs">
           <?php
+            $search_tag = key_exists('tag', $_GET) ? $_GET['tag'] : NULL;
             $blogs = simplexml_load_file("blogs.xml");
             foreach ($blogs->blog as $blog_elem) {
+              $contains_tag = is_null($search_tag);
               $tags_str = "";
               foreach ($blog_elem->tags->tag as $tag) {
+                if($tag == $search_tag)$contains_tag = true;
                 $tags_str = $tags_str." ".$tag;
               }
-
+              if(!$contains_tag)continue;
               echo <<<EOM
               <li onclick="window.location.href = '{$blog_elem->link}'">
                 <a href={$blog_elem->link}>{$blog_elem->title}</a>({$blog_elem->date})

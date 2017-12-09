@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -18,12 +17,8 @@
   </head>
   <body>
     <div id="content">
-      <header>
         <?php include "template/header.html" ?>
-      </header>
-      <nav>
         <?php include "template/navi.html" ?>
-      </nav>
       <main id="main">
         <p class="p1">記事募集要項</p>
         <p class="p3">応募されて採用された記事は、すべて「みんなの募集記事」と、「ブログ」または「話題の《画像・動画》まとめ」のどちらかに掲載されます。<br>
@@ -38,9 +33,7 @@
         <p class="p4">運営側から定期的に人気記事や人気writerのランキングなどを公表します。奮ってご応募ください。(*- -)(*_ _)ペコリ<br>
            ※ブログに関する応募なのか、話題の《画像・動画》に関する応募なのかわかるようにご記入お願いします。</p>
       </main>
-      <footer>
-        <?php include "template/footer.html" ?>
-      </footer>
+      <?php include "template/footer.html" ?>
     </div>
   </body>
 </html>

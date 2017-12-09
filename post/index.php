@@ -34,7 +34,7 @@
       <section>
         <h2>みんなの記事</h2>
         <p>
-          記事を投稿したい場合は<a href="/questionnaire.php">お問い合わせ</a>から。
+          記事を投稿したい場合は<a href="/questionnaire/questionnaire.php">お問い合わせ</a>から。
         </p>
         <ul id="posts">
           <?php include "posts.html" ?>
