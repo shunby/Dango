@@ -33,7 +33,7 @@
         <h1>ブログ一覧</h1>
         <ul id="blogs">
           <?php
-            $search_tag = $_GET['tag'];
+            $search_tag = key_exists('tag', $_GET) ? $_GET['tag'] : NULL;
             $blogs = simplexml_load_file("blogs.xml");
             foreach ($blogs->blog as $blog_elem) {
               $contains_tag = is_null($search_tag);
