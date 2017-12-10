@@ -8,31 +8,38 @@
     <meta name="http-equiv" content="300">
 
     <?php include "../template/analytics.html" ?>
-    <link href="index.css" rel="stylesheet" type="text/css">
-    <link href="/template/header.css" rel="stylesheet" type="text/css">
-    <link href="/template/footer.css" rel="stylesheet" type="text/css">
-    <link href="/template/content.css" rel="stylesheet" type="text/css">
-    <link href="/template/navi.css" rel="stylesheet" type="text/css">
-    <link href="/bbs/search_form.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <link href="../template/header.css" rel="stylesheet" type="text/css">
+    <link href="../template/footer.css" rel="stylesheet" type="text/css">
+    <link href="../template/navi.css" rel="stylesheet" type="text/css">
+    <link href="../bbs/search_form.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../template/filmblog.css" type="text/css">
   </head>
   <body>
    <div id="content">
-    <?php include "../template/header.html" ?>
-    <?php include "../template/navi.html" ?>
+    <header>
+      <?php include "../template/header.html" ?>
+    </header>
+    <nav>
+      <?php include "../template/navi.html" ?>
+    </nav>
     <main id="main">
-      <div class="unit">
-        <h3 class="s1">
-          TAKE WHAT YOU WANT (ONE OK ROCK)
-        </h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/XjDj-MNHwxE" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="subunit">
-        動画とはまったく関係ありませんがわたくしblackdesertmanの論文が書き終わりました。
-        <br>まさかの二学期が終わってからのテーマの変更。自分でも予想していませんでした。
-        <br>残りは表紙と目次の作成ですが、そんなものは北河の仕事です。あとはよろしくな<br>( ｀・∀・´)ﾉ
-      </div>
+      <?php
+       $a02 = file_get_contents('大記事/sample.html');
+       $a03 = file_get_contents('大記事/h29_autumn.html');
+       $a04 = file_get_contents('大記事/h29_winter.html');
+       $a05 = file_get_contents('大記事/h30_spring.html');
+       $allblog = array(
+         $a02,
+         //季節変わったらここに変数追加
+       );
+       rsort ($allblog);
+       echo $allblog[0];
+       ?>
     </main>
-    <?php include "../template/footer.html" ?>
+    <footer>
+      <?php include "../template/footer.html" ?>
+    </footer>
    </div>
   </body>
 </html>
