@@ -8,7 +8,7 @@
  background-color: white;
 }
 
-/*mein要素の末尾に改行を入れる*/
+/*main要素の末尾に改行を入れる*/
 #main::after {
   content: "\A";
   white-space: pre;
