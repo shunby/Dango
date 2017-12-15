@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>だんご三兄弟</title>
 
-　　<meta name="author" content="だんご三兄弟">
+    <meta name="author" content="だんご三兄弟">
     <meta name="http-equiv" content="300">
 
     <?php include "../template/analytics.html" ?>
@@ -17,12 +17,8 @@
   </head>
   <body>
    <div id="content">
-    <header>
-      <?php include "../template/header.html" ?>
-    </header>
-    <nav>
-      <?php include "../template/navi.html" ?>
-    </nav>
+    <?php include "../template/header.html" ?>
+    <?php include "../template/navi.html" ?>
     <main id="main">
       <?php
        $a02 = file_get_contents('大記事/sample.html');
@@ -37,9 +33,7 @@
        echo $allblog[0];
        ?>
     </main>
-    <footer>
-      <?php include "../template/footer.html" ?>
-    </footer>
+    <?php include "../template/footer.html" ?>
    </div>
   </body>
 </html>
