@@ -21,12 +21,11 @@
     <?php include "../template/navi.html" ?>
     <main id="main">
       <?php
-       $a02 = file_get_contents('大記事/sample.html');
        $a03 = file_get_contents('大記事/h29_autumn.html');
        $a04 = file_get_contents('大記事/h29_winter.html');
        $a05 = file_get_contents('大記事/h30_spring.html');
        $allblog = array(
-         $a02,
+         $a03,
          //季節変わったらここに変数追加
        );
        rsort ($allblog);
