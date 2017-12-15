@@ -65,9 +65,6 @@
   padding-right: ;
 }
 
-.sub-menu-item:first-child{
-  border-top: none;
-}
 
 .sub-menu-item:last-child{
   border-bottom:1px solid gray;
