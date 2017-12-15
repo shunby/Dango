@@ -34,7 +34,7 @@
       <?php include $webroot."/template/blog/before.php" ?>
 
       <?php
-        $id = 0;
+        $id = 1;
        ?>
 
       <!--ここから本文-->
