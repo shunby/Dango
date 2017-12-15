@@ -28,7 +28,7 @@
 
       $current_max = NULL;//検索した中での最新
       foreach($blogs->blog as $blog_elem){
-        if(is_null($current_max) || $current_max->id < $blog_elem->id){
+        if(is_null($current_max) || ($current_max->id+0 < $blog_elem->id+0)){
           //まだ何も検索していないか、検索した中の最新よりも新しいものを見つけたら、最新を置き換える
           $current_max = $blog_elem;
         }

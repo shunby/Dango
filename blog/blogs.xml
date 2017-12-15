@@ -10,5 +10,13 @@
       <tag>アップデートヒストリー</tag>
     </tags>
   </blog>
-  
+  <blog>
+    <id>2</id>
+    <title>掲示板について</title>
+    <link>/blog/02.php</link>
+    <date>2017/12/15</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>

@@ -37,7 +37,7 @@
         $prev_link = $blog_element->link;
         $prev_title = $blog_element->title;
       break;
-      case $id:
+      case $id + 0:
         $title = $blog_element->title;
         $date = $blog_element->date;
       break;
