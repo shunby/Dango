@@ -1,0 +1,37 @@
+#content{
+  width: 1000px;
+  margin: auto;
+  background-color: #e0e0e0;
+  position: relative;
+  top: -25px;
+}
+
+
+#main{
+ margin-top: 50px;
+ margin-bottom: 68px;
+ margin-left: 10px;
+ margin-right: 10px;
+ padding: 5px;
+ border: 2px double gray;
+ height: auto;/*autoに変更:猫派*/
+ background-color: white;
+}
+
+h1{
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.php1{
+  float:right;
+  padding-right: 15px;
+}
+
+li{
+  padding-top: 10px;
+}
+
+.a{
+  text-decoration: none;
+}
