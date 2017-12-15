@@ -23,7 +23,7 @@
       <?php include "../template/navi.html" ?>
     </nav>
     <main id="main">
-     <h1>ブログ一覧</h1>
+     <h2>ブログ一覧</h2>
 
      <div class="php1">
        <?php
