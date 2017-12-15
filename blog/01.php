@@ -58,8 +58,6 @@
       </div>
       <!--ここまで本文-->
 
-
-
       <?php include $webroot."/template/blog/after.php" ?>
     </div>
   </body>
