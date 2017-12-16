@@ -1,7 +1,7 @@
 
 #nav{
   width: 939.5px;
-  margin: 0px 46px 0px  46px;
+  margin: 0px 46px 0px  47px;
 }
 #nav::after{
   clear: both;
@@ -15,7 +15,7 @@
 .navi_menu{
   float: left;
   text-align: center;
-  width: 19.2%;/*96 / 項目数*/
+  width: 19.16%;/*95.8 / 項目数*/
   border: 1px solid gray;
   border-right: 0;
   padding-top: 5px;
