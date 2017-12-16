@@ -52,7 +52,7 @@
 
      <ul>
        <li style="list-style: none" class="li">
-         <a href="" class="a">1.平成29年度秋号(=ﾟωﾟ)ﾉ</a>
+         <a href="index.php?article=h29_autumn" class="a">1.平成29年度秋号(=ﾟωﾟ)ﾉ</a>
        </li>
        <li style="list-style: none" class="li">
          <a href="" class="a"></a>
