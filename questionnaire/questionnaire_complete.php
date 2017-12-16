@@ -16,6 +16,8 @@
 
   $st = $pdo->prepare("INSERT INTO kansou VALUES(?, ?, ?, ?, ?, ?, ?)");
   $st->execute(array($name, $gender, $grade, $email, $kansou, $quality, $appearance));
+
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -30,11 +32,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="template/header.css" rel="stylesheet" type="text/css">
-    <link href="template/navi.css" rel="stylesheet" type="text/css">
-    <link href="template/footer.css" rel="stylesheet" type="text/css">
-    <link href="template/content.css" rel="stylesheet" type="text/css">
-    <link href="template/main.css" rel="stylesheet" type="text/css">
+    <link href="/template/header.css" rel="stylesheet" type="text/css">
+    <link href="/template/navi.css" rel="stylesheet" type="text/css">
+    <link href="/template/footer.css" rel="stylesheet" type="text/css">
+    <link href="/template/content.css" rel="stylesheet" type="text/css">
+    <link href="/template/main.css" rel="stylesheet" type="text/css">
 
     <link href="" rel="shortcut icon">
     <!--[if lt IE 9]>
@@ -45,15 +47,15 @@
 
   <body>
     <div id="content">
-       <?php include "template/header.html" ?>
-       <?php include "template/navi.html" ?>
+       <?php include $webroot."/template/header.html" ?>
+       <?php include $webroot."/template/navi.html" ?>
        <article id="main">
          <section>
            <h1>アンケート送信の完了</h1>
            ご協力ありがとうございます。ご提供いただいた情報は、サイトの改善のために使われます。
          </section>
        </article>
-       <?php include "template/footer.html" ?>
+       <?php include $webroot."/template/footer.html" ?>
      </div>
   </body>
 </html>
