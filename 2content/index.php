@@ -21,15 +21,22 @@
     <?php include "../template/navi.html" ?>
     <main id="main">
       <?php
-       $a03 = file_get_contents('大記事/h29_autumn.html');
-       $a04 = file_get_contents('大記事/h29_winter.html');
-       $a05 = file_get_contents('大記事/h30_spring.html');
-       $allblog = array(
-         $a03,
-         //季節変わったらここに変数追加
-       );
-       rsort ($allblog);
-       echo $allblog[0];
+       $article = key_exists("article", $_GET) ? $_GET["article"] : NULL;//クエリからarticleの値を取得
+       if(preg_match('/[\\.\\/\\\]/', $article))$article=NULL;//".","/","\"が含まれる場合は弾く(不正アクセスを防ぐため)
+       if(!file_exists("大記事/".$article.".html"))$article=NULL;//指定された記事が存在しない場合も弾く
+       if(is_null($article)){//articleが存在しない場合
+         $a03 = 'h29_autumn';
+         $a04 = 'h29_winter';
+         $a05 = 'h30_spring';
+         $allblog = array(
+           $a03,
+           //季節変わったらここに変数追加 新しいものほど後に来るように
+         );
+         echo file_get_contents("大記事/".$allblog[count($allblog) - 1].".html");//配列の最後の要素を表示
+       }else{//articleが存在する場合
+         echo file_get_contents("大記事/".$article.".html");//指定された記事を表示
+       }
+
        ?>
     </main>
     <?php include "../template/footer.html" ?>
