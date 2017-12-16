@@ -58,6 +58,15 @@ EOM;
 
       <main>
         <div id="main">
+          <h2>初めての方へ</h2>
+          <p>
+            初めてこのサイトを閲覧される方はまず<a href="/blog/01.php">こちら</a>をお読みください。<br>
+            現在このブログはβ版です。何かあれば掲示板や<a href="/questionnaire/questionnaire.php">お問い合わせ</a>から気軽にご報告ください。
+            <ul>
+              <li>ページが読み込めない！・表示がおかしい！→<a href="/bbs/messages.php?roomid=0&threadid=1">問題報告等</a></li>
+              <li>こんなページがほしい！・この機能つけて！→<a href="/bbs/messages.php?roomid=0&threadid=2">感想・要望板</a></li>
+            </ul>
+          </p>
           <h2>最新のブログ記事</h2>
           <div class="blog_top">
             <!---ここにブログ記事の内容を表示-->
