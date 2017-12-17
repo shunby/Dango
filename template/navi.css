@@ -1,10 +1,7 @@
 
 #nav{
-  width: 90%;
-  max-width: 906px;
-  height: auto;
-  margin: auto;
-  /* margin: 0px 46px 0px  47px; */
+  width: 939.5px;
+  margin: 0px 46px 0px  47px;
 }
 #nav::after{
   clear: both;
@@ -18,13 +15,11 @@
 .navi_menu{
   float: left;
   text-align: center;
-  width: 20%;/*100 / 項目数*/
-  height: 35px;
-  padding-top:5px;
-  padding-bottom:5px;
+  width: 19.16%;/*95.8 / 項目数*/
   border: 1px solid gray;
   border-right: 0;
-  box-sizing:border-box;
+  padding-top: 5px;
+  height: 28px;
   background-color: #edf0a1;
   margin: 0;
 }
