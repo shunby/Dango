@@ -6,8 +6,8 @@
     <meta name="author" content="だんご三兄弟">
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="300" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
     <?php
       $webroot = $_SERVER['DOCUMENT_ROOT'];
@@ -69,7 +69,10 @@ EOM;
           </p>
           <h2>最新のブログ記事</h2>
           <div class="blog_top">
-            <!---ここにブログ記事の内容を表示-->
+            <div class="blog_content">
+              <!---ここにブログ記事の内容を表示-->
+            </div>
+            <a href="index.php" style="text-decoration: none">ブログ目次へ</a>
           </div>
         </div>
       </main>
