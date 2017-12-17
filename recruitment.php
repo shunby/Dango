@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="recruitment.css">
     <link href="template/header.css" rel="stylesheet" type="text/css">
     <link href="template/footer.css" rel="stylesheet" type="text/css">
-    <link href="template/content.css" rel="stylesheet" type="text/css">
     <link href="template/main.css" rel="stylesheet" type="text/css">
+    <link href="template/content.css" rel="stylesheet" type="text/css">
     <link href="template/navi.css" rel="stylesheet" type="text/css">
     <link href="bbs/search_form.css" rel="stylesheet" type="text/css">
   </head>
