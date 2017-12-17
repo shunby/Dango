@@ -23,20 +23,20 @@ header h2{/*#headerを追加:猫派*/
   margin-bottom: 0px;
   font-weight: lighter;
 }
-
+/* 検索フォーム */
 #cse-search-box{
- width: 320px;
+ width: 25%;
  display: inline;
- margin-left: 680px;
+ margin-left: 68%;
  height: 25px;
- position: relative;
- top: -5px; /*検索ボックスの位置がheader画像の下に詰まりすぎてるのを修正*/
+ /* position: relative;
+ top: -5px; /*検索ボックスの位置がheader画像の下に詰まりすぎてるのを修正*/ */
 }
-
+/* 入力ボックス */
 .customsearch{
-  width: 150px;
+  width: 22%;
 }
-
+/* 検索ボタン */
 .search{
   border-radius: 5px;
   background-color: #ffa200;
