@@ -72,7 +72,7 @@ EOM;
             <div class="blog_content">
               <!---ここにブログ記事の内容を表示-->
             </div>
-            <a href="index.php" style="text-decoration: none">ブログ目次へ</a>
+            <a href="/blog/index.php" style="text-decoration: none">ブログ目次へ</a>
           </div>
         </div>
       </main>
