@@ -28,7 +28,6 @@
 </head>
 <body>
   <p>
-  <label for="pw">iamolaf0212:</label>
   <input type="password" name="pword" size="20" id="pw">
   <input type="submit">
   </p>
