@@ -28,6 +28,8 @@
 </head>
 <body>
   <p>
+  おらふのブログ更新用ページ入り口
+  パスワードを入力してください
   <input type="password" name="pword" size="20" id="pw">
   <input type="submit">
   </p>
