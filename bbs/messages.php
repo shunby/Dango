@@ -60,7 +60,7 @@
 
   </head>
 
-  <body>
+  <body onload="onLoad();">
     <div id="content">
 
      <?php include "../template/header.html" ?>
@@ -147,5 +147,11 @@ EOM;
      ?>
 
    </div>
+
+   <script>
+    function onLoad(){
+      scrollTo(0, window.innerWidth - 100);
+    }
+   </script>
   </body>
 </html>
