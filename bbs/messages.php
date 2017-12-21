@@ -150,7 +150,12 @@ EOM;
 
    <script>
     function onLoad(){
-      scrollTo(0, window.innerHeight - 100);
+      var list = document.getElementsByClassName("message_content");
+      if(list.length < 4)return;
+      var obj = list[list.length - 4];
+      var clientRect = obj.getBoundingClientRect();
+      var y = window.pageYOffset + clientRect.top;
+      window.scrollTo(0,y);
     }
    </script>
   </body>
