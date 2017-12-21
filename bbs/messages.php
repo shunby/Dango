@@ -150,7 +150,7 @@ EOM;
 
    <script>
     function onLoad(){
-      scrollTo(0, window.innerWidth - 100);
+      scrollTo(0, window.innerHeight - 100);
     }
    </script>
   </body>
