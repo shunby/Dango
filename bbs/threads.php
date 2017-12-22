@@ -20,7 +20,9 @@ if(array_key_exists('name', $_GET) &&  $_GET['name'] != ""){
 $st = $pdo->query($search);
 
 $st1 = $pdo->query("select * from chatroom where roomid=".$_GET['roomid']);
-$roomname = ($st1->fetch())['name'];
+$room = $st1->fetch();
+$roomname = $room['name'];
+$system = strcmp($room['type'], 'system') == 0;
 ?>
 
 <!DOCTYPE html>
@@ -72,6 +74,7 @@ EOM;
         <form id="search" name="search" action="threads.php" method="get">
           スレッド名
           <input type="text" name="name"></input><br>
+          <input type="checkbox" name="show_all" value="true">７日間更新がないスレッドも表示<br>
           <input class = button type="submit" value="検索"></input><br>
           <?php
           echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
@@ -83,7 +86,14 @@ EOM;
           <tr><th>名前</th></tr>
           <?php
           $threadid = 0;
+          $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
+          $today = new DateTime();
           while($row = $st->fetch()){
+            if(!$show_all && !$system){
+              $date = new DateTime(explode(" ",$row['last_modified'])[0]);
+              $diff = date_diff($date, $today);
+              if($diff->format('%a') > 7)continue;
+            }
             echo "<tr><td><a href=\"messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}\">{$row['name']}</a></td></tr>";
             $threadid++;
           }
