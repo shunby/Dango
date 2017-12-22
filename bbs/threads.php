@@ -96,7 +96,7 @@ EOM;
             }
             echo <<<EOM
             <tr>
-              <td><a href=\"messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}\">{$row['name']}</a></td>
+              <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}">{$row['name']}</a></td>
               <td>{$date->format("Y/m/d")}</td>
             </tr>
 EOM;
