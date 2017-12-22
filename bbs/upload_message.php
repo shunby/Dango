@@ -32,9 +32,9 @@
               htmlspecialchars($_POST['date']), htmlspecialchars($_POST['mail']), $message, htmlspecialchars($trip), 0,
               htmlspecialchars($_SERVER["REMOTE_ADDR"]), htmlspecialchars($host), htmlspecialchars($_SERVER['HTTP_USER_AGENT'])));
 
-  $sql = "UPDATE thread SET last_modified = ? WHERE threadid = ?";
+  $sql = "UPDATE thread SET last_modified = ? WHERE roomid = ? AND threadid = ?";
   $st = $pdo->prepare($sql);
-  $st->execute(array(htmlspecialchars($_POST['date']), htmlspecialchars($_POST['threadid'])));
+  $st->execute(array(htmlspecialchars($_POST['date']), htmlspecialchars($_POST['roomid']), htmlspecialchars($_POST['threadid'])));
 
   header("Location: messages.php?roomid={$_POST['roomid']}&threadid={$_POST['threadid']}");
   exit();
