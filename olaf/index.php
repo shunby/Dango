@@ -41,8 +41,9 @@
     <article id="main">
       <section>
         <h1>おらふのブログ</h1>
-        オラフこと某クラスの常識人が一日おきに更新‼<br>
-        終業式あたりでの開設を予定しています‼しばしお待ちを‼
+        <ul>
+          <li><a href="/olaf/olafblog01.php">第一回</li>
+        </ul>
       </section>
     </article>
 
