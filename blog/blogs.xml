@@ -55,4 +55,13 @@
       <tag>趣味</tag>
     </tags>
   </blog>
+  <blog>
+    <id>7</id>
+    <title>掲示板アップデート情報</title>
+    <link>/blog/07.php</link>
+    <date>2017/12/23</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>
