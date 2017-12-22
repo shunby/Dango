@@ -89,14 +89,14 @@ EOM;
           $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
           $today = new DateTime();
           while($row = $st->fetch()){
-            $threadid++;
+
             if(!$show_all && !$system){
               $date = new DateTime(explode(" ",$row['last_modified'])[0]);
               $diff = date_diff($date, $today);
-                if($diff->format('%a') > 5)continue;
+                if($diff->format('%a') > 5){$threadid++;continue;}
             }
             echo "<tr><td><a href=\"messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}\">{$row['name']}</a></td></tr>";
-
+            $threadid++;
           }
           ?>
         </table>
