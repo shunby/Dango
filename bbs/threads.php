@@ -74,7 +74,7 @@ EOM;
         <form id="search" name="search" action="threads.php" method="get">
           スレッド名
           <input type="text" name="name"></input><br>
-          <input type="checkbox" name="show_all" value="true">７日間更新がないスレッドも表示<br>
+          <input type="checkbox" name="show_all" value="true"> 5日間更新がないスレッドも表示<br>
           <input class = button type="submit" value="検索"></input><br>
           <?php
           echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
@@ -92,7 +92,7 @@ EOM;
             if(!$show_all && !$system){
               $date = new DateTime(explode(" ",$row['last_modified'])[0]);
               $diff = date_diff($date, $today);
-              if($diff->format('%a') > 7)continue;
+                if($diff->format('%a') > 5)continue;
             }
             echo "<tr><td><a href=\"messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}\">{$row['name']}</a></td></tr>";
             $threadid++;
