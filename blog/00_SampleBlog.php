@@ -8,7 +8,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <?php include "../template/analytics.html" ?>
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
@@ -44,12 +44,36 @@
         </p>
         <p>
           かといって適当なことを書くのもアレなので、このテンプレートの使い方を書いていきます。<br>
-          でも、そこまで難しくはないです。途中の&lt?php $id=0; ?&gtと書かれたところでブログidの設定をして、blogs.xmlにブログの情報を書き込むだけです。<br>
+          でも、そこまで難しくはないです。ブログidの設定をして、blogs.xmlにブログの情報を書き込むだけです。<br>
         </p>
         <p>
           ね、簡単でしょう?
         </p>
       </div>
+      <input type="button" value="good" id="button"><!--ボタン-->
+      <a><?php
+      $number = file_get_contents("ajax.txt");
+      echo $number;
+      ?></a>
+      <script>
+        $(function(){
+          $('#button').click(
+            function(){
+              $.ajax({
+                type: 'POST',
+                url: 'ajax.php',
+              })
+              .then(
+                function(result){
+                  $("a").text(result);
+                },
+                function(){
+                  ;
+                });
+               }
+              );
+            });
+      </script>
       <!--ここまで本文-->
 
 
