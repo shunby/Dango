@@ -6,8 +6,9 @@
     <meta name="author" content="だんご三兄弟">
 
     <meta charset="utf-8">
-    <meta http-equiv="300" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <!-- <meta name="viewport" content="width=device-width"> -->
 
     <?php
       $webroot = $_SERVER['DOCUMENT_ROOT'];

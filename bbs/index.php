@@ -34,8 +34,8 @@ $st = $pdo->query($search);
   <meta name="author" content="だんご三兄弟">
 
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="http-equiv" content="300">
+  <meta name="viewport" content="width=device-width">
 
   <?php include "../template/analytics.html" ?>
   <link href="index.css" rel="stylesheet" type="text/css">

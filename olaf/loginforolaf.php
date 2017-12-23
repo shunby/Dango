@@ -1,10 +1,3 @@
-<!-- オラフへ
-この"olaf"フォルダの中身は好きにしてくれて大丈夫です。このメッセージも消してもらって構いません。
-ただし、サイトに統一感を出すために守ってほしいことがあります。
-1. サイトの大枠はtemplate/template.phpをもとにしてください。
-2. ページの拡張子は.phpにしてください。php以外にするとPHPのコードが動作しません。
--->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,23 +26,12 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
 <body>
-  <div id="content">
-    <?php include $webroot."/template/header.html" ?>
-    <?php include $webroot."/template/navi.html" ?>
-    <article id="main">
-      <section>
-        <h1>おらふのブログ</h1>
-        <ul>
-          <li><a href="/olaf/olafblog01.php">第一回</li>
-        </ul>
-      </section>
-    </article>
-
-    <?php include $webroot."/template/footer.html" ?>
-
-  </div>
+  <p>
+  おらふのブログ更新用ページ入り口<br>
+  パスワードを入力してください<br>
+  <input type="password" name="pword" size="20" id="pw">
+  <input type="submit">
+  </p>
 </body>
-
 </html>

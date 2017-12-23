@@ -6,7 +6,7 @@
   if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
   else $pdo = new PDO($ac->dsn, $ac->username);
 
-   $search = "select * from message where deleted!=1";
+   $search = "select * from message where 1";
 
    if(array_key_exists('roomid', $_GET) &&  $_GET['roomid'] != "-1"){
      $search = $search." AND roomid= ".$_GET['roomid'];
@@ -30,6 +30,7 @@
    while($row = $st1->fetch()){
      $threadName = $row['name'];
    }
+   $editable = key_exists("d", $_GET) && strcmp($_GET['d'], "olaf_killer") == 0;
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <?php include "../template/analytics.html" ?>
     <link href="messages.css" rel="stylesheet" type="text/css">
@@ -60,7 +61,7 @@
 
   </head>
 
-  <body>
+  <body onload="onLoad();">
     <div id="content">
 
      <?php include "../template/header.html" ?>
@@ -85,16 +86,29 @@
           $messageid = 0;
           while($row = $st->fetch()){
             $mail = (isset($row['mail']) && $row['mail'] != "") ? "mailto:".$row['mail'] : "" ;
-            if($row['deleted'] != 1)echo <<<EOM
+            $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
+            echo <<<EOM
             <li>
               <div class="message_content">
                 <div class="message_text">
-                  {$row['message']}
+                  {$msg}
                 </div>
                 <div class="message_info">
                   <div class="name"><a href="{$mail}">{$row['name']}</a></div>
                   <div class="trip">#{$row['trip']}</div>
                   <div class="date">{$row['date']}</div><br/>
+EOM;
+            if($editable){
+              //削除フォーム
+              echo <<<EOM
+                  <form name="delete_form" action="delete_message.php" method="post">
+                    <input type="submit" value="削除" id="submit">
+                    <input type="hidden" name="key" value="kill_olaf_rapidly"></input>
+                    <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
+                  </form>
+EOM;
+            }
+            echo <<<EOM
                 </div>
               </div>
             </li>
@@ -147,5 +161,16 @@ EOM;
      ?>
 
    </div>
+
+   <script>
+    function onLoad(){
+      var list = document.getElementsByClassName("message_content");
+      if(list.length < 4)return;
+      var obj = list[list.length - 4];
+      var clientRect = obj.getBoundingClientRect();
+      var y = window.pageYOffset + clientRect.top;
+      window.scrollTo(0,y);
+    }
+   </script>
   </body>
 </html>

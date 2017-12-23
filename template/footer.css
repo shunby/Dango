@@ -6,9 +6,9 @@
 
 .footerdiv{
   background: #9ee4f0;
-  height: 60px;
+  height: 40px;
   margin: auto;
-  padding-top: 30px;
+  text-align: bottom;
 }
 
 .footer_item{
@@ -16,7 +16,7 @@
   color: #666666;
   border-bottom: 1px dashed gray;
   margin-right: 15px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .footer_link{

@@ -34,30 +34,28 @@
       <?php include $webroot."/template/blog/before.php" ?>
 
       <?php
-        $id = 5;
+        $id = 6;
        ?>
 
       <!--ここから本文-->
       <div class="main-main">
         <p>
-          毎日更新はつらいものです...ε＝（‐ω‐；；）<br>
-          今日はおらふのブログ開設にあたっておらふにインタビューしてきました。（LINEで）ということで、その結果をQ ＆ A方式でみなさんにお伝えしようと思いまーす。<br>
-          <br>
-          Q.どうして野菜が嫌いなんですか？<br>
-          A.野菜の食感がヤダ<br>野菜なんて俺に盛っても捨てるんだから食いたい人がたくさん食った方が野菜のためになるw<br>
-          <br>
-          Q.好きな女性（男性でも）のタイプを教えてください！！♡(人>ω<*)ｵﾈｶﾞｲｼﾏｽ!<br>
-          A.一緒にいて楽しい人（ってなんでまじめに答えさせてんだオイ）<br>
-          <br>
-          Q.3学期の席替えで隣になりたい人は誰ですか？<br>
-          A.高津くん‼｟（<s>永井</s>）<br>
-          <br>
-          Q.クラスのみんなに一言<br>
-          A.なぜ自分がおらふに似ているといわれるのかわからない<br>
-          →じゃあお前のブログ名おらふから変えろよw<br>
-          <br>
-          以上、おらふのインタビューでしたー、おらふさんありがとうございます！<br>
-          なお、ブログ開設は今週末との見込みのようですよ？　お楽しみに！ﾜｰｲε=ヾ(*・∀・)/<br>
+          <a href="/blog/04.php">前回</a>の続きです。あれから資材をそろえ、環境を整えました。そして、まずは小手調べにベタな単語帳を作ってみることにしました。<br>
+          古単・ユメタンの練習の役に立てばいいな、くらいのノリで開発がスタートしました。超☆開発中の画面を晒しておきます。
+          <figure id="img_title">
+            <img style="border:solid 1px" width=50% src="/image/blog/20171220/title.png" alt="タイトル" />
+            <figcaption>殺風景なタイトル画面</figcaption>
+          </figure><br>
+
+          <figure id="img_register0">
+            <img style="border:solid 1px" width=50% src="/image/blog/20171220/register0.png" alt="タイトル" />
+            <figcaption>配置のずれた登録画面</figcaption>
+          </figure><br>
+
+          <figure id="img_register">
+            <img style="border:solid 1px" width=50% src="/image/blog/20171220/register.png" alt="タイトル" />
+            <figcaption>それなりにまともな入力画面</figcaption>
+          </figure><br>
         </p>
       </div>
       <!--ここまで本文-->
