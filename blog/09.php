@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
 
-    <?php include "../../template/analytics.html" ?>
+    <?php include "../template/analytics.html" ?>
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
     <link href="/template/header.css" rel="stylesheet" type="text/css">
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
@@ -60,35 +60,6 @@
        </p>
       </div>
       <!--ここまで本文-->
-      <div id="iine">
-        <input type="button" value="いいね!" id="button"><!--ボタン-->
-        <a id="goodcount"><?php
-        $number = file_get_contents("09.txt");
-        echo $number;
-        ?></a>
-        <script>
-          $(function(){
-            $('#button').click(
-              function(){
-                $.ajax({
-                  type: 'POST',
-                  url: '09ajax.php',
-                })
-                .then(
-                  function(result){
-                    $("#goodcount").text(result);
-                  },
-                  function(){
-                    ;
-                  });
-                 }
-                );
-              });
-        </script>
-      </div>
-
-
-
 
       <?php include $webroot."/template/blog/after.php" ?>
     </div>
