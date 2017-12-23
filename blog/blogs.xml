@@ -64,4 +64,13 @@
       <tag>アップデートヒストリー</tag>
     </tags>
   </blog>
+  <blog>
+    <id>8</id>
+    <title>プライバシーポリシー・免責事項</title>
+    <link>/blog/privacy.php</link>
+    <date>2017/12/23</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>
