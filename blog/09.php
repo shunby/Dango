@@ -10,14 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
 
-    <?php include "../../template/analytics.html" ?>
+    <?php include "../template/analytics.html" ?>
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
     <link href="/template/header.css" rel="stylesheet" type="text/css">
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
     <link href="/template/main.css" rel="stylesheet" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
-    <link href="/template/ajax.css" rel="stylesheet"  type="text/css">
+    <link href="/template/line/ajax.css" rel="stylesheet"  type="text/css">
     <link href="" rel="shortcut icon">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -60,35 +60,6 @@
        </p>
       </div>
       <!--ここまで本文-->
-      <div id="iine">
-        <input type="button" value="good" id="button"><!--ボタン-->
-        <a id="goodcount"><?php
-        $number = file_get_contents("09.txt");
-        echo $number;
-        ?></a>
-        <script>
-          $(function(){
-            $('#button').click(
-              function(){
-                $.ajax({
-                  type: 'POST',
-                  url: '09ajax.php',
-                })
-                .then(
-                  function(result){
-                    $("#goodcount").text(result);
-                  },
-                  function(){
-                    ;
-                  });
-                 }
-                );
-              });
-        </script>
-      </div>
-
-
-
 
       <?php include $webroot."/template/blog/after.php" ?>
     </div>
