@@ -16,6 +16,7 @@
     <link href="/template/main.css" rel="stylesheet" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
+    <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
     <link href="" rel="shortcut icon">
     <?php include "../template/analytics.html" ?>
     <!--[if lt IE 9]>
