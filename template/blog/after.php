@@ -1,3 +1,43 @@
+<div id="iine"><!--いいね機構-->
+  <input type="button" value="good" id="button"><!--ボタン-->
+  <a id="goodcount"></a>
+  <script>
+    $(function(){
+      $.ajax({
+        type: 'POST',
+        url: '/good/ajax.php',
+        data: {article_type: "blog", article_id: <?php echo $id; ?>, act: 0}//いいねするフラグはオフ
+      })
+      .then(
+        function(result){
+          $("#goodcount").text(result);
+        },
+        function(){
+          ;
+        }
+      );
+
+      $('#button').click(
+        function(){
+          $.ajax({
+            type: 'POST',
+            url: '/good/ajax.php',
+            data: {article_type: "blog", article_id: <?php echo $id; ?>, act: 1}//いいねするフラグはオン
+          })
+          .then(
+            function(result){
+              $("#goodcount").text(result);
+            },
+            function(){
+              ;
+            }
+          );
+        }
+      );
+    });
+  </script>
+</div>
+
 <div class="main-before">
   <img src="/image/blog/trn.png" alt="" id="trn">
   <div class="before-blog">

@@ -20,7 +20,9 @@ if(array_key_exists('name', $_GET) &&  $_GET['name'] != ""){
 $st = $pdo->query($search);
 
 $st1 = $pdo->query("select * from chatroom where roomid=".$_GET['roomid']);
-$roomname = ($st1->fetch())['name'];
+$room = $st1->fetch();
+$roomname = $room['name'];
+$system = strcmp($room['type'], 'system') == 0;
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +35,7 @@ $roomname = ($st1->fetch())['name'];
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width">
 
   <?php include "../template/analytics.html" ?>
   <link href="threads.css" rel="stylesheet" type="text/css">
@@ -72,6 +74,7 @@ EOM;
         <form id="search" name="search" action="threads.php" method="get">
           スレッド名
           <input type="text" name="name"></input><br>
+          <input type="checkbox" name="show_all" value="true"> 5日間更新がないスレッドも表示<br>
           <input class = button type="submit" value="検索"></input><br>
           <?php
           echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
@@ -80,11 +83,25 @@ EOM;
 
         <!--スレッド一覧  -->
         <table>
-          <tr><th>名前</th></tr>
+          <tr><th width=70%>名前</th><th width=70%>最終更新日</th></tr>
           <?php
           $threadid = 0;
+          $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
+          $today = new DateTime();
           while($row = $st->fetch()){
-            echo "<tr><td><a href=\"messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}\">{$row['name']}</a></td></tr>";
+            $date = new DateTime(explode(" ",$row['last_modified'])[0]);
+            if(!$show_all && !$system){
+              $diff = date_diff($date, $today);
+                if($diff->format('%a') > 5){$threadid++;continue;}
+            }
+            echo <<<EOM
+            <tr>
+              <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}">{$row['name']}</a></td>
+              <td>{$date->format("Y/m/d")}</td>
+            </tr>
+EOM;
+
+
             $threadid++;
           }
           ?>

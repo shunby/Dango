@@ -8,7 +8,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <?php include "../template/analytics.html" ?>
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
@@ -17,6 +17,7 @@
     <link href="/template/main.css" rel="stylesheet" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
+    <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
     <link href="" rel="shortcut icon">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>

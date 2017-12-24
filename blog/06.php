@@ -35,25 +35,31 @@
       <?php include $webroot."/template/blog/before.php" ?>
 
       <?php
-        $id = 0;
+        $id = 6;
        ?>
 
       <!--ここから本文-->
       <div class="main-main">
         <p>
-          これはブログ記事のテストです。<br>
-        </p>
-        <p>
-          かといって適当なことを書くのもアレなので、このテンプレートの使い方を書いていきます。<br>
-          でも、そこまで難しくはないです。ブログidの設定をして、blogs.xmlにブログの情報を書き込むだけです。<br>
-        </p>
-        <p>
-          ね、簡単でしょう?
+          <a href="/blog/04.php">前回</a>の続きです。あれから資材をそろえ、環境を整えました。そして、まずは小手調べにベタな単語帳を作ってみることにしました。<br>
+          古単・ユメタンの練習の役に立てばいいな、くらいのノリで開発がスタートしました。超☆開発中の画面を晒しておきます。
+          <figure id="img_title">
+            <img style="border:solid 1px" width=50% src="/image/blog/20171220/title.png" alt="タイトル" />
+            <figcaption>殺風景なタイトル画面</figcaption>
+          </figure><br>
+
+          <figure id="img_register0">
+            <img style="border:solid 1px" width=50% src="/image/blog/20171220/register0.png" alt="タイトル" />
+            <figcaption>配置のずれた登録画面</figcaption>
+          </figure><br>
+
+          <figure id="img_register">
+            <img style="border:solid 1px" width=50% src="/image/blog/20171220/register.png" alt="タイトル" />
+            <figcaption>それなりにまともな入力画面</figcaption>
+          </figure><br>
         </p>
       </div>
       <!--ここまで本文-->
-
-
 
       <?php include $webroot."/template/blog/after.php" ?>
     </div>
