@@ -41,7 +41,7 @@
     <article id="main">
       <section>
         <h1>おらふのブログ</h1>
-<<<<<<< HEAD
+        <p>
         オラフこと某クラスの常識人が一日おきに更新‼<br>
         ～更新内容～<br>
         月　募集したネタ<br>
@@ -49,11 +49,10 @@
         金　集まった宿題をまとめてランキングにして発表<br>
         日　おらふ的一週間のネットニュースまとめ<br>
         宿題の投稿は<a href="/bbs/messages.php?roomid=0&threadid=3">おらふのブログネタ募集スレ</a>から<br>
-=======
+      </p>
         <ul>
           <li><a href="/olaf/olafblog01.php">第一回</li>
         </ul>
->>>>>>> origin/master
       </section>
     </article>
 
