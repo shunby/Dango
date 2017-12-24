@@ -21,6 +21,8 @@
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
+    <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
+
     <link href="" rel="shortcut icon">
 
     <!--ここからブログ記事呼び出し処理-->
@@ -34,6 +36,7 @@
           $current_max = $blog_elem;
         }
       }
+      $id = $current_max->id;
       //javascriptの変数としてURL/タイトル/日付を記録
       echo <<<EOM
       <script>
@@ -44,7 +47,7 @@
 EOM;
      ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="load_blog_top.js"></script>
+    <?php require "load_blog_top.php"?>
     <!--ここまでブログ記事呼び出し処理-->
 
     <!--[if lt IE 9]>
