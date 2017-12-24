@@ -30,9 +30,11 @@
       $blogs = simplexml_load_file("blog/blogs.xml");
 
       $current_max = NULL;//検索した中での最新
+      $current_next = NULL;//検索した中での二番手
       foreach($blogs->blog as $blog_elem){
         if(is_null($current_max) || ($current_max->id+0 < $blog_elem->id+0)){
           //まだ何も検索していないか、検索した中の最新よりも新しいものを見つけたら、最新を置き換える
+          $current_next = $current_max;
           $current_max = $blog_elem;
         }
       }
@@ -43,6 +45,8 @@
         var blog_url = "{$current_max->link}";
         var blog_title = "{$current_max->title}";
         var blog_date = "{$current_max->date}";
+        var next_url = "{$current_next->link}";
+        var next_title = "{$current_next->title}"
       </script>
 EOM;
      ?>
@@ -76,7 +80,7 @@ EOM;
             <div class="blog_content">
               <!---ここにブログ記事の内容を表示-->
             </div>
-            <a href="/blog/index.php" style="text-decoration: none">ブログ目次へ</a>
+            <a href="/blog/index.php" style="text-decoration: none;text-align: right;display: block;margin-right: 20px;">ブログ目次へ</a>
           </div>
         </div>
       </main>

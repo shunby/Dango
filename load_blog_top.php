@@ -10,6 +10,8 @@ $(function(){
     $(".blog_content").append($("<div>"+blog_date+"</div>").css({'text-align':'right', 'font-size':'0.8em', 'margin-bottom': '30px', 'padding-right': '20px'}));
     $(".blog_content").append(out.find(".main-main")[0].outerHTML);
     $(".blog_content").append(out.find("#iine")[0].outerHTML);
+    $(".blog_content").append($("<-<a href ='"+next_url+"'>"+next_title+"</a>").css({'font-size':'1.2em'}));
+
     $.ajax({
       type: 'POST',
       url: '/good/ajax.php',
@@ -23,6 +25,7 @@ $(function(){
         ;
       }
     );
+
     $('#button').click(
       function(){
         $.ajax({
