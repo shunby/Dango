@@ -6,6 +6,7 @@
  border: 2px double gray;
  height: auto;/*autoに変更:猫派*/
  background-color: white;
+ line-height: 1.7;
 }
 
 /*main要素の末尾に改行を入れる*/
