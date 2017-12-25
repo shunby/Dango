@@ -269,7 +269,7 @@
           offset = this.$el.position(),
           copiedStyles = {
             top: offset.top,
-            left: offset.left,
+            // left: offset.left,
             width: this.$el.innerWidth(),
             height: this.$el.innerHeight()
           };
