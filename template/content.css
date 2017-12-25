@@ -2,4 +2,5 @@
   margin: auto;
   width: 1000px;
   background-color: #e0e0e0;
+  z-index: 1;
 }
