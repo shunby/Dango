@@ -46,7 +46,7 @@
       にします‼<br>
       とりあえず今回は早めに宿題を出してみます<br>
       （宿題）　東京オリンピックのとんでもない新種目を考えてください<br>
-      宿題の答えの投稿は<a href="/bbs/messages.php?roomid=0&threadid=3">おらふのブログネタ募集スレ</a>から
+      宿題の答えの投稿は<a href="http://paysestbbs.webcrow.jp/bbs/threads.php?roomid=4">おらふのブログネタ募集スレ</a>から
      </p>
     </main>
     <?php include $webroot."/template/footer.html" ?>

@@ -48,7 +48,7 @@
         水　募集したネタ＆金曜までの宿題<br>
         金　集まった宿題をまとめてランキングにして発表<br>
         日　おらふ的一週間のネットニュースまとめ<br>
-        宿題の投稿は<a href="/bbs/messages.php?roomid=0&threadid=3">おらふのブログネタ募集スレ</a>から<br>
+        宿題の投稿は<a href="http://paysestbbs.webcrow.jp/bbs/messages.php?roomid=4&threadid=1">おらふのブログネタ募集スレ</a>から<br>
       </p>
         <ul>
           <li><a href="/olaf/olafblog01.php">第一回</li>
