@@ -27,6 +27,11 @@
   <![endif]-->
 </head>
 <body>
+
+  <div id="content">
+    <?php include $webroot."/template/header.html" ?>
+    <?php include $webroot."/template/navi.html" ?>
+    <main id="main">
   <p>
   どうも！おらふのブログのお時間です‼<br>
   いくつかネタを提供していただきましたが、今回は募集したネタは使いません。<br>
@@ -43,5 +48,8 @@
   （宿題）　東京オリンピックのとんでもない新種目を考えてください<br>
   宿題の答えの投稿は<a href="http://paysestbbs.webcrow.jp/bbs/threads.php?roomid=4">おらふの部屋</a>から
  </p>
+ /main>
+    <?php include $webroot."/template/footer.html" ?>
+  </div>
 </body>
 </html>
