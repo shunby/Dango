@@ -42,12 +42,9 @@
       <section>
         <h1>おらふのブログ</h1>
         <p>
-        オラフこと某クラスの常識人が一日おきに更新‼<br>
-        ～更新内容～<br>
-        月　募集したネタ<br>
-        水　募集したネタ＆金曜までの宿題<br>
-        金　集まった宿題をまとめてランキングにして発表<br>
-        日　おらふ的一週間のネットニュースまとめ<br>
+        おらふのブログのアップデートのため数日間更新をストップします<br>
+        申し訳ございません<br>
+        アップデートの詳しい情報は<a href "http://paysestbbs.webcrow.jp/olaf/updateinformation.php">こちら</a><br>
         宿題の投稿は<a href="http://paysestbbs.webcrow.jp/bbs/messages.php?roomid=4&threadid=1">おらふのブログネタ募集スレ</a>から<br>
       </p>
         <ul>
