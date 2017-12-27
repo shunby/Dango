@@ -44,7 +44,7 @@
         <p>
         おらふのブログのアップデートのため数日間更新をストップします<br>
         申し訳ございません<br>
-        アップデートの詳しい情報は<a href "/olaf/updateinformation.php">こちら</a><br>
+        アップデートの詳しい情報は<a href "http://paysestbbs.webcrow.jp/olaf/updateinformation.php">こちら</a><br>
         宿題の投稿は<a href="http://paysestbbs.webcrow.jp/bbs/messages.php?roomid=4&threadid=1">おらふのブログネタ募集スレ</a>から<br>
       </p>
         <ul>
