@@ -120,13 +120,11 @@ EOM;
          <!--ここまで投稿------------------------>
 
        </section>
-       <section>
+       <section id="form">
          <h5>このスレッドに書き込む</h5>
          <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore();">
-           名前 :
+           ニックネーム :
            <input type="text" name="name" placeholder=""></input>
-           メール:
-           <input type="text" name="mail"></input>
            <br>パスワード :
            <input type="text" name="trip"></input>
            <br>

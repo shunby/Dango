@@ -2,6 +2,19 @@
   list-style-type: none;
   list-style-position: inside;
 }
+@media only screen and (max-width: 767px){
+  .messages{
+    padding: 0 !important;
+  }
+  .message_content{
+    width: 100% !important;
+    font-size: 1.2em;
+  }
+  section#form{
+    margin-bottom:400px !important;
+  }
+}
+
 .messages li{
   margin: 10px;
 }
@@ -45,7 +58,7 @@
 }
 textarea{
   padding-bottom: 30%;
-  width: 50%;
+  width: 80%;
 }
 input#submit{
   width: 20%;
