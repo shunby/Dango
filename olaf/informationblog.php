@@ -1,10 +1,3 @@
-<!-- オラフへ
-この"olaf"フォルダの中身は好きにしてくれて大丈夫です。このメッセージも消してもらって構いません。
-ただし、サイトに統一感を出すために守ってほしいことがあります。
-1. サイトの大枠はtemplate/template.phpをもとにしてください。
-2. ページの拡張子は.phpにしてください。php以外にするとPHPのコードが動作しません。
--->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +8,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php
     $webroot = $_SERVER['DOCUMENT_ROOT'];
@@ -33,27 +26,26 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
 <body>
+
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
     <article id="main">
       <section>
-        <h1>おらふのブログ</h1>
-        <p>
-        運営メンバーおらふによるおらふのブログ！<br>
-        日々様々な情報をお伝えします<br>
-        ・<a href="dailyofolaf.php">おらふの日常</a><br>
-        ・<a href="informationblog.php">おらふのネット情報局</a><br>
-        </p>
+      <p>
+        <h1>おらふのネット情報局</h1>
+        水曜と日曜に更新！ネットの世界での情報をお届けしていきます<br>
+        あまりよく知らない人も多い5chのことなど発信できたらなと思います<br>
+        ・水曜　ネット上で以前有名になったこと<br>
+        ・日曜　一週間のネットニュースまとめ<br>
+    </p>
+  </section>
+</article>
 
-      </section>
-    </article>
+<?php include $webroot."/template/footer.html" ?>
 
-    <?php include $webroot."/template/footer.html" ?>
+</div>
 
-  </div>
 </body>
-
 </html>

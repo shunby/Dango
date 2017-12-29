@@ -1,10 +1,3 @@
-<!-- オラフへ
-この"olaf"フォルダの中身は好きにしてくれて大丈夫です。このメッセージも消してもらって構いません。
-ただし、サイトに統一感を出すために守ってほしいことがあります。
-1. サイトの大枠はtemplate/template.phpをもとにしてください。
-2. ページの拡張子は.phpにしてください。php以外にするとPHPのコードが動作しません。
--->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +8,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php
     $webroot = $_SERVER['DOCUMENT_ROOT'];
@@ -33,21 +26,25 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
 <body>
+
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
     <article id="main">
-      <section>
-        <h1>おらふのブログ</h1>
-        <p>
-        運営メンバーおらふによるおらふのブログ！<br>
-        日々様々な情報をお伝えします<br>
-        ・<a href="dailyofolaf.php">おらふの日常</a><br>
-        ・<a href="informationblog.php">おらふのネット情報局</a><br>
-        </p>
-
+    <section>
+      <p>
+        <h1>おらふの日常</h1>
+        運営メンバーのおらふが日常のネタを不定期更新！ネタの要望お待ちしております<br>
+        毎週一回「宿題」がありますので、ぜひぜひ宿題の提出お待ちしております<br>
+        ネタの要望は<a href="http://paysestbbs.webcrow.jp/bbs/messages.php?roomid=4&threadid=1">おらふのブログネタ募集スレ</a>から<br>
+        宿題の投稿は<a href="http://paysestbbs.webcrow.jp/bbs/threads.php?roomid=4">おらふのブログ部屋</a>から<br>
+      </p>
+      <p>
+        <ul>
+          <li><a href="/olaf/olafblog01.php">第一回</li>
+          <li><a href="/olaf/olafblog02.php">第二回</li>
+        </ul>
       </section>
     </article>
 
@@ -55,5 +52,4 @@
 
   </div>
 </body>
-
 </html>
