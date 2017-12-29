@@ -1,3 +1,7 @@
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +16,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php
-    $webroot = $_SERVER['DOCUMENT_ROOT'];
     include $webroot."/template/analytics.html"
    ?>
   <link href="index.css" rel="stylesheet" type="text/css">

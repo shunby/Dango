@@ -44,6 +44,7 @@
      <div id="content">
        <div id="content">
          <?php include $webroot."/template/header.html" ?>
+         <?php include $webroot."/template/navi.html" ?>
          <article id="main">
            <section>
              ログアウトしました。

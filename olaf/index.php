@@ -4,6 +4,10 @@
 1. サイトの大枠はtemplate/template.phpをもとにしてください。
 2. ページの拡張子は.phpにしてください。php以外にするとPHPのコードが動作しません。
 -->
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -18,7 +22,6 @@
   <meta name="viewport" content="width=device-width">
 
   <?php
-    $webroot = $_SERVER['DOCUMENT_ROOT'];
     include $webroot."/template/analytics.html"
    ?>
   <link href="index.css" rel="stylesheet" type="text/css">

@@ -32,11 +32,64 @@
   </head>
 
   <body>
+    <?php
+      $msg = "";
+      register();
+
+      function register(){
+        global $msg;
+
+        if(isset($_POST['signup'])){
+          if(empty($_POST['name'])){
+            $msg = "※ユーザー名が未入力です！";
+            return;
+          }else if(empty($_POST['password'])){
+            $msg = "※パスワードが未入力です！";
+            return;
+          }else if(empty($_POST['re_password'])){
+            $msg = "※パスワードは二回入力してください！";
+            return;
+          }
+
+          if($_POST['password'] !== $_POST['re_password']){
+            $msg = "※パスワードは二度とも同じものを入力してください！";
+            return;
+          }
+          //入力確認完了
+
+          $name = htmlspecialchars($_POST['name']);
+          $password = $_POST['password'];
+          $re_password = $_POST['re_password'];
+
+
+          $pdo;
+          $ac = new Access("bbs");
+          if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+          else $pdo = new PDO($ac->dsn, $ac->username);
+
+          $statement = $pdo->query("SELECT * from user where name='".$name."'");
+
+          if($statement->fetch()){
+            $msg = "※既に使用されているユーザ名です！";
+            return;
+          }
+
+          $statement = $pdo->prepare("INSERT INTO user(name, pass) VALUES (?,?)");
+          $statement->execute(array($name, PASSWORD_HASH($password, PASSWORD_DEFAULT)));
+
+          $msg = "登録が完了しました。ようこそ、".$name."さん！";
+        }
+      }
+
+    ?>
+
     <div id="content">
       <?php include $webroot."/template/header.html" ?>
+      <?php include $webroot."/template/navi.html" ?>
       <article id="main">
         <section>
           <h1>ユーザー登録</h1>
+          <span style="color:red;"><?php echo $msg;?></span>
           <form id="register" name="register" action=" " method="POST">
             <label for="name">ユーザ名</label><br><input type="text" name='name'></input><br><br>
             <label for="password">パスワード</label><br><input type="password" name='password'></input><br>
@@ -50,49 +103,6 @@
 
     </div>
   </body>
-  <?php
-
-    if(isset($_POST['signup'])){
-      if(empty($_POST['name'])){
-        echo "※ユーザー名が未入力です！";
-        exit();
-      }else if(empty($_POST['password'])){
-        echo "※パスワードが未入力です！";
-        exit;
-      }else if(empty($_POST['re_password'])){
-        echo "※パスワードは二回入力してください！";
-        exit;
-      }
-
-      if($_POST['password'] !== $_POST['re_password']){
-        echo "※パスワードは二度とも同じものを入力してください！";
-        exit;
-      }
-      //入力確認完了
-
-      $name = htmlspecialchars($_POST['name']);
-      $password = $_POST['password'];
-      $re_password = $_POST['re_password'];
-
-
-      $pdo;
-      $ac = new Access("bbs");
-      if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-      else $pdo = new PDO($ac->dsn, $ac->username);
-
-      $statement = $pdo->query("SELECT * from user where name='".$name."'");
-
-      if($statement->fetch()){
-        echo "※既に使用されているユーザ名です！";
-        exit;
-      }
-
-      $statement = $pdo->prepare("INSERT INTO user(name, pass) VALUES (?,?)");
-      $statement->execute(array($name, PASSWORD_HASH($password, PASSWORD_DEFAULT)));
-
-      echo "登録が完了しました。ようこそ、".$name."さん！";
-    }
-  ?>
 
 
 </html>

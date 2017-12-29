@@ -1,4 +1,9 @@
 <?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+
+<?php
   require "../bbs/access/access.php";
 
   $name = htmlspecialchars($_POST['name']);
@@ -17,7 +22,6 @@
   $st = $pdo->prepare("INSERT INTO kansou VALUES(?, ?, ?, ?, ?, ?, ?)");
   $st->execute(array($name, $gender, $grade, $email, $kansou, $quality, $appearance));
 
-  $webroot = $_SERVER['DOCUMENT_ROOT'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">

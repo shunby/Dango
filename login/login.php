@@ -33,53 +33,62 @@ session_start();
   </head>
 
   <body>
+    <?php
+    $msg = "";
 
+    function login(){
+      global $msg;
+      if(isset($_POST['login'])){
+        if(empty($_POST['name'])){
+          $msg =  "※ユーザー名が未入力です！";
+          return;
+        }else if(empty($_POST['password'])){
+          $msg =  "※パスワードが未入力です！";
+          return;
+        }
+        //入力確認完了
+
+        $name = $_POST['name'];
+        $password = $_POST['password'];
+
+        $pdo;
+        $ac = new Access("bbs");
+        if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+        else $pdo = new PDO($ac->dsn, $ac->username);
+
+        $statement = $pdo->query("select * from user WHERE name='".$name."'");
+
+        if($row = $statement->fetch(PDO::FETCH_ASSOC)){//ユーザー名が合致したか
+          if(password_verify($password, $row['pass'])){
+            session_regenerate_id(true);
+            $_SESSION['name'] = $name;
+            header("Location: ../dango.php");
+            return;
+          }
+        }
+        $msg =  "※ユーザー名またはパスワードが間違っています！";
+        return;
+      }
+    }
+    login();
+
+
+    ?>
 
     <div id="content">
       <div id="content">
         <?php include $webroot."/template/header.html" ?>
+        <?php include $webroot."/template/navi.html" ?>
         <article id="main">
           <section>
             <h1>ログイン</h1>
+            <span style="color:red;"><?php echo $msg; ?></span>
             <form id="login" name="login" action=" " method="POST">
               <label for="name">ユーザ名</label><br><input type="text" name='name'></input><br><br>
               <label for="password">パスワード</label><br><input type="password" name='password'></input><br>
               <input type="submit" name="login"></input>
             </form>
 
-            <?php
-              if(isset($_POST['login'])){
-                if(empty($_POST['name'])){
-                  echo "※ユーザー名が未入力です！";
-                  exit();
-                }else if(empty($_POST['password'])){
-                  echo "※パスワードが未入力です！";
-                  exit;
-                }
-                //入力確認完了
-
-                $name = $_POST['name'];
-                $password = $_POST['password'];
-
-                $pdo;
-                $ac = new Access("bbs");
-                if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-                else $pdo = new PDO($ac->dsn, $ac->username);
-
-                $statement = $pdo->query("select * from user WHERE name='".$name."'");
-
-                if($row = $statement->fetch(PDO::FETCH_ASSOC)){//ユーザー名が合致したか
-                  if(password_verify($password, $row['pass'])){
-                    session_regenerate_id(true);
-                    $_SESSION['name'] = $name;
-                    header("Location: ../dango.php");
-                    exit();
-                  }
-                }
-                echo "※ユーザー名またはパスワードが間違っています！";
-                exit;
-              }
-            ?>
           </section>
         </article>
 
