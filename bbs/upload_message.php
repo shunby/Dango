@@ -1,5 +1,5 @@
 <?php
-  require "access.php";
+  require "access/access.php";
 
   $message = nl2br(htmlspecialchars($_POST['message']));
 

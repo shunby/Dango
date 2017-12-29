@@ -1,5 +1,5 @@
 <?php
-  require "access.php";
+  require "access/access.php";
 
   $roomid = $_POST['roomid'];
   $threadid = $_POST['threadid'];

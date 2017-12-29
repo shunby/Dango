@@ -1,5 +1,5 @@
 <?php
-require "access.php";
+require "access/access.php";
 
 $pdo;
 $ac = new Access("bbs");
