@@ -8,9 +8,10 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php
+    $webroot = $_SERVER['DOCUMENT_ROOT'];
     include $webroot."/template/analytics.html"
    ?>
   <link href="index.css" rel="stylesheet" type="text/css">
@@ -25,29 +26,26 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
 <body>
+
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
     <article id="main">
       <section>
-        <h1>おらふのブログ</h1>
-        <p>
+      <p>
+        <h1>おらふのネット情報局</h1>
+        水曜と日曜に更新！ネットの世界での情報をお届けしていきます<br>
+        あまりよく知らない人も多い5chのことなど発信できたらなと思います<br>
+        ・水曜　ネット上で以前有名になったこと<br>
+        ・日曜　一週間のネットニュースまとめ<br>
+    </p>
+  </section>
+</article>
 
-           運営メンバーのおらふによるブログです<br>
-           日々のネタを不定期更新する「おらふの日常」は<a href="dailyofolaf.php">こちら</a><br>
-           ネットの話題をお届けする「おらふのネット情報局」は<a href="informationblog.php">こちら</a>
-         </p>
-         
+<?php include $webroot."/template/footer.html" ?>
 
-     </section>
-   </article>
-
-   <?php include $webroot."/template/footer.html" ?>
-
- </div>
+</div>
 
 </body>
-
 </html>

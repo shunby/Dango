@@ -8,9 +8,10 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php
+    $webroot = $_SERVER['DOCUMENT_ROOT'];
     include $webroot."/template/analytics.html"
    ?>
   <link href="index.css" rel="stylesheet" type="text/css">
@@ -25,29 +26,25 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
 <body>
+
+
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <article id="main">
-      <section>
-        <h1>おらふのブログ</h1>
-        <p>
-
-           運営メンバーのおらふによるブログです<br>
-           日々のネタを不定期更新する「おらふの日常」は<a href="dailyofolaf.php">こちら</a><br>
-           ネットの話題をお届けする「おらふのネット情報局」は<a href="informationblog.php">こちら</a>
-         </p>
-         
-
-     </section>
-   </article>
-
-   <?php include $webroot."/template/footer.html" ?>
-
- </div>
-
+    <main id="main">
+      <p>
+        <h1>おらふのブログ　アップデートに関するお知らせ</h1>
+        おらふのブログをご覧の皆様、おらふです<br>
+        この度、おらふのブログのアップデートを行うことになり、数日間更新をストップさせていただきます。<br>
+        主な更新内容としては、<br>
+        ・おらふのブログを「おらふの日常」と「おらふのネット情報局」に分けます<br>
+      　・「おらふの日常」は不定期、週２～３回更新で、内容は今まで通りフツーのブログです<br>
+      　・「おらふのネット情報局」ではネット上での一週間のニュースを日曜日に、ネット豆知識を水曜日に投稿します<br>
+    </p>
+     <p>
+       更新再開予定は12/30を予定しています<br>
+       これからも当サイトを愛用いただけますようよろしくお願いします（迫真）<br>
+   </p>
 </body>
-
 </html>
