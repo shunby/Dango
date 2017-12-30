@@ -35,6 +35,7 @@
       <section>
         <h1>おらふのブログ</h1>
         <p>
+
            運営メンバーのおらふによるブログです<br>
            日々のネタを不定期更新する「おらふの日常」は<a href="dailyofolaf.php">こちら</a><br>
            ネットの話題をお届けする「おらふのネット情報局」は<a href="informationblog.php">こちら</a>
@@ -47,6 +48,7 @@
    <?php include $webroot."/template/footer.html" ?>
 
  </div>
+
 </body>
 
 </html>
