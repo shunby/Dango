@@ -94,11 +94,21 @@
               }
             ?>
           </ul>
-          <form name="post_msg" action=" " method="POST">
-            <textarea style="width:80%; height:200px;" name="msg"></textarea>
-            <input type="hidden" name="post_usr" value="<?php echo $_SESSION['name']; ?>"></input>
-            <input type="submit" value="投稿"></input>
-          </form>
+          <?php
+            $role = Admins::getRole($_SESSION['userid']);
+            if(strcmp($role, "一般ユーザー") != 0 || strcmp($name, $_SESSION['name']) == 0){
+              echo <<<EOM
+              お知らせにはあなた自身かメイドさんと運営しか投稿できません。
+              <form name="post_msg" action=" " method="POST">
+                <textarea style="width:80%; height:200px;" name="msg"></textarea>
+                <input type="hidden" name="post_usr" value="{$_SESSION['name']}"></input>
+                <input type="submit" value="投稿"></input>
+              </form>
+
+EOM;
+            }
+           ?>
+
         </div>
       </section>
     </article>

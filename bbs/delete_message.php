@@ -5,8 +5,10 @@
 <?php
 require "access/access.php";
 
-$key = key_exists("key", $_POST) ? $_POST['key']:"null";
-if(strcmp($key, "kill_olaf_rapidly") != 0)exit;
+require "../core/admins.php";
+$role = Admins::getRole($_SESSION['userid']);
+if(strcmp($role, "一般ユーザー") == 0)exit;
+
 $messageid = key_exists("messageid", $_POST) ? $_POST['messageid'] : null;
 if(is_null($messageid)){
   exit;

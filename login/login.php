@@ -63,7 +63,7 @@ session_start();
             session_regenerate_id(true);
             $_SESSION['name'] = $name;
             $_SESSION['userid'] = $row['id'];
-            header("Location: ../dango.php");
+            header("Location: ../index.php");
             return;
           }
         }
