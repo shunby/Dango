@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!--テンプレート-->
 <html>
@@ -48,7 +49,45 @@
 
           <p>
             <h1>運営からのお知らせ</h1>
+            <?php
+              require $webroot."/core/admins.php";
+              require $webroot."/bbs/access/access.php";
+              $pdo;
+              $ac = new Access("bbs");
+              if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+              else $pdo = new PDO($ac->dsn, $ac->username);
 
+              if(isset($_SESSION['userid'])){
+                $role = Admins::getRole($_SESSION['userid']);
+                if(strcmp($role, "一般ユーザー") != 0){
+
+
+                  if(isset($_POST['news'])){
+                    $statement = $pdo->prepare("INSERT INTO `news`(`news`, `user`) VALUES (?,?)");
+                    $statement->execute(array($_POST['news'], $_POST['user']));
+                  }
+                  echo <<<EOM
+                  <form action=" " method="POST">
+                    <input type="text" name="news"></input>
+                    <input type="hidden" name="user" value="{$_SESSION['userid']}"></input>
+                    <input type="submit" value="投稿"></input>
+                  </form>
+EOM;
+                }
+              }
+
+              $statement = $pdo->query("SELECT * from news WHERE 1 ORDER BY newsid desc");
+              echo "<ul>";
+              while($row = $statement->fetch()) {
+                echo <<<EOM
+                <li>
+                  {$row['news']}
+                </li>
+EOM;
+              }
+              echo "</ul>";
+
+             ?>
           </p>
         </section>
       </article>
