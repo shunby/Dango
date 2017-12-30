@@ -1,5 +1,10 @@
 <?php
-require "access.php";
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+
+<?php
+require "access/access.php";
 
 $pdo;
 $ac = new Access("bbs");
@@ -83,13 +88,14 @@ EOM;
 
         <!--スレッド一覧  -->
         <table>
-          <tr><th width=70%>名前</th><th width=70%>最終更新日</th></tr>
+          <tr><th width=70%>名前</th><th width=70%>最終更新日時</th></tr>
           <?php
           $threadid = 0;
           $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
           $today = new DateTime();
           while($row = $st->fetch()){
-            $date = new DateTime(explode(" ",$row['last_modified'])[0]);
+            $datearr = explode(" ",$row['last_modified']);
+            $date = new DateTime($datearr[0]." ".$datearr[1]);
             if(!$show_all && !$system){
               $diff = date_diff($date, $today);
                 if($diff->format('%a') > 5){$threadid++;continue;}
@@ -97,7 +103,7 @@ EOM;
             echo <<<EOM
             <tr>
               <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}">{$row['name']}</a></td>
-              <td>{$date->format("Y/m/d")}</td>
+              <td>{$date->format("Y/m/d H:i:s")}</td>
             </tr>
 EOM;
 

@@ -1,5 +1,9 @@
 <?php
-  require "access.php";
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+<?php
+  require "access/access.php";
 
   $roomid = $_POST['roomid'];
   $threadid = $_POST['threadid'];

@@ -1,5 +1,9 @@
 <?php
-require "access.php";
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+<?php
+require "access/access.php";
 
 $key = key_exists("key", $_POST) ? $_POST['key']:"null";
 if(strcmp($key, "kill_olaf_rapidly") != 0)exit;

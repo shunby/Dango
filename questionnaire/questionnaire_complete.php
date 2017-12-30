@@ -1,5 +1,5 @@
 <?php
-  require "../bbs/access.php";
+  require "../bbs/access/access.php";
 
   $name = htmlspecialchars($_POST['name']);
   $gender = htmlspecialchars($_POST['gender']);
@@ -17,7 +17,6 @@
   $st = $pdo->prepare("INSERT INTO kansou VALUES(?, ?, ?, ?, ?, ?, ?)");
   $st->execute(array($name, $gender, $grade, $email, $kansou, $quality, $appearance));
 
-  $webroot = $_SERVER['DOCUMENT_ROOT'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">

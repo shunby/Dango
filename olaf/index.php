@@ -1,3 +1,8 @@
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +16,6 @@
   <meta name="viewport" content="width=device-width">
 
   <?php
-    $webroot = $_SERVER['DOCUMENT_ROOT'];
     include $webroot."/template/analytics.html"
    ?>
   <link href="index.css" rel="stylesheet" type="text/css">
@@ -40,7 +44,7 @@
            日々のネタを不定期更新する「おらふの日常」は<a href="dailyofolaf.php">こちら</a><br>
            ネットの話題をお届けする「おらふのネット情報局」は<a href="informationblog.php">こちら</a>
          </p>
-         
+
 
      </section>
    </article>

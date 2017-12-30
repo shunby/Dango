@@ -1,5 +1,9 @@
 <?php
-  require "access.php";
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+<?php
+  require "access/access.php";
 
   $pdo;
   $ac = new Access("bbs");
@@ -85,7 +89,7 @@
          <?php
           $messageid = 0;
           while($row = $st->fetch()){
-            $mail = (isset($row['mail']) && $row['mail'] != "") ? "mailto:".$row['mail'] : "" ;
+            $mail = "";
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
             echo <<<EOM
             <li>
@@ -95,7 +99,6 @@
                 </div>
                 <div class="message_info">
                   <div class="name"><a href="{$mail}">{$row['name']}</a></div>
-                  <div class="trip">#{$row['trip']}</div>
                   <div class="date">{$row['date']}</div><br/>
 EOM;
             if($editable){
@@ -120,16 +123,9 @@ EOM;
          <!--ここまで投稿------------------------>
 
        </section>
-       <section>
+       <section id="form">
          <h5>このスレッドに書き込む</h5>
          <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore();">
-           名前 :
-           <input type="text" name="name" placeholder=""></input>
-           メール:
-           <input type="text" name="mail"></input>
-           <br>パスワード :
-           <input type="text" name="trip"></input>
-           <br>
            <textarea name="message" placeholder="400字以内で入力"></textarea>
            <br>
            <input type="submit" value="投稿" id="submit"></input>
