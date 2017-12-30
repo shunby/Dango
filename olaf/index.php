@@ -35,17 +35,11 @@
       <section>
         <h1>おらふのブログ</h1>
         <p>
-
-おらふのブログのアップデートのため数日間更新をストップします<br>
-       申し訳ございません<br>
-       アップデートの詳しい情報は<a href="/olaf/updateinformation.php">こちら</a><br>
-       宿題の投稿は<a href="http://paysestbbs.webcrow.jp/bbs/messages.php?roomid=4&threadid=1">おらふのブログネタ募集スレ</a>から<br>
-     </p>
-       <ul>
-         <li><a href="/olaf/olafblog01.php">第一回</li>
-         <li><a href="/olaf/olafblog02.php">第二回</li>
-         <li><a href="/olaf/olafblog03.php">第三回</li>
-       </ul>
+           運営メンバーのおらふによるブログです<br>
+           日々のネタを不定期更新する「おらふの日常」は<a href="dailyofolaf.php">こちら</a><br>
+           ネットの話題をお届けする「おらふのネット情報局」は<a href="informationblog.php">こちら</a>
+         </p>
+         
 
      </section>
    </article>
