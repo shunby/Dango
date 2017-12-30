@@ -35,17 +35,20 @@
       <article id="main">
         <section>
           <h1>だんご三兄弟(仮)へようこそ</h1>
-          <p>
-            初めてこのサイトを閲覧される方はまず<a href="/login/register.php">ユーザ登録</a>をしてください。<br>
-            登録済みなら<a href="/login/login.php">ログイン</a>してください。
-          </p>
+
           <p>
             現在このブログはβ版です。何かあれば以下から気軽にご報告ください。
             <ul>
               <li>ページが読み込めない！・表示がおかしい！→<a href="/bbs/messages.php?roomid=0&threadid=1">問題報告等</a></li>
               <li>こんなページがほしい！・この機能つけて！→<a href="/bbs/messages.php?roomid=0&threadid=2">感想・要望板</a></li>
               <li>これどうなってるの？・誰にも知られずに相談したい→<a href="/questionnaire/questionnaire.php">お問い合わせ</a>(ログイン不要)</li>
+              <li>運営に協力したい・サイト管理をしてみたい→<a href="/maid/">メイドさん募集</a>(予定)</li>
             </ul>
+          </p>
+
+          <p>
+            <h1>運営からのお知らせ</h1>
+
           </p>
         </section>
       </article>

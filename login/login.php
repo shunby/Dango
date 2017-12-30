@@ -62,6 +62,7 @@ session_start();
           if(password_verify($password, $row['pass'])){
             session_regenerate_id(true);
             $_SESSION['name'] = $name;
+            $_SESSION['userid'] = $row['id'];
             header("Location: ../dango.php");
             return;
           }

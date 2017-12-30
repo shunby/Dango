@@ -89,7 +89,7 @@
          <?php
           $messageid = 0;
           while($row = $st->fetch()){
-            $mail = (isset($row['mail']) && $row['mail'] != "") ? "mailto:".$row['mail'] : "" ;
+            $mail = "";
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
             echo <<<EOM
             <li>
@@ -99,7 +99,6 @@
                 </div>
                 <div class="message_info">
                   <div class="name"><a href="{$mail}">{$row['name']}</a></div>
-                  <div class="trip">#{$row['trip']}</div>
                   <div class="date">{$row['date']}</div><br/>
 EOM;
             if($editable){
@@ -127,11 +126,6 @@ EOM;
        <section id="form">
          <h5>このスレッドに書き込む</h5>
          <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore();">
-           ニックネーム :
-           <input type="text" name="name" placeholder=""></input>
-           <br>パスワード :
-           <input type="text" name="trip"></input>
-           <br>
            <textarea name="message" placeholder="400字以内で入力"></textarea>
            <br>
            <input type="submit" value="投稿" id="submit"></input>

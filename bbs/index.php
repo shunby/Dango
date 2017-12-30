@@ -79,13 +79,23 @@ $st = $pdo->query($search);
         </form>
         <!--部屋-->
         <table>
-          <tr><th>名前</th><th>タイプ</th></tr>
+          <tr><th width=70%>名前</th><th>タイプ</th><th>最終更新日時</th></tr>
           <?php
           $roomid = 0;
+
           while($row = $st->fetch()){
-            echo "<tr><td><a href=\"threads.php?roomid={$roomid}\">{$row['name']}</a></td><td>{$row['type']}</td></tr>";
+            $datearr = explode(" ",$row['last_modified']);
+            $date = new DateTime($datearr[0]." ".$datearr[1]);
+            echo <<<EOM
+            <tr>
+              <td><a href="threads.php?roomid={$roomid}">{$row['name']}</a></td>
+              <td>{$row['type']}</td>
+              <td>{$date->format("Y/m/d H:i:s")}</td>
+            </tr>
+EOM;
             $roomid++;
           }
+
           ?>
         </table>
 
