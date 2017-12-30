@@ -46,5 +46,6 @@
         まあこれはネットの世界では最も有名な住所ですからねえ...<br>
       　ハセカラ騒動についていつかゆっくり語りましょうかねえ...<br>
     </p>
+    <?php include $webroot."/template/footer.html" ?>
 </body>
 </html>
