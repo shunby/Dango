@@ -1,10 +1,3 @@
-<!-- オラフへ
-この"olaf"フォルダの中身は好きにしてくれて大丈夫です。このメッセージも消してもらって構いません。
-ただし、サイトに統一感を出すために守ってほしいことがあります。
-1. サイトの大枠はtemplate/template.phpをもとにしてください。
-2. ページの拡張子は.phpにしてください。php以外にするとPHPのコードが動作しません。
--->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +46,7 @@
          <li><a href="/olaf/olafblog02.php">第二回</li>
          <li><a href="/olaf/olafblog03.php">第三回</li>
        </ul>
->>>>>>> master
+
      </section>
    </article>
 
