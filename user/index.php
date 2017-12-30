@@ -70,6 +70,11 @@
         ?>
         <h2><?php echo $name."のユーザーページ" ?></h2>
         <p>ユーザid: <?php echo $id ?></p>
+        <p>タイプ: <?php
+          require "../core/admins.php";
+          echo Admins::getRole($id);
+
+        ?></p>
         <div>
           <h1>お知らせ</h1>
           <ul id="note">
