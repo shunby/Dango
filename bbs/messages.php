@@ -10,7 +10,7 @@
   if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
   else $pdo = new PDO($ac->dsn, $ac->username);
 
-   $search = "select * from message where 1";
+   $search = "select * from message where deleted!=1";
 
    if(array_key_exists('roomid', $_GET) &&  $_GET['roomid'] != "-1"){
      $search = $search." AND roomid= ".$_GET['roomid'];
@@ -34,7 +34,9 @@
    while($row = $st1->fetch()){
      $threadName = $row['name'];
    }
-   $editable = key_exists("d", $_GET) && strcmp($_GET['d'], "olaf_killer") == 0;
+   require "../core/admins.php";
+   $role = Admins::getRole($_SESSION['userid']);
+   $editable = strcmp($role, "一般ユーザー") != 0;
 ?>
 
 <!DOCTYPE html>
