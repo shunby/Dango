@@ -90,8 +90,14 @@
          <ul class="messages">
          <?php
           $messageid = 0;
+          $statement =$pdo->prepare("SELECT * FROM user where name=?");
           while($row = $st->fetch()){
+            $statement->execute(array($row['name']));
             $mail = "";
+            if($postusr = $statement->fetch()){
+                $mail = "/user/?userid=".$postusr['id'];
+            }
+
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
             echo <<<EOM
             <li>
