@@ -55,6 +55,9 @@
           if(strcmp($_POST['name'], $trimmed) != 0){
             $msg = "※ユーザー名の前後に空白文字を入れないでください！";
             return;
+          }else if(strlen($_POST['name']) > 20){
+            $msg = "※ユーザー名は20文字以内にしてください！";
+            return;
           }
 
           if($_POST['password'] !== $_POST['re_password']){
