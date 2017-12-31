@@ -2,6 +2,48 @@
 require "../bbs/access/access.php";
 session_start();
 ?>
+<?php
+$msg = "";
+
+function login(){
+  global $msg;
+  if(isset($_POST['login'])){
+    if(empty($_POST['name'])){
+      $msg =  "※ユーザー名が未入力です！";
+      return;
+    }else if(empty($_POST['password'])){
+      $msg =  "※パスワードが未入力です！";
+      return;
+    }
+    //入力確認完了
+
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
+
+    $statement = $pdo->query("select * from user WHERE name='".$name."'");
+
+    if($row = $statement->fetch(PDO::FETCH_ASSOC)){//ユーザー名が合致したか
+      if(password_verify($password, $row['pass'])){
+        session_regenerate_id(true);
+        $_SESSION['name'] = $name;
+        $_SESSION['userid'] = $row['id'];
+        header("Location: ../index.php");
+        return;
+      }
+    }
+    $msg =  "※ユーザー名またはパスワードが間違っています！";
+    return;
+  }
+}
+login();
+
+
+?>
 <!DOCTYPE html>
 <!--テンプレート-->
 <html>
@@ -33,48 +75,7 @@ session_start();
   </head>
 
   <body>
-    <?php
-    $msg = "";
 
-    function login(){
-      global $msg;
-      if(isset($_POST['login'])){
-        if(empty($_POST['name'])){
-          $msg =  "※ユーザー名が未入力です！";
-          return;
-        }else if(empty($_POST['password'])){
-          $msg =  "※パスワードが未入力です！";
-          return;
-        }
-        //入力確認完了
-
-        $name = $_POST['name'];
-        $password = $_POST['password'];
-
-        $pdo;
-        $ac = new Access("bbs");
-        if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-        else $pdo = new PDO($ac->dsn, $ac->username);
-
-        $statement = $pdo->query("select * from user WHERE name='".$name."'");
-
-        if($row = $statement->fetch(PDO::FETCH_ASSOC)){//ユーザー名が合致したか
-          if(password_verify($password, $row['pass'])){
-            session_regenerate_id(true);
-            $_SESSION['name'] = $name;
-            $_SESSION['userid'] = $row['id'];
-            header("Location: ../index.php");
-            return;
-          }
-        }
-        $msg =  "※ユーザー名またはパスワードが間違っています！";
-        return;
-      }
-    }
-    login();
-
-
-    ?>
 
     <div id="content">
       <div id="content">
