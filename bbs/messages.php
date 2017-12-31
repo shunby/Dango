@@ -112,7 +112,7 @@ EOM;
             if($editable){
               //削除フォーム
               echo <<<EOM
-                  <form name="delete_form" action="delete_message.php" method="post">
+                  <form name="delete_form" action="delete_message.php" method="post" onsubmit="return window.confirm('本当に削除しますか？')">
                     <input type="submit" value="削除" id="submit">
                     <input type="hidden" name="key" value="kill_olaf_rapidly"></input>
                     <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
