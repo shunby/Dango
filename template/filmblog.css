@@ -1,5 +1,6 @@
 .s1{
   border-bottom: 2px solid #217fc4;
+  clear:both;
 }
 
 iframe{
@@ -8,10 +9,22 @@ iframe{
 
 .subunit{
   width: 400px;
-  font-size: 15px;
+  height:auto;
+  font-size: 1.6rem;
   float: right;
 }
 
+@media only screen and (min-width:768px){
+  .subunit{
+    font-size:15px;
+  }
+}
+
+
 .unit{
   margin-bottom: 100px;
+  height:auto;
+}
+#for_clear{
+  clear:both;
 }

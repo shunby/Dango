@@ -44,6 +44,7 @@
        }
 
        ?>
+       <div id="for_clear"></div>
     </main>
     <?php include "../template/footer.html" ?>
    </div>
