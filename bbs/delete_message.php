@@ -6,7 +6,7 @@
 require "access/access.php";
 
 require "../core/admins.php";
-$role = Admins::getRole($_SESSION['userid']);
+$role = Admins::getRole($_SESSION['user']['id']);
 if(strcmp($role, "一般ユーザー") == 0)exit;
 
 $messageid = key_exists("messageid", $_POST) ? $_POST['messageid'] : null;

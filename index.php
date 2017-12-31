@@ -57,8 +57,8 @@
               if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
               else $pdo = new PDO($ac->dsn, $ac->username);
 
-              if(isset($_SESSION['userid'])){
-                $role = Admins::getRole($_SESSION['userid']);
+              if(isset($_SESSION['user']['id'])){
+                $role = Admins::getRole($_SESSION['user']['id']);
                 if(strcmp($role, "一般ユーザー") != 0){
 
 
@@ -69,7 +69,7 @@
                   echo <<<EOM
                   <form action=" " method="POST">
                     <input type="text" name="news"></input>
-                    <input type="hidden" name="user" value="{$_SESSION['userid']}"></input>
+                    <input type="hidden" name="user" value="{$_SESSION['user']['id']}"></input>
                     <input type="submit" value="投稿"></input>
                   </form>
 EOM;

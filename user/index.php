@@ -58,8 +58,8 @@
             $name = $user['name'];
             $note = unserialize($user['note']);
           }else{
-            $id = $_SESSION['userid'];
-            $name = $_SESSION['name'];
+            $id = $_SESSION['user']['id'];
+            $name = $_SESSION['user']['name'];
             $statement = $pdo->query("SELECT * from user where id=".$id);
             $note = unserialize($statement->fetch()['note']);
           }
@@ -95,13 +95,13 @@
             ?>
           </ul>
           <?php
-            $role = Admins::getRole($_SESSION['userid']);
-            if(strcmp($role, "一般ユーザー") != 0 || strcmp($name, $_SESSION['name']) == 0){
+            $role = Admins::getRole($_SESSION['user']['id']);
+            if(strcmp($role, "一般ユーザー") != 0 || strcmp($name, $_SESSION['user']['name']) == 0){
               echo <<<EOM
               お知らせにはあなた自身かメイドさんと運営しか投稿できません。
               <form name="post_msg" action=" " method="POST">
                 <textarea style="width:80%; height:200px;" name="msg"></textarea>
-                <input type="hidden" name="post_usr" value="{$_SESSION['name']}"></input>
+                <input type="hidden" name="post_usr" value="{$_SESSION['user']['name']}"></input>
                 <input type="submit" value="投稿"></input>
               </form>
 

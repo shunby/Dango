@@ -35,7 +35,7 @@
      $threadName = $row['name'];
    }
    require "../core/admins.php";
-   $role = Admins::getRole($_SESSION['userid']);
+   $role = Admins::getRole($_SESSION['user']['id']);
    $editable = strcmp($role, "一般ユーザー") != 0;
 ?>
 

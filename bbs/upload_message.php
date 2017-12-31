@@ -30,7 +30,7 @@
     " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
   $st = $pdo->prepare($sql);
-  $st->execute(array(htmlspecialchars($_POST['roomid']), htmlspecialchars($_POST['threadid']), $msgid, htmlspecialchars($_SESSION['name']),
+  $st->execute(array(htmlspecialchars($_POST['roomid']), htmlspecialchars($_POST['threadid']), $msgid, htmlspecialchars($_SESSION['user']['name']),
               htmlspecialchars($_POST['date']), $message, 0,
               htmlspecialchars($_SERVER["REMOTE_ADDR"]), htmlspecialchars($host), htmlspecialchars($_SERVER['HTTP_USER_AGENT'])));
 

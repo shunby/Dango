@@ -30,8 +30,8 @@ function login(){
     if($row = $statement->fetch(PDO::FETCH_ASSOC)){//ユーザー名が合致したか
       if(password_verify($password, $row['pass'])){
         session_regenerate_id(true);
-        $_SESSION['name'] = $name;
-        $_SESSION['userid'] = $row['id'];
+        $user = array('name' => $name,'id'=> $row['id'],'point'=> $row['point']);
+        $_SESSION['user'] = $user;
         header("Location: ../index.php");
         return;
       }
