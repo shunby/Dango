@@ -51,6 +51,12 @@
             return;
           }
 
+          $trimmed = trim(mb_convert_kana($_POST['name'], "s",'UTF-8'));
+          if(strcmp($_POST['name'], $trimmed) != 0){
+            $msg = "※ユーザー名の前後に空白文字を入れないでください！";
+            return;
+          }
+
           if($_POST['password'] !== $_POST['re_password']){
             $msg = "※パスワードは二度とも同じものを入力してください！";
             return;
