@@ -97,7 +97,16 @@
     <link>/blog/11.php</link>
     <date>2017/12/25</date>
     <tags>
-      <tag>栄東</tag>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
+  <blog>
+    <id>12</id>
+    <title>あけましたねこです。</title>
+    <link>/blog/12.php</link>
+    <date>2018/01/01</date>
+    <tags>
+      <tag>雑記</tag>
     </tags>
   </blog>
 </blogs>
