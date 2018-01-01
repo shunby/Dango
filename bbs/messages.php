@@ -1,9 +1,11 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  require_once $webroot."/core/user_util.php";
+  require_once "access/access.php";
+  include $webroot."/template/check_login.php";
  ?>
 <?php
-  require "access/access.php";
+
 
   $pdo;
   $ac = new Access("bbs");
@@ -34,8 +36,8 @@
    while($row = $st1->fetch()){
      $threadName = $row['name'];
    }
-   require "../core/admins.php";
-   $role = Admins::getRole($_SESSION['userid']);
+
+   $role = $_SESSION['user']->getRole();
    $editable = strcmp($role, "一般ユーザー") != 0;
 ?>
 
@@ -112,7 +114,7 @@ EOM;
             if($editable){
               //削除フォーム
               echo <<<EOM
-                  <form name="delete_form" action="delete_message.php" method="post">
+                  <form name="delete_form" action="delete_message.php" method="post" onsubmit="return window.confirm('本当に削除しますか？')">
                     <input type="submit" value="削除" id="submit">
                     <input type="hidden" name="key" value="kill_olaf_rapidly"></input>
                     <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
