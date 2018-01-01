@@ -22,7 +22,7 @@ $statement->execute(array($messageid));
 
 $sql = "INSERT INTO `admin_action`(`userid`, `act`) VALUES (?, ?)";
 $statement = $pdo->prepare($sql);
-$statement->execute(array($_SESSION['user']->id, "掲示板 削除 #".$messageid);
+$statement->execute(array($_SESSION['user']->id, "掲示板 削除 #".$messageid));
 
 echo "削除しました";
 exit();
