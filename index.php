@@ -24,7 +24,39 @@ session_start(); ?>
     <link href="/template/main.css" rel="stylesheet" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
+    <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
+    <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
     <link href="" rel="shortcut icon">
+
+    <!--ここからブログ記事呼び出し処理-->
+    <?php
+      $blogs = simplexml_load_file("blog/blogs.xml");
+
+      $current_max = NULL;//検索した中での最新
+      $current_next = NULL;//検索した中での二番手
+      foreach($blogs->blog as $blog_elem){
+        if(is_null($current_max) || ($current_max->id+0 < $blog_elem->id+0)){
+          //まだ何も検索していないか、検索した中の最新よりも新しいものを見つけたら、最新を置き換える
+          $current_next = $current_max;
+          $current_max = $blog_elem;
+        }
+      }
+      $id = $current_max->id;
+      //javascriptの変数としてURL/タイトル/日付を記録
+      echo <<<EOM
+      <script>
+        var blog_url = "{$current_max->link}";
+        var blog_title = "{$current_max->title}";
+        var blog_date = "{$current_max->date}";
+        var next_url = "{$current_next->link}";
+        var next_title = "{$current_next->title}"
+      </script>
+EOM;
+     ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <?php require "load_blog_top.php"?>
+    <!--ここまでブログ記事呼び出し処理-->
+
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -37,7 +69,16 @@ session_start(); ?>
       <?php include $webroot."/template/navi.html" ?>
       <article id="main">
         <section>
-          <h1>だんご三兄弟(仮)へようこそ</h1>
+          <h2>まずは最新のブログ記事をどうぞ</h2>
+          <div class="blog_top">
+            <div class="blog_content">
+              <!---ここにブログ記事の内容を表示-->
+            </div>
+            <a href="/blog/index.php" style="text-decoration: none;text-align: right;display: block;margin-right: 20px;">ブログ目次へ</a>
+          </div>
+        </section>
+        <section>
+          <h1 style="display:inline;">だんご三兄弟(仮)へようこそ</h1>
 
           <p>
             現在このブログはβ版です。何かあれば以下から気軽にご報告ください。
@@ -45,7 +86,7 @@ session_start(); ?>
               <li>ページが読み込めない！・表示がおかしい！→<a href="/bbs/messages.php?roomid=0&threadid=1">問題報告等</a></li>
               <li>こんなページがほしい！・この機能つけて！→<a href="/bbs/messages.php?roomid=0&threadid=2">感想・要望板</a></li>
               <li>これどうなってるの？・誰にも知られずに相談したい→<a href="/questionnaire/questionnaire.php">お問い合わせ</a>(ログイン不要)</li>
-              <li>運営に協力したい・サイト管理をしてみたい→<a href="/maid/">メイドさん募集</a>(予定)</li>
+              <li>運営に協力したい・サイト管理をしてみたい→<a href="/maid/">メイドさん募集</a></li>
             </ul>
           </p>
 
@@ -83,13 +124,17 @@ EOM;
 
               $statement = $pdo->query("SELECT * from news WHERE 1 ORDER BY newsid desc");
               echo "<ul>";
+              $i = 0;
               while($row = $statement->fetch()) {
                 echo <<<EOM
-                <li>
+                <li class="news">
                   {$row['news']}
                 </li>
 EOM;
+                if($i >= 10)break;
+                $i++;
               }
+              $statement->closeCursor();
               echo "</ul>";
 
              ?>
