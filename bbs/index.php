@@ -3,7 +3,7 @@
   include $webroot."/template/check_login.php"
  ?>
 <?php
-require "access/access.php";
+require_once "access/access.php";
 
 $pdo;
 
