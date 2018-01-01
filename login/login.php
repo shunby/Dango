@@ -1,5 +1,6 @@
 <?php
-require "../bbs/access/access.php";
+require_once "../bbs/access/access.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/core/user_util.php";
 session_start();
 ?>
 <?php
@@ -30,7 +31,13 @@ function login(){
     if($row = $statement->fetch(PDO::FETCH_ASSOC)){//ユーザー名が合致したか
       if(password_verify($password, $row['pass'])){
         session_regenerate_id(true);
-        $user = array('name' => $name,'id'=> $row['id'],'point'=> $row['point']);
+
+        $user = new User($row['id']);
+        if($user->isBlocked()){
+          $msg="※あなたは".$user->block_until->format("Y/m/d H:i:s").
+                        "までブロックされているため、アクセスできません。";
+          return;
+        }
         $_SESSION['user'] = $user;
         header("Location: ../index.php");
         return;

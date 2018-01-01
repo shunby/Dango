@@ -1,7 +1,9 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
+  require_once "../bbs/access/access.php";
+  require_once $webroot."/core/user_util.php";
   include $webroot."/template/check_login.php";
-  require "../bbs/access/access.php";
+
  ?>
 
 <!DOCTYPE html>
@@ -40,71 +42,97 @@
     <article id="main">
       <section>
         <?php
-          $name;$id;$note;
-
-          $pdo;
-          $ac = new Access("bbs");
-          if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-          else $pdo = new PDO($ac->dsn, $ac->username);
+          $user = null;
 
           if(isset($_GET['userid'])){
-            $id = $_GET['userid'];
-            $statement = $pdo->query("SELECT * from user where id=".$id);
-            $user = $statement->fetch();
-            if(!$user){
-              echo "該当するユーザは存在しません";
-              exit;
-            }
-            $name = $user['name'];
-            $note = unserialize($user['note']);
+            $user = new User($_GET['userid']);
           }else{
-            $id = $_SESSION['user']['id'];
-            $name = $_SESSION['user']['name'];
-            $statement = $pdo->query("SELECT * from user where id=".$id);
-            $note = unserialize($statement->fetch()['note']);
+            $user = $_SESSION['user'];
           }
-          if(empty($note)){
-            $note = array();
+          if(empty($user)){
+            echo "該当するユーザーは存在しません。";
+            exit;
           }
-          $statement->closeCursor();
         ?>
-        <h2><?php echo $name."のユーザーページ" ?></h2>
-        <p>ユーザid: <?php echo $id ?></p>
+        <h2><?php echo $user->name."のユーザーページ" ?></h2>
+        <p>ユーザid: <?php echo $user->id ?></p>
         <p>タイプ: <?php
-          require "../core/admins.php";
-          echo Admins::getRole($id);
+          echo $user->getRole();
+          ?>
+        </p>
+        <p>
+          ポイント: <?php
+          $adminFlag = strcmp($_SESSION['user']->getRole(), "一般ユーザー") != 0;//一般ユーザー以外
 
-        ?></p>
+          if($adminFlag && isset($_POST['point'])){
+            $point_temp = $user->point;
+            $user->point -= $_POST['point'];
+
+            if($point_temp > 0 && $user->point <= 0){
+              $user->block_until = new DateTime("2038-01-19 03:14:07");
+            }else if($point_temp > 5 && $user->point <= 5){
+              $now = new DateTime();
+              $user->block_until = $now->modify('+1 months');
+            }
+
+            $user->push();
+
+            $pdo;
+            $ac = new Access("bbs");
+            if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+            else $pdo = new PDO($ac->dsn, $ac->username);
+
+            $sql = "INSERT INTO `admin_action`(`userid`, `act`) VALUES (?, ?)";
+            $statement = $pdo->prepare($sql);
+            $statement->execute(array($_SESSION['user']->id, $user->name."(ID".$user->id.")"."を".$_POST['point']."点減点"));
+
+          }
+
+          echo $user->point;
+
+          if($user->isBlocked()) echo $user->block_until->format("（Y/m/d H:i:s までブロック）");
+
+          ?>
+        </p>
+        <?php
+
+          if($adminFlag){
+            echo <<<EOM
+            <form action=" " method="POST" name="point">
+              <input type="text" name="point"></input>
+              <input type="submit" value="減点" onsubmit="return confirm('本当に減点しますか?')"></input>
+            </form>
+EOM;
+
+          }
+        ?>
+
+
         <div>
           <h1>お知らせ</h1>
           <ul id="note">
             <?php
               if(isset($_POST['msg'])){
                 $post = $_POST['msg'];
-                $note[count($note)] = "<b>".$_POST['post_usr']."</b><br>".nl2br(htmlspecialchars($post));
-
-                $statement = $pdo->prepare("UPDATE user SET note = ? WHERE id = ?");
-                $statement->execute(array(serialize($note), $id));
-                $statement->closeCursor();
+                $user->note[count($user->note)] = "<b>".$_POST['post_usr']."</b><br>".nl2br(htmlspecialchars($post));
+                $user->push();
 
                 $_POST = array();
               }
-              foreach($note as $msg){
+              foreach($user->note as $msg){
                   echo "<li><p>{$msg}</p></li>";
               }
             ?>
           </ul>
           <?php
-            $role = Admins::getRole($_SESSION['user']['id']);
-            if(strcmp($role, "一般ユーザー") != 0 || strcmp($name, $_SESSION['user']['name']) == 0){
+            if($adminFlag || $user->id == $_SESSION['user']->id){
               echo <<<EOM
               お知らせにはあなた自身かメイドさんと運営しか投稿できません。
               <form name="post_msg" action=" " method="POST">
                 <textarea style="width:80%; height:200px;" name="msg"></textarea>
-                <input type="hidden" name="post_usr" value="{$_SESSION['user']['name']}"></input>
+                <input type="hidden" name="post_usr" value="{$_SESSION['user']->name}"></input>
                 <input type="submit" value="投稿"></input>
               </form>
-
 EOM;
             }
            ?>

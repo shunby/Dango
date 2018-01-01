@@ -1,9 +1,9 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  require_once $webroot."/core/user_util.php";
+  include $webroot."/template/check_login.php";
  ?>
 <?php
-  require "access/access.php";
 
   $message = nl2br(htmlspecialchars($_POST['message']));
 
@@ -24,13 +24,13 @@
 
 
 
-  $sql = "INSERT INTO `message`(`roomid`, `threadid`, `messageid`, `name`,".
+  $sql = "INSERT INTO `message`(`roomid`, `threadid`, `messageid`, `name`, `userid`,".
     "`date`, `message`, `deleted`,".
     " `ipaddress`, `remotehost`, `useragent`)".
-    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
   $st = $pdo->prepare($sql);
-  $st->execute(array(htmlspecialchars($_POST['roomid']), htmlspecialchars($_POST['threadid']), $msgid, htmlspecialchars($_SESSION['user']['name']),
+  $st->execute(array(htmlspecialchars($_POST['roomid']), htmlspecialchars($_POST['threadid']), $msgid, htmlspecialchars($_SESSION['user']->name), $_SESSION['user']->id,
               htmlspecialchars($_POST['date']), $message, 0,
               htmlspecialchars($_SERVER["REMOTE_ADDR"]), htmlspecialchars($host), htmlspecialchars($_SERVER['HTTP_USER_AGENT'])));
 

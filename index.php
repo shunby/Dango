@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+require_once $_SERVER['DOCUMENT_ROOT']."/core/user_util.php";
+session_start(); ?>
 <!DOCTYPE html>
 <!--テンプレート-->
 <html>
@@ -50,26 +52,29 @@
           <p>
             <h1>運営からのお知らせ</h1>
             <?php
-              require $webroot."/core/admins.php";
-              require $webroot."/bbs/access/access.php";
+              require_once $webroot."/bbs/access/access.php";
               $pdo;
               $ac = new Access("bbs");
               if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
               else $pdo = new PDO($ac->dsn, $ac->username);
 
-              if(isset($_SESSION['user']['id'])){
-                $role = Admins::getRole($_SESSION['user']['id']);
+              if(isset($_SESSION['user'])){
+                $role = $_SESSION['user']->getRole();
                 if(strcmp($role, "一般ユーザー") != 0){
 
 
                   if(isset($_POST['news'])){
                     $statement = $pdo->prepare("INSERT INTO `news`(`news`, `user`) VALUES (?,?)");
                     $statement->execute(array($_POST['news'], $_POST['user']));
+
+                    $sql = "INSERT INTO `admin_action`(`userid`, `act`) VALUES (?, ?)";
+                    $statement = $pdo->prepare($sql);
+                    $statement->execute(array($_SESSION['user']->id, "お知らせ 追加:".$_POST['news']));
                   }
                   echo <<<EOM
                   <form action=" " method="POST">
                     <input type="text" name="news"></input>
-                    <input type="hidden" name="user" value="{$_SESSION['user']['id']}"></input>
+                    <input type="hidden" name="user" value="{$_SESSION['user']->id}"></input>
                     <input type="submit" value="投稿"></input>
                   </form>
 EOM;

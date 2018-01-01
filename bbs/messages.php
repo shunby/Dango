@@ -1,9 +1,11 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  require_once $webroot."/core/user_util.php";
+  require_once "access/access.php";
+  include $webroot."/template/check_login.php";
  ?>
 <?php
-  require "access/access.php";
+
 
   $pdo;
   $ac = new Access("bbs");
@@ -34,8 +36,8 @@
    while($row = $st1->fetch()){
      $threadName = $row['name'];
    }
-   require "../core/admins.php";
-   $role = Admins::getRole($_SESSION['user']['id']);
+
+   $role = $_SESSION['user']->getRole();
    $editable = strcmp($role, "一般ユーザー") != 0;
 ?>
 

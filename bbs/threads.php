@@ -1,10 +1,10 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  require_once $webroot."/core/user_util.php";
+  include $webroot."/template/check_login.php";
  ?>
 
 <?php
-require "access/access.php";
 
 $pdo;
 $ac = new Access("bbs");
@@ -88,7 +88,11 @@ EOM;
 
         <!--スレッド一覧  -->
         <table>
-          <tr><th width=70%>名前</th><th width=70%>最終更新日時</th></tr>
+          <?php
+          $role = $_SESSION['user']->getRole();
+          $isadmin = strcmp($role, "一般ユーザー") != 0 ?>
+
+          <tr><th width=70%>名前</th><th width=70%>最終更新日時</th><?php if($isadmin)echo "<th>作成者のID</th>";  ?></tr>
           <?php
           $threadid = 0;
           $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
@@ -104,8 +108,9 @@ EOM;
             <tr>
               <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}">{$row['name']}</a></td>
               <td>{$date->format("Y/m/d H:i:s")}</td>
-            </tr>
 EOM;
+            if($isadmin)echo "<td>{$row['userid']}</td>";
+            echo "</tr>";
 
 
             $threadid++;

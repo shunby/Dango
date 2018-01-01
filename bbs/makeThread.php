@@ -1,9 +1,9 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/core/user_util.php";
   include $webroot."/template/check_login.php"
  ?>
 <?php
-  require "access/access.php";
 
   $roomid = $_POST['roomid'];
   $threadid = $_POST['threadid'];
@@ -20,8 +20,8 @@
   if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
   else $pdo = new PDO($ac->dsn, $ac->username);
 
-  $st = $pdo->prepare("INSERT INTO `thread`(`roomid`, `threadid`, `name`, `last_modified`, `settings`, `canbedeleted`, `deleted`) VALUES (?,?,?,?,?,?,?)");
-  $st->execute(array($roomid, $threadid, $name, $last_modified,$settings, $canbedeleted, $deleted));
+  $st = $pdo->prepare("INSERT INTO `thread`(`roomid`, `threadid`, `name`, `last_modified`, `settings`, `canbedeleted`, `deleted`, `userid`) VALUES (?,?,?,?,?,?,?,?)");
+  $st->execute(array($roomid, $threadid, $name, $last_modified,$settings, $canbedeleted, $deleted, $_SESSION['user']->id));
   header("Location: messages.php?roomid={$roomid}&threadid={$threadid}");
   exit();
 ?>
