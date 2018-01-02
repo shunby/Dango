@@ -22,6 +22,9 @@ if(array_key_exists('roomid', $_GET) &&  $_GET['roomid'] != "-1"){
 if(array_key_exists('name', $_GET) &&  $_GET['name'] != ""){
   $search = $search." AND name LIKE '%".$_GET['name']."%'";
 }
+
+$search = $search." order by threadid asc";
+
 $st = $pdo->query($search);
 
 $st1 = $pdo->query("select * from chatroom where roomid=".$_GET['roomid']);
@@ -94,7 +97,6 @@ EOM;
 
           <tr><th width=70%>名前</th><th width=70%>最終更新日時</th><?php if($isadmin)echo "<th>作成者のID</th>";  ?></tr>
           <?php
-          $threadid = 0;
           $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
           $today = new DateTime();
           while($row = $st->fetch()){
@@ -102,18 +104,17 @@ EOM;
             $date = new DateTime($datearr[0]." ".$datearr[1]);
             if(!$show_all && !$system){
               $diff = date_diff($date, $today);
-                if($diff->format('%a') > 5){$threadid++;continue;}
+                if($diff->format('%a') > 5)continue;
             }
             echo <<<EOM
             <tr>
-              <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}">{$row['name']}</a></td>
+              <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$row['threadid']}">{$row['name']}</a></td>
               <td>{$date->format("Y/m/d H:i:s")}</td>
 EOM;
             if($isadmin)echo "<td>{$row['userid']}</td>";
             echo "</tr>";
 
 
-            $threadid++;
           }
           ?>
         </table>
