@@ -40,6 +40,10 @@
         ・水曜　ネット上で以前有名になったこと<br>
         ・日曜　一週間のネットニュースまとめ<br>
     </p>
+    <p>
+      <ul>
+        <li><a href="information01.php">炎上してバカッターの末路</a>
+      </ul>
   </section>
 </article>
 
