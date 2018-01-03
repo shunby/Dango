@@ -42,7 +42,7 @@
     </p>
     <p>
       <ul>
-        <li><a href="information01.php">炎上してバカッターの末路</a>
+        <li><a href="information01.php">炎上したバカッターの末路</a>
       </ul>
   </section>
 </article>
