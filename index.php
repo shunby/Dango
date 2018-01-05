@@ -21,11 +21,12 @@ session_start(); ?>
     <link href="index.css" rel="stylesheet" type="text/css">
     <link href="/template/header.css" rel="stylesheet" type="text/css">
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
-    <link href="/template/main.css" rel="stylesheet" type="text/css">
-    <link href="/template/content.css" rel="stylesheet" type="text/css">
+    <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/template/content.css" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
     <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
+    <link rel="stylesheet" href="/template/sideber.css" type="text/css">
     <link href="" rel="shortcut icon">
 
     <!--ここからブログ記事呼び出し処理-->
@@ -67,7 +68,8 @@ EOM;
     <div id="content">
       <?php include $webroot."/template/header.html" ?>
       <?php include $webroot."/template/navi.html" ?>
-      <article id="main">
+      <?php include $webroot."/template/sideber.php" ?>
+      <article id="sidemain">
         <section>
           <h2>まずは最新のブログ記事をどうぞ</h2>
           <div class="blog_top">
@@ -141,8 +143,6 @@ EOM;
           </p>
         </section>
       </article>
-
-      <?php include $webroot."/template/footer.html" ?>
 
     </div>
   </body>

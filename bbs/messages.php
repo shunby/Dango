@@ -159,7 +159,7 @@ EOM;
 
 
 
-     <?php include "../template/footer.html" ?>
+
      <?php
       echo '<script type="text/javascript">';
       require "message.js";

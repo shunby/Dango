@@ -72,7 +72,6 @@
         特定のスペシャリスト集団「なんj民」について話そうかと思います。では皆様、ごきげんよう。<br>
       </p>
     </main>
-    <?php include $webroot."/template/footer.html" ?>
   </div>
 </body>
 </html>

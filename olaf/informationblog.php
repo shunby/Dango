@@ -21,9 +21,10 @@
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
-  <link href="/template/main.css" rel="stylesheet" type="text/css">
+  <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +36,8 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <article id="main">
+    <?php include $webroot."/template/sideber.php" ?>
+    <article id="sidemain">
       <section>
       <p>
         <h1>おらふのネット情報局</h1>
@@ -44,14 +46,10 @@
         ・水曜　ネット上で以前有名になったこと<br>
         ・日曜　一週間のネットニュースまとめ<br>
     </p>
-    <p>
-      <ul>
-        <li><a href="information01.php">炎上したバカッターの末路</a>
-      </ul>
   </section>
 </article>
 
-<?php include $webroot."/template/footer.html" ?>
+
 
 </div>
 

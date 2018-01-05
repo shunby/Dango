@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blogs>
-
   <blog>
     <id>1</id>
     <title>ブログの紹介!</title>
-    <link>/blog/01.php</link>
+    <link>/blog/1.php</link>
     <date>2017/12/15</date>
     <tags>
       <tag>アップデートヒストリー</tag>
@@ -13,7 +12,7 @@
   <blog>
     <id>2</id>
     <title>掲示板について</title>
-    <link>/blog/02.php</link>
+    <link>/blog/2.php</link>
     <date>2017/12/15</date>
     <tags>
       <tag>アップデートヒストリー</tag>
@@ -22,7 +21,7 @@
   <blog>
     <id>3</id>
     <title>記事応募について</title>
-    <link>/blog/03.php</link>
+    <link>/blog/3.php</link>
     <date>2017/12/17</date>
     <tags>
       <tag>アップデートヒストリー</tag>
@@ -31,7 +30,7 @@
   <blog>
     <id>4</id>
     <title>ねこがandroidアプリ開発するかもしれない記その1</title>
-    <link>/blog/04.php</link>
+    <link>/blog/4.php</link>
     <date>2017/12/17</date>
     <tags>
       <tag>趣味</tag>
@@ -40,7 +39,7 @@
   <blog>
     <id>5</id>
     <title>おらふのブログ開設にあたって</title>
-    <link>/blog/05.php</link>
+    <link>/blog/5.php</link>
     <date>2017/12/18</date>
     <tags>
       <tag>趣味</tag>
@@ -49,7 +48,7 @@
   <blog>
     <id>6</id>
     <title>ねこのandroidアプリ開発記その2</title>
-    <link>/blog/06.php</link>
+    <link>/blog/6.php</link>
     <date>2017/12/20</date>
     <tags>
       <tag>趣味</tag>
@@ -58,7 +57,7 @@
   <blog>
     <id>7</id>
     <title>掲示板アップデート情報</title>
-    <link>/blog/07.php</link>
+    <link>/blog/7.php</link>
     <date>2017/12/23</date>
     <tags>
       <tag>アップデートヒストリー</tag>
@@ -76,7 +75,7 @@
   <blog>
     <id>9</id>
     <title>いいねボタンの追加</title>
-    <link>/blog/09.php</link>
+    <link>/blog/9.php</link>
     <date>2017/12/23</date>
     <tags>
       <tag>アップデートヒストリー</tag>

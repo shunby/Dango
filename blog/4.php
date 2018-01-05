@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  // include $webroot."/template/check_login.php"
+  include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -38,41 +38,26 @@
       ?>
       <?php include $webroot."/template/navi.html" ?>
       <?php include $webroot."/template/sideber.php" ?>
-
       <div id="sidemain">
         <?php include $webroot."/template/blog/before.php" ?>
 
-
         <?php
-          $id = 12;
+          $id = 4;
          ?>
 
         <!--ここから本文-->
         <div class="main-main">
           <p>
-            お久しぶりのねこです。年が明けましたね。
+            ねこです。スマホを買いました。OSはandroid。<br>
+            せっかくなので、アプリでも作ってみようと思い立ちました。<br>
+            思い立っただけなので、何を作るのかもまだ決まっていません。<br>
+            以上です。
           </p>
-          <p>
-            皆さん、つつがない感じのお正月を迎えておられますでしょうか。それとも、課題に追われていらっしゃるのでしょうか。
-            私は、課題を無視しながらつつがなくお正月を迎えております。
-          </p>
-          <p>
-            新年の目標はもう立てましたか？まだ立ててないですか？それとも立てる予定もないですか？
-            私の目標は「課題を溜めない」です。なんだかぱっと見いい感じの目標ですが、ちょっと考えてみるとなんかあれですね。
-          </p>
-          <p>
-            それだけならまあ良いんですが、それだけじゃないんです。実はこの目標、毎年、毎月、毎週、毎日立てております。
-            いつも期日ギリギリまで残して、試験日に徹夜して完成させております。
-          </p>
-          <p>
-            それで、いつもちょっとだけ懲りて、「次は溜めまい」となんとなく誓うんですが、結局溜めて、結局徹夜して、結局また誓う羽目になるんですね。
-            いやー、なんででしょうね。
-          </p>
-          <p>ねこでした。</p>
         </div>
         <!--ここまで本文-->
 
         <?php include $webroot."/template/blog/after.php" ?>
+
       </div>
 
     </div>

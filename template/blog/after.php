@@ -66,7 +66,6 @@
 
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/footer.html";
   $blogs = simplexml_load_file($webroot."/blog/blogs.xml");
 
   $title; $date; $prev_link = ""; $next_link = ""; $prev_title = "前の記事はありません"; $next_title = "次の記事はありません";

@@ -93,9 +93,7 @@
       </section>
     </article>
 
-    <?php
-    include "../template/footer.html";
-    ?>
+
 
     <script src="questionnaire.js"></script>
     <noscript>ブラウザがjavascriptに対応していないか、javascriptが無効化されています。</noscript>

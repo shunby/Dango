@@ -21,9 +21,10 @@
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
-  <link href="/template/main.css" rel="stylesheet" type="text/css">
+  <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +36,8 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <main id="main">
+    <?php include $webroot."/template/sideber.php" ?>
+    <main id="sidemain">
       <p>
       どうも！おらふのブログのお時間です‼<br>
       いくつかネタを提供していただきましたが、今回は募集したネタは使いません。<br>
@@ -53,7 +55,7 @@
       宿題の答えの投稿は<a href="http://paysestbbs.webcrow.jp/bbs/threads.php?roomid=4">おらふのブログネタ募集スレ</a>から
      </p>
     </main>
-    <?php include $webroot."/template/footer.html" ?>
+  
   </div>
 </body>
 </html>
