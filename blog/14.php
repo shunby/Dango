@@ -18,7 +18,7 @@
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
     <link href="/template/header.css" rel="stylesheet" type="text/css">
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
-    <link href="/template/main.css" rel="stylesheet" type="text/css">
+    <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
     <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
@@ -36,6 +36,7 @@
         include $webroot."/template/header.html"
       ?>
       <?php include $webroot."/template/navi.html" ?>
+      <?php include $webroot."/template/sideber.php" ?>
       <?php include $webroot."/template/blog/before.php" ?>
 
       <?php
