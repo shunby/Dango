@@ -99,9 +99,7 @@ EOM;
           <?php
           $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
           $today = new DateTime();
-          $last_threadid;
           while($row = $st->fetch()){
-            $last_threadid = $row['threadid'];
             $datearr = explode(" ",$row['last_modified']);
             $date = new DateTime($datearr[0]." ".$datearr[1]);
             if(!$show_all && !$system){
@@ -136,9 +134,8 @@ EOM;
         スレッド名
         <input type="input" name="name"></input>
         <?php
-        $last_threadid++;
         echo "<input type=\"hidden\" name=\"roomid\" value=\"".$_GET['roomid']."\"></input>";
-        echo "<input type=\"hidden\" name=\"threadid\" value=\"".$last_threadid."\"></input>";
+        echo "<input type=\"hidden\" name=\"threadid\" value=\"".$threadid."\"></input>";
         ?>
         <input type="submit" value="作成"></input>
       </form>
@@ -146,7 +143,7 @@ EOM;
 
 
 
-    <?php include "../template/footer.html" ?>
+
 
 
   </div>

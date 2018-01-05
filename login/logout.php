@@ -51,7 +51,7 @@
            </section>
          </article>
 
-         <?php include $webroot."/template/footer.html" ?>
+
 
        </div>
 

@@ -1,14 +1,3 @@
-
-#main{
- margin-top: 50px;
- margin-bottom: 83px;/*スクロールして余らない長さ*/
- margin-left: 10px;
- margin-right: 10px;
- border: 2px double gray;
- height: auto;
- background-color: white;
-}
-
 .main-title{
  text-align: center;
  font-size: 40px;
@@ -88,10 +77,6 @@
   margin-bottom: 30px;
   margin-left: 20px;
   margin-right: 20px;
-}
-
-.wtf{
-  height:1px;
 }
 
 .blog_top{

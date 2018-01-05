@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  // include $webroot."/template/check_login.php"
+  include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -42,33 +42,30 @@
       <div id="sidemain">
         <?php include $webroot."/template/blog/before.php" ?>
 
-
         <?php
-          $id = 12;
+          $id = 6;
          ?>
 
         <!--ここから本文-->
         <div class="main-main">
           <p>
-            お久しぶりのねこです。年が明けましたね。
+            <a href="/blog/04.php">前回</a>の続きです。あれから資材をそろえ、環境を整えました。そして、まずは小手調べにベタな単語帳を作ってみることにしました。<br>
+            古単・ユメタンの練習の役に立てばいいな、くらいのノリで開発がスタートしました。超☆開発中の画面を晒しておきます。
+            <figure id="img_title">
+              <img style="border:solid 1px" width=50% src="/image/blog/20171220/title.png" alt="タイトル" />
+              <figcaption>殺風景なタイトル画面</figcaption>
+            </figure><br>
+
+            <figure id="img_register0">
+              <img style="border:solid 1px" width=50% src="/image/blog/20171220/register0.png" alt="タイトル" />
+              <figcaption>配置のずれた登録画面</figcaption>
+            </figure><br>
+
+            <figure id="img_register">
+              <img style="border:solid 1px" width=50% src="/image/blog/20171220/register.png" alt="タイトル" />
+              <figcaption>それなりにまともな入力画面</figcaption>
+            </figure><br>
           </p>
-          <p>
-            皆さん、つつがない感じのお正月を迎えておられますでしょうか。それとも、課題に追われていらっしゃるのでしょうか。
-            私は、課題を無視しながらつつがなくお正月を迎えております。
-          </p>
-          <p>
-            新年の目標はもう立てましたか？まだ立ててないですか？それとも立てる予定もないですか？
-            私の目標は「課題を溜めない」です。なんだかぱっと見いい感じの目標ですが、ちょっと考えてみるとなんかあれですね。
-          </p>
-          <p>
-            それだけならまあ良いんですが、それだけじゃないんです。実はこの目標、毎年、毎月、毎週、毎日立てております。
-            いつも期日ギリギリまで残して、試験日に徹夜して完成させております。
-          </p>
-          <p>
-            それで、いつもちょっとだけ懲りて、「次は溜めまい」となんとなく誓うんですが、結局溜めて、結局徹夜して、結局また誓う羽目になるんですね。
-            いやー、なんででしょうね。
-          </p>
-          <p>ねこでした。</p>
         </div>
         <!--ここまで本文-->
 

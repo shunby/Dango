@@ -1,0 +1,74 @@
+#sideber{
+   margin-top: 20px;
+   margin-bottom: 0px;/*国駿 スクロールして余らないように*/
+   margin-left: 10px;
+   margin-right: 10px;
+   border: 2px double gray;
+   height: auto;/*height指定　autoに変更:猫派*/
+   background-color: white;
+   line-height: 1.7;
+   width: 25%;
+   display: inline-block;
+}
+
+#sideber ul{
+  list-style: none;
+  position: relative;
+  right: 25px;
+  width: 218px;
+}
+
+#sideber ul li a{
+  text-decoration: none;
+}
+
+#sideber .type li:first-child{
+  text-align: center;
+}
+
+#sideber .type li a{
+  color: green;
+}
+
+.type li{
+  border: 2px double pink;
+  border-top: none;
+}
+
+.type li:first-child{
+  border-left: none;
+  border-right: none;
+}
+
+.rank li{
+  border: 2px double #ff8400;
+  border-top: none;
+  height: 200px;
+}
+
+.rank li:first-child{
+  border-left: none;
+  border-right: none;
+  height: auto;
+  text-align: center;
+}
+
+.rank li a{
+  display: block;
+  font-size: smaller;
+}
+
+.goodnum a{
+  font-size: smaller;
+}
+
+.neko{
+  max-width: 155px;
+  height: auto;
+  margin-left: 20px;
+}
+
+.footer li{
+  border-bottom: 1px dotted gray;
+  margin-bottom: 10px;
+}

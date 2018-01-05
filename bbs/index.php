@@ -45,9 +45,9 @@ $st = $pdo->query($search);
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="../template/header.css" rel="stylesheet" type="text/css">
   <link href="../template/footer.css" rel="stylesheet" type="text/css">
-  <link href="../template/main.css" rel="stylesheet" type="text/css">
   <link href="../template/content.css" rel="stylesheet" type="text/css">
   <link href="../template/navi.css" rel="stylesheet" type="text/css">
+  <link href="../template/main.css" rel="stylesheet" type="text/css">
   <link href="search_form.css" rel="stylesheet" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
@@ -103,7 +103,7 @@ EOM;
 
     </article>
 
-    <?php include "../template/footer.html" ?>
+
   </div>
 </body>
 </html>

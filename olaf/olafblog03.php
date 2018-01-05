@@ -21,9 +21,10 @@
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
-  <link href="/template/main.css" rel="stylesheet" type="text/css">
+  <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -36,7 +37,8 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <main id="main">
+    <?php include $webroot."/template/sideber.php" ?>
+    <main id="sidemain">
       <p>
         さてどうも皆さんお待ちかねの（？）おらふのブログのお時間です‼<br>
         今日は集まったネタをやる日だったと思うんですが、ここで一つ問題が。<br>
@@ -50,6 +52,6 @@
         まあこれはネットの世界では最も有名な住所ですからねえ...<br>
       　ハセカラ騒動についていつかゆっくり語りましょうかねえ...<br>
     </p>
-    <?php include $webroot."/template/footer.html" ?>
+
 </body>
 </html>
