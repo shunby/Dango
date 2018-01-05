@@ -117,4 +117,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>14</id>
+    <title>サイドバーを設置</title>
+    <link>/blog/14.php</link>
+    <date>2018/01/05</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>
