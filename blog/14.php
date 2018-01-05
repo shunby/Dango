@@ -37,28 +37,32 @@
       ?>
       <?php include $webroot."/template/navi.html" ?>
       <?php include $webroot."/template/sideber.php" ?>
-      <?php include $webroot."/template/blog/before.php" ?>
 
-      <?php
-        $id = 14;
-       ?>
+      <div id="sidemain">
+        <?php include $webroot."/template/blog/before.php" ?>
 
-      <!--ここから本文-->
-      <div class="main-main">
-        <p>こんばんは！ユーザー数がクラスの過半数を超えなくて悲しみの真っただ中におります。</p>
-        <p>
-          まぁ、そんななか使いずらがったフッターをやめ、新しくサイドバーを増築しました。<br>
-          どうでしょうか、この猫のドット絵！<br>
-          ネットで「ねこ　ドット絵」と検索したら出てくるよー（ほかにも種類があったけどこの三つにした）<br>
-          運営のねこのLINEのトプ画よりかわいいでしょ？w<br>
-        </p>
-        <p>あと、シャムさん長文ありがとうです！自分からも伝えときますb</p>
+        <?php
+          $id = 14;
+         ?>
+
+        <!--ここから本文-->
+        <div class="main-main">
+          <p>こんばんは！ユーザー数がクラスの過半数を超えなくて悲しみの真っただ中におります。</p>
+          <p>
+            まぁ、そんななか使いずらがったフッターをやめ、新しくサイドバーを増築しました。<br>
+            どうでしょうか、この猫のドット絵！<br>
+            ネットで「ねこ　ドット絵」と検索したら出てくるよー（ほかにも種類があったけどこの三つにした）<br>
+            運営のねこのLINEのトプ画よりかわいいでしょ？w<br>
+          </p>
+          <p>あと、シャムさん長文ありがとうです！自分からも伝えときますb</p>
+        </div>
+        <!--ここまで本文-->
+
+
+
+        <?php include $webroot."/template/blog/after.php" ?>
       </div>
-      <!--ここまで本文-->
 
-
-
-      <?php include $webroot."/template/blog/after.php" ?>
     </div>
   </body>
 </html>
