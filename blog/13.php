@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  // include $webroot."/template/check_login.php"
+  include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
