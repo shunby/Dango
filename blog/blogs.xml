@@ -126,4 +126,13 @@
       <tag>アップデートヒストリー</tag>
     </tags>
   </blog>
+  <blog>
+    <id>15</id>
+    <title>iPhone/safariでパスワードを記憶させる</title>
+    <link>/blog/15.php</link>
+    <date>2018/01/06</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
