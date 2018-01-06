@@ -28,8 +28,8 @@ class User{
         $this->name = $result['name'];
         break;
       case "name":
-        $statement->execute(array('name', "'".$parm."'"));
-        $result = $statement->fetch();
+        $statement = $pdo->query("SELECT * from user where name='".$parm."'");
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
         $this->name = $result['name'];
         $this->id = $result['id'];
@@ -63,6 +63,28 @@ class User{
     $interval = $now->getTimeStamp() - $this->block_until->getTimeStamp();
 
     return $interval < 0;
+  }
+
+  public function getDisplayName(){
+    $point = $this->point;
+
+    $color = "";
+
+    if($point <= 5){
+      $color = "red";
+    }else if($point <= 10){
+      $color = "rgb(255,102,0)";//橙
+    }else if($point <= 15){
+      $color = "black";
+    }else if($point <= 30){
+      $color = "green";
+    }else if($point <= 45){
+      $color = "rgb(51,153,255)";
+    }else{
+      $color = "fuchsia";//紫
+    }
+
+    return "<span style='color:{$color};'>{$this->name}</span>";
   }
 
   public function push(){

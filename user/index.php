@@ -61,7 +61,7 @@
           ?>
         </p>
         <p>
-          ポイント: <?php
+          名声: <?php
           $adminFlag = strcmp($_SESSION['user']->getRole(), "一般ユーザー") != 0;//一般ユーザー以外
 
           if($adminFlag && isset($_POST['point'])){
