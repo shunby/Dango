@@ -101,6 +101,8 @@
             }
 
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
+            $user = new User($row['name'], "name");
+            $usrname = $user->getDisplayName();
             echo <<<EOM
             <li>
               <div class="message_content">
@@ -108,7 +110,7 @@
                   {$msg}
                 </div>
                 <div class="message_info">
-                  <div class="name"><a href="{$mail}">{$row['name']}</a></div>
+                  <div class="name"><a href="{$mail}">{$usrname}</a></div>
                   <div class="date">{$row['date']}</div><br/>
 EOM;
             if($editable){
