@@ -135,4 +135,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>16</id>
+    <title>おらふのPC</title>
+    <link>/blog/16.php</link>
+    <date>2018/01/07</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
