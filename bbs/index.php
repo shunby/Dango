@@ -78,7 +78,7 @@ $st = $pdo->query($search);
               $date = new DateTime($datearr[0]." ".$datearr[1]);
               echo <<<EOM
               <tr>
-                <td><a href="threads.php?roomid={$row['roomid']}&threadid={$row['threadid']}">{$row['name']}</a></td>
+                <td><a href="messages.php?roomid={$row['roomid']}&threadid={$row['threadid']}">{$row['name']}</a></td>
                 <td>{$date->format("Y/m/d H:i:s")}</td>
               </tr>
 EOM;
