@@ -64,6 +64,28 @@ $st = $pdo->query($search);
 
     <article id="main">
       <section>
+        <!--最新-->
+        <h1>最新のスレッド</h1>
+        <table>
+          <tr><th width=70%>名前</th><th>最終更新日時</th></tr>
+          <?php
+            $statement_latest = $pdo->query("SELECT * from thread where deleted!=1 order by last_modified desc");
+            for($i = 0;$i < 3; $i++){
+              $row = $statement_latest->fetch();
+              if(!$row)break;
+
+              $datearr = explode(" ",$row['last_modified']);
+              $date = new DateTime($datearr[0]." ".$datearr[1]);
+              echo <<<EOM
+              <tr>
+                <td><a href="threads.php?roomid={$row['roomid']}&threadid={$row['threadid']}">{$row['name']}</a></td>
+                <td>{$date->format("Y/m/d H:i:s")}</td>
+              </tr>
+EOM;
+            }
+            $statement_latest->closeCursor();
+           ?>
+        </table>
         <h1>部屋一覧</h1>
         <!--検索-->
         <form id=search name="search" action="index.php" method="get">
@@ -77,23 +99,22 @@ $st = $pdo->query($search);
           </select>
           <input class=button type="submit" value="検索"></input><br>
         </form>
+
         <!--部屋-->
         <table>
           <tr><th width=70%>名前</th><th>タイプ</th><th>最終更新日時</th></tr>
           <?php
-          $roomid = 0;
 
           while($row = $st->fetch()){
             $datearr = explode(" ",$row['last_modified']);
             $date = new DateTime($datearr[0]." ".$datearr[1]);
             echo <<<EOM
             <tr>
-              <td><a href="threads.php?roomid={$roomid}">{$row['name']}</a></td>
+              <td><a href="threads.php?roomid={$row['roomid']}">{$row['name']}</a></td>
               <td>{$row['type']}</td>
               <td>{$date->format("Y/m/d H:i:s")}</td>
             </tr>
 EOM;
-            $roomid++;
           }
 
           ?>
