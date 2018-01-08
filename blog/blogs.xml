@@ -144,4 +144,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>17</id>
+    <title>その他の課題終了のお知らせ</title>
+    <link>/blog/17.php</link>
+    <date>2018/01/09</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
