@@ -44,6 +44,7 @@
     <p>
       <ul>
         <li><a href="information01.php">炎上したバカッターの末路</a>
+        <li><a href="information02.php">1月第1週のおらふ的ニュースまとめ</a>
 
       </ul>
   </section>
