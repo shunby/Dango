@@ -1,12 +1,18 @@
 <?php
-  require "access.php";
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  require_once $webroot."/core/user_util.php";
+  require_once "access/access.php";
+  include $webroot."/template/check_login.php";
+ ?>
+<?php
+
 
   $pdo;
   $ac = new Access("bbs");
   if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
   else $pdo = new PDO($ac->dsn, $ac->username);
 
-   $search = "select * from message where 1";
+   $search = "select * from message where deleted!=1";
 
    if(array_key_exists('roomid', $_GET) &&  $_GET['roomid'] != "-1"){
      $search = $search." AND roomid= ".$_GET['roomid'];
@@ -30,7 +36,9 @@
    while($row = $st1->fetch()){
      $threadName = $row['name'];
    }
-   $editable = key_exists("d", $_GET) && strcmp($_GET['d'], "olaf_killer") == 0;
+
+   $role = $_SESSION['user']->getRole();
+   $editable = strcmp($role, "一般ユーザー") != 0;
 ?>
 
 <!DOCTYPE html>
@@ -84,9 +92,17 @@
          <ul class="messages">
          <?php
           $messageid = 0;
+          $statement =$pdo->prepare("SELECT * FROM user where name=?");
           while($row = $st->fetch()){
-            $mail = (isset($row['mail']) && $row['mail'] != "") ? "mailto:".$row['mail'] : "" ;
+            $statement->execute(array($row['name']));
+            $mail = "";
+            if($postusr = $statement->fetch()){
+                $mail = "/user/?userid=".$postusr['id'];
+            }
+
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
+            $user = new User($row['name'], "name");
+            $usrname = $user->getDisplayName();
             echo <<<EOM
             <li>
               <div class="message_content">
@@ -94,14 +110,13 @@
                   {$msg}
                 </div>
                 <div class="message_info">
-                  <div class="name"><a href="{$mail}">{$row['name']}</a></div>
-                  <div class="trip">#{$row['trip']}</div>
+                  <div class="name"><a href="{$mail}">{$usrname}</a></div>
                   <div class="date">{$row['date']}</div><br/>
 EOM;
             if($editable){
               //削除フォーム
               echo <<<EOM
-                  <form name="delete_form" action="delete_message.php" method="post">
+                  <form name="delete_form" action="delete_message.php" method="post" onsubmit="return window.confirm('本当に削除しますか？')">
                     <input type="submit" value="削除" id="submit">
                     <input type="hidden" name="key" value="kill_olaf_rapidly"></input>
                     <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
@@ -120,16 +135,9 @@ EOM;
          <!--ここまで投稿------------------------>
 
        </section>
-       <section>
+       <section id="form">
          <h5>このスレッドに書き込む</h5>
          <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore();">
-           名前 :
-           <input type="text" name="name" placeholder=""></input>
-           メール:
-           <input type="text" name="mail"></input>
-           <br>パスワード :
-           <input type="text" name="trip"></input>
-           <br>
            <textarea name="message" placeholder="400字以内で入力"></textarea>
            <br>
            <input type="submit" value="投稿" id="submit"></input>
@@ -153,7 +161,7 @@ EOM;
 
 
 
-     <?php include "../template/footer.html" ?>
+
      <?php
       echo '<script type="text/javascript">';
       require "message.js";

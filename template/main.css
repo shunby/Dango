@@ -16,10 +16,19 @@
 }
 
 /*ここから追加分----------------------*/
-article section{
+section{
   margin-left: 6%;
 }
 
+@media only screen and (max-width:767px){
+  article section{
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+  }
+  section h1, section h2, section h3, section h4, section h5, section h6{
+      margin-left: -3px !important;
+  }
+}
 section h1, section h2, section h3, section h4, section h5, section h6{
     margin-left: -3%;
 }

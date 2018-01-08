@@ -1,5 +1,10 @@
 <?php
-require "access.php";
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  require_once $webroot."/core/user_util.php";
+  include $webroot."/template/check_login.php";
+ ?>
+
+<?php
 
 $pdo;
 $ac = new Access("bbs");
@@ -17,6 +22,9 @@ if(array_key_exists('roomid', $_GET) &&  $_GET['roomid'] != "-1"){
 if(array_key_exists('name', $_GET) &&  $_GET['name'] != ""){
   $search = $search." AND name LIKE '%".$_GET['name']."%'";
 }
+
+$search = $search." order by threadid asc";
+
 $st = $pdo->query($search);
 
 $st1 = $pdo->query("select * from chatroom where roomid=".$_GET['roomid']);
@@ -83,26 +91,32 @@ EOM;
 
         <!--スレッド一覧  -->
         <table>
-          <tr><th width=70%>名前</th><th width=70%>最終更新日</th></tr>
           <?php
-          $threadid = 0;
+          $role = $_SESSION['user']->getRole();
+          $isadmin = strcmp($role, "一般ユーザー") != 0 ?>
+
+          <tr><th width=70%>名前</th><th width=70%>最終更新日時</th><?php if($isadmin)echo "<th>作成者のID</th>";  ?></tr>
+          <?php
           $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
           $today = new DateTime();
+          $last_threadid;
           while($row = $st->fetch()){
-            $date = new DateTime(explode(" ",$row['last_modified'])[0]);
+            $last_threadid = $row['threadid'];
+            $datearr = explode(" ",$row['last_modified']);
+            $date = new DateTime($datearr[0]." ".$datearr[1]);
             if(!$show_all && !$system){
               $diff = date_diff($date, $today);
-                if($diff->format('%a') > 5){$threadid++;continue;}
+                if($diff->format('%a') > 5)continue;
             }
             echo <<<EOM
             <tr>
-              <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$threadid}">{$row['name']}</a></td>
-              <td>{$date->format("Y/m/d")}</td>
-            </tr>
+              <td><a href="messages.php?roomid={$_GET['roomid']}&amp;threadid={$row['threadid']}">{$row['name']}</a></td>
+              <td>{$date->format("Y/m/d H:i:s")}</td>
 EOM;
+            if($isadmin)echo "<td>{$row['userid']}</td>";
+            echo "</tr>";
 
 
-            $threadid++;
           }
           ?>
         </table>
@@ -122,8 +136,9 @@ EOM;
         スレッド名
         <input type="input" name="name"></input>
         <?php
+        $last_threadid++;
         echo "<input type=\"hidden\" name=\"roomid\" value=\"".$_GET['roomid']."\"></input>";
-        echo "<input type=\"hidden\" name=\"threadid\" value=\"".$threadid."\"></input>";
+        echo "<input type=\"hidden\" name=\"threadid\" value=\"".$last_threadid."\"></input>";
         ?>
         <input type="submit" value="作成"></input>
       </form>
@@ -131,7 +146,7 @@ EOM;
 
 
 
-    <?php include "../template/footer.html" ?>
+
 
 
   </div>

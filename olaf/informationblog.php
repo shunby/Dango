@@ -1,3 +1,8 @@
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +13,18 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width">
 
   <?php
-    $webroot = $_SERVER['DOCUMENT_ROOT'];
     include $webroot."/template/analytics.html"
    ?>
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
-  <link href="/template/main.css" rel="stylesheet" type="text/css">
+  <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -31,7 +36,8 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <article id="main">
+    <?php include $webroot."/template/sideber.php" ?>
+    <article id="sidemain">
       <section>
       <p>
         <h1>おらふのネット情報局</h1>
@@ -41,16 +47,19 @@
         ・日曜　一週間のネットニュースまとめ<br>
         どうぞごらんください<br>
     </p>
+
     <p>
       <ul>
         <li><a href="information01.php">炎上したバカッターの末路</a>
         <li><a href="information02.php">1月第1週のおらふ的ニュースまとめ</a>
 
       </ul>
+
   </section>
 </article>
+  </p>
 
-<?php include $webroot."/template/footer.html" ?>
+
 
 </div>
 

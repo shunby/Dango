@@ -1,3 +1,7 @@
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,15 +17,17 @@
     <link href="../template/footer.css" rel="stylesheet" type="text/css">
     <link href="../template/navi.css" rel="stylesheet" type="text/css">
     <link href="../bbs/search_form.css" rel="stylesheet" type="text/css">
-    <link href="../template/main.css" rel="stylesheet" type="text/css">
+    <link href="../template/sidemain.css" rel="stylesheet" type="text/css">
     <link href="../template/content.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../template/filmblog.css" type="text/css">
+    <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   </head>
   <body>
    <div id="content">
     <?php include "../template/header.html" ?>
     <?php include "../template/navi.html" ?>
-    <main id="main">
+    <?php include $webroot."/template/sideber.php" ?>
+    <main id="sidemain">
       <?php
        $article = key_exists("article", $_GET) ? $_GET["article"] : NULL;//クエリからarticleの値を取得
        if(preg_match('/[\\.\\/\\\]/', $article))$article=NULL;//".","/","\"が含まれる場合は弾く(不正アクセスを防ぐため)
@@ -40,8 +46,8 @@
        }
 
        ?>
+       <div id="for_clear"></div>
     </main>
-    <?php include "../template/footer.html" ?>
    </div>
   </body>
 </html>

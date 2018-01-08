@@ -1,3 +1,7 @@
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,9 +16,10 @@
     <link href="../template/header.css" rel="stylesheet" type="text/css">
     <link href="../template/footer.css" rel="stylesheet" type="text/css">
     <link href="../template/navi.css" rel="stylesheet" type="text/css">
-    <link href="../template/main.css" rel="stylesheet" type="text/css">
+    <link href="../template/sidemain.css" rel="stylesheet" type="text/css">
     <link href="../template/content.css" rel="stylesheet" type="text/css">
     <link href="../bbs/search_form.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   </head>
   <body>
    <div id="content">
@@ -24,7 +29,8 @@
     <nav>
       <?php include "../template/navi.html" ?>
     </nav>
-    <main id="main">
+    <?php include $webroot."/template/sideber.php" ?>
+    <main id="sidemain">
      <h2>ブログ一覧</h2>
 
      <div class="php1">
@@ -62,7 +68,6 @@
      </ul>
     </main>
     <footer>
-      <?php include "../template/footer.html" ?>
     </footer>
    </div>
   </body>

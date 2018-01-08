@@ -1,5 +1,9 @@
 <?php
-require "access.php";
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+<?php
+require_once "access/access.php";
 
 $pdo;
 
@@ -41,9 +45,9 @@ $st = $pdo->query($search);
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="../template/header.css" rel="stylesheet" type="text/css">
   <link href="../template/footer.css" rel="stylesheet" type="text/css">
-  <link href="../template/main.css" rel="stylesheet" type="text/css">
   <link href="../template/content.css" rel="stylesheet" type="text/css">
   <link href="../template/navi.css" rel="stylesheet" type="text/css">
+  <link href="../template/main.css" rel="stylesheet" type="text/css">
   <link href="search_form.css" rel="stylesheet" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
@@ -60,6 +64,28 @@ $st = $pdo->query($search);
 
     <article id="main">
       <section>
+        <!--最新-->
+        <h1>最新のスレッド</h1>
+        <table>
+          <tr><th width=70%>名前</th><th>最終更新日時</th></tr>
+          <?php
+            $statement_latest = $pdo->query("SELECT * from thread where deleted!=1 order by last_modified desc");
+            for($i = 0;$i < 3; $i++){
+              $row = $statement_latest->fetch();
+              if(!$row)break;
+
+              $datearr = explode(" ",$row['last_modified']);
+              $date = new DateTime($datearr[0]." ".$datearr[1]);
+              echo <<<EOM
+              <tr>
+                <td><a href="messages.php?roomid={$row['roomid']}&threadid={$row['threadid']}">{$row['name']}</a></td>
+                <td>{$date->format("Y/m/d H:i:s")}</td>
+              </tr>
+EOM;
+            }
+            $statement_latest->closeCursor();
+           ?>
+        </table>
         <h1>部屋一覧</h1>
         <!--検索-->
         <form id=search name="search" action="index.php" method="get">
@@ -73,15 +99,24 @@ $st = $pdo->query($search);
           </select>
           <input class=button type="submit" value="検索"></input><br>
         </form>
+
         <!--部屋-->
         <table>
-          <tr><th>名前</th><th>タイプ</th></tr>
+          <tr><th width=70%>名前</th><th>タイプ</th><th>最終更新日時</th></tr>
           <?php
-          $roomid = 0;
+
           while($row = $st->fetch()){
-            echo "<tr><td><a href=\"threads.php?roomid={$roomid}\">{$row['name']}</a></td><td>{$row['type']}</td></tr>";
-            $roomid++;
+            $datearr = explode(" ",$row['last_modified']);
+            $date = new DateTime($datearr[0]." ".$datearr[1]);
+            echo <<<EOM
+            <tr>
+              <td><a href="threads.php?roomid={$row['roomid']}">{$row['name']}</a></td>
+              <td>{$row['type']}</td>
+              <td>{$date->format("Y/m/d H:i:s")}</td>
+            </tr>
+EOM;
           }
+
           ?>
         </table>
 
@@ -89,7 +124,7 @@ $st = $pdo->query($search);
 
     </article>
 
-    <?php include "../template/footer.html" ?>
+
   </div>
 </body>
 </html>

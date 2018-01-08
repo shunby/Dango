@@ -1,3 +1,8 @@
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  include $webroot."/template/check_login.php"
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +16,15 @@
   <meta name="viewport" content="width=device-width">
 
   <?php
-    $webroot = $_SERVER['DOCUMENT_ROOT'];
     include $webroot."/template/analytics.html"
    ?>
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
-  <link href="/template/main.css" rel="stylesheet" type="text/css">
+  <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -31,7 +36,8 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <article id="main">
+    <?php include $webroot."/template/sideber.php" ?>
+    <article id="sidemain">
       <section>
         <h1>おらふのブログ</h1>
         <p>
@@ -40,12 +46,12 @@
            日々のネタを不定期更新する「おらふの日常」は<a href="dailyofolaf.php">こちら</a><br>
            ネットの話題をお届けする「おらふのネット情報局」は<a href="informationblog.php">こちら</a>
          </p>
-         
+
 
      </section>
    </article>
 
-   <?php include $webroot."/template/footer.html" ?>
+
 
  </div>
 
