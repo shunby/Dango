@@ -151,7 +151,7 @@ class User{
     $statement->execute(array($this->id, $token));
 
     //トークンをクッキーに保存(有効期間は360日)
-    setcookie('rememberme', $token, time()+60*60*24*360);
+    setcookie('rememberme', $token, time()+60*60*24*360, '/');
   }
 
   //自動ログイン用トークンからユーザー情報を読み込んでUserを返す
@@ -162,8 +162,9 @@ class User{
     else $pdo = new PDO($ac->dsn, $ac->username);
 
     //トークンからユーザーIDを取得
-    $sql = "SELECT * from login_token where token=`{$token}`";
-    $statement = $pdo->query($sql);
+    $sql = "SELECT * from login_token where token=?";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($token));
     if(!$statement)return null;
 
     $userid = $statement->fetch(PDO::FETCH_ASSOC)['userid'];
@@ -186,7 +187,7 @@ class User{
     $statement = $pdo->prepare($sql);
     $statement->execute(array($token));
 
-    setcookie('rememberme', '', time()-1024);
+    setcookie('rememberme', '', time()-1024, '/');
   }
   //該当するユーザーの自動ログイン用トークンを破棄
   public static function destroyTokenById($id){
@@ -197,9 +198,9 @@ class User{
 
     $sql = "DELETE from login_token where userid=?";
     $statement = $pdo->prepare($sql);
-    $statement->execute(array($token));
-    
-    setcookie('rememberme', '', time()-1024);
+    $statement->execute(array($id));
+
+    setcookie('rememberme', '', time()-1024, '/');
   }
 
 
