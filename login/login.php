@@ -39,6 +39,11 @@ function login(){
           return;
         }
         $_SESSION['user'] = $user;
+
+        //自動ログイン用トークンを設定
+        if(isset($_POST['rememberme'])){
+          $user->createToken();
+        }
         header("Location: ../index.php");
         return;
       }
@@ -95,7 +100,7 @@ login();
             <form id="login" name="login" action=" " method="POST">
               <label for="name">ユーザ名</label><br><input type="text" name='name'></input><br><br>
               <label for="password">パスワード</label><br><input type="password" name='password'></input><br>
-              <input type="checkbox" name="rememberme" value="yes"></input>
+              <input type="checkbox" name="rememberme" value="1"></input>
               <label for="rememberme">次回から自動ログイン</input><br>
               <input type="submit" name="login"></input>
             </form>
