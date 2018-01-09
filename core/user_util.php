@@ -132,7 +132,23 @@ class User{
 
   //自動ログイン用トークンを生成
   public function createToken(){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
 
+    //32桁のトークン
+    $TOKEN_LENGTH = 16;
+    $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+    $token = bin2hex($bytes);
+
+    //トークンをデータベースに登録
+    $sql = "INSERT INTO `login_token`(userid`, `token`) VALUES (?,?)";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($this->id, $token));
+
+    //トークンをクッキーに保存(有効期間は360日)
+    setcookie('rememberme', $token, time()+60*60*24*360);
   }
 
   //自動ログイン用トークンからユーザー情報を読み込んでUserを返す
