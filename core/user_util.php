@@ -52,10 +52,12 @@ class User{
 
   }
 
+  //権限を表す文字列を返す
   public function getRole(){
     return Admins::getRole($this->id);
   }
 
+  //ブロックされているか返す
   public function isBlocked(){
     $now = new DateTime();
 
@@ -65,6 +67,7 @@ class User{
     return $interval < 0;
   }
 
+  //色付きの名前を返す
   public function getDisplayName(){
     $point = $this->point;
 
@@ -87,6 +90,7 @@ class User{
     return "<span style='color:{$color};'>{$this->name}</span>";
   }
 
+  //データベースに情報を反映する
   public function push(){
     $pdo;
     $ac = new Access("bbs");
@@ -98,6 +102,7 @@ class User{
     $statement->execute(array($this->name, serialize($this->note), $this->point, $this->block_until->format("Y-m-d H:i:s"), $this->id));
   }
 
+  //データベースからユーザー情報を引っ張ってくる
   public function pull(){
     $pdo;
     $ac = new Access("bbs");
@@ -123,6 +128,79 @@ class User{
     }else{
       $this->block_until = new DateTime($result['block_until']);
     }
+  }
+
+  //自動ログイン用トークンを生成
+  public function createToken(){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
+
+    //トークンが生成済みの場合は破棄
+    self::destroyTokenById($this->id);
+
+    //32桁のトークン
+    $TOKEN_LENGTH = 16;
+    $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+    $token = bin2hex($bytes);
+
+    //トークンをデータベースに登録
+    $sql = "INSERT INTO `login_token`(`userid`, `token`) VALUES (?,?)";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($this->id, $token));
+
+    //トークンをクッキーに保存(有効期間は360日)
+    setcookie('rememberme', $token, time()+60*60*24*360, '/');
+  }
+
+  //自動ログイン用トークンからユーザー情報を読み込んでUserを返す
+  public static function readFromToken($token){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
+
+    //トークンからユーザーIDを取得
+    $sql = "SELECT * from login_token where token=?";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($token));
+    if(!$statement)return null;
+
+    $userid = $statement->fetch(PDO::FETCH_ASSOC)['userid'];
+    if(!$userid)return null;
+
+    //ユーザーIDからUserを作成して返す
+    $user = new User($userid);
+    return $user;
+
+  }
+
+  //自動ログイン用トークンを破棄
+  public static function destroyToken($token){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
+
+    $sql = "DELETE from login_token where token=?";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($token));
+
+    setcookie('rememberme', '', time()-1024, '/');
+  }
+  //該当するユーザーの自動ログイン用トークンを破棄
+  public static function destroyTokenById($id){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
+
+    $sql = "DELETE from login_token where userid=?";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($id));
+
+    setcookie('rememberme', '', time()-1024, '/');
   }
 
 
