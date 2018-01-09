@@ -95,6 +95,8 @@ login();
             <form id="login" name="login" action=" " method="POST">
               <label for="name">ユーザ名</label><br><input type="text" name='name'></input><br><br>
               <label for="password">パスワード</label><br><input type="password" name='password'></input><br>
+              <input type="checkbox" name="rememberme" value="yes"></input>
+              <label for="rememberme">次回から自動ログイン</input><br>
               <input type="submit" name="login"></input>
             </form>
 
