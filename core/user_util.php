@@ -137,6 +137,9 @@ class User{
     if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
     else $pdo = new PDO($ac->dsn, $ac->username);
 
+    //トークンが生成済みの場合は破棄
+    self::destroyTokenById($this->id);
+
     //32桁のトークン
     $TOKEN_LENGTH = 16;
     $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
@@ -183,6 +186,20 @@ class User{
     $statement = $pdo->prepare($sql);
     $statement->execute(array($token));
 
+    setcookie('rememberme', '', time()-1024);
+  }
+  //該当するユーザーの自動ログイン用トークンを破棄
+  public static function destroyTokenById($id){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
+
+    $sql = "DELETE from login_token where userid=?";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($token));
+    
+    setcookie('rememberme', '', time()-1024);
   }
 
 
