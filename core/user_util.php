@@ -169,11 +169,19 @@ class User{
     //ユーザーIDからUserを作成して返す
     $user = new User($userid);
     return $user;
-    
+
   }
 
   //自動ログイン用トークンを破棄
-  public function destroyToken(){
+  public static function destroyToken($token){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
+
+    $sql = "DELETE from login_token where token=?";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($token));
 
   }
 
