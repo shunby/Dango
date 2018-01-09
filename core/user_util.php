@@ -125,5 +125,20 @@ class User{
     }
   }
 
+  //自動ログイン用トークンを生成
+  public function createToken(){
+
+  }
+
+  //自動ログイン用トークンからユーザー情報を読み込んでUserを返す
+  public static function readFromToken(){
+
+  }
+
+  //自動ログイン用トークンを破棄
+  public function destroyToken(){
+
+  }
+
 
 }
