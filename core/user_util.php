@@ -152,8 +152,24 @@ class User{
   }
 
   //自動ログイン用トークンからユーザー情報を読み込んでUserを返す
-  public static function readFromToken(){
+  public static function readFromToken($token){
+    $pdo;
+    $ac = new Access("bbs");
+    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
+    else $pdo = new PDO($ac->dsn, $ac->username);
 
+    //トークンからユーザーIDを取得
+    $sql = "SELECT * from login_token where token=`{$token}`";
+    $statement = $pdo->query($sql);
+    if(!$statement)return null;
+
+    $userid = $statement->fetch(PDO::FETCH_ASSOC)['userid'];
+    if(!$userid)return null;
+
+    //ユーザーIDからUserを作成して返す
+    $user = new User($userid);
+    return $user;
+    
   }
 
   //自動ログイン用トークンを破棄
