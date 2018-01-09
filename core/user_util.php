@@ -52,10 +52,12 @@ class User{
 
   }
 
+  //権限を表す文字列を返す
   public function getRole(){
     return Admins::getRole($this->id);
   }
 
+  //ブロックされているか返す
   public function isBlocked(){
     $now = new DateTime();
 
@@ -65,6 +67,7 @@ class User{
     return $interval < 0;
   }
 
+  //色付きの名前を返す
   public function getDisplayName(){
     $point = $this->point;
 
@@ -87,6 +90,7 @@ class User{
     return "<span style='color:{$color};'>{$this->name}</span>";
   }
 
+  //データベースに情報を反映する
   public function push(){
     $pdo;
     $ac = new Access("bbs");
@@ -98,6 +102,7 @@ class User{
     $statement->execute(array($this->name, serialize($this->note), $this->point, $this->block_until->format("Y-m-d H:i:s"), $this->id));
   }
 
+  //データベースからユーザー情報を引っ張ってくる
   public function pull(){
     $pdo;
     $ac = new Access("bbs");
