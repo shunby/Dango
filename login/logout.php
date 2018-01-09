@@ -1,6 +1,9 @@
 <?php
   session_start();
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  require_once $webroot."/core/user_util.php";
 
+  User::destroyTokenById($_SESSION['user']->id);
   $_SESSION = array();
 
   @session_destroy();
@@ -22,7 +25,7 @@
      <meta name="viewport" content="width=device-width">
 
      <?php
-       $webroot = $_SERVER['DOCUMENT_ROOT'];
+
        include $webroot."/template/analytics.html"
       ?>
      <link href="index.css" rel="stylesheet" type="text/css">
