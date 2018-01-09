@@ -143,7 +143,7 @@ class User{
     $token = bin2hex($bytes);
 
     //トークンをデータベースに登録
-    $sql = "INSERT INTO `login_token`(userid`, `token`) VALUES (?,?)";
+    $sql = "INSERT INTO `login_token`(`userid`, `token`) VALUES (?,?)";
     $statement = $pdo->prepare($sql);
     $statement->execute(array($this->id, $token));
 
