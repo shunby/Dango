@@ -42,6 +42,11 @@
  top: -15px;
  left: 10px;
  height: auto;
+ line-height: 25px;
+}
+
+.before-blog a{
+  font-size: smaller;
 }
 
 .main-after{
@@ -69,6 +74,11 @@
   bottom: 15px;
   right:10px
   height: auto;
+  line-height: 25px;
+}
+
+.next-blog a{
+  font-size: smaller;
 }
 
 .main-tocontents{
