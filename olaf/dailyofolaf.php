@@ -53,6 +53,7 @@
           <li><a href="/olaf/olafblog03.php">第三回</li>
           <li><a href="/olaf/olafblog04.php">第四回</li>
           <li><a href="/olaf/olafblog05.php">第五回</li>
+          <li><a href="/olaf/olafblog06.php">第六回</li>
         </ul>
       </section>
     </article>
