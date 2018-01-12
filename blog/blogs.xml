@@ -162,4 +162,13 @@
       <tag>アップデートヒストリー</tag>
     </tags>
   </blog>
+  <blog>
+    <id>19</id>
+    <title>ギャルゲー勉強会</title>
+    <link>/blog/19.php</link>
+    <date>2018/01/12</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
