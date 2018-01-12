@@ -48,7 +48,7 @@
 
         <!--ここから本文-->
         <div class="main-main">
-          <video src="/image/blog/blog19.mp4" muted autoplay width="500" height="500"></video>
+          <video src="/image/blog/blog19.mp4" controls width="500" height="500"></video>
           <p>
             なんか全然理由はわからないけど無性に、ギャルゲーが作りたくなってきたので、ちょっとギャルゲーについて勉強会を開きます。<br>
             まずは<a href="https://srdk.rakuten.jp/entry/2015/10/27/110000">キモくなどない！10秒で理解できるギャルゲー入門</a>を見てみてください。<br>
@@ -59,6 +59,10 @@
             つまりは全世界のラブコメを読破すれば、最強のギャルゲーも作れるはず！　今後クラスでラブコメ読んでる時間が増えますが、よろしく。
           </p>
           <p>end</p>
+          <p>
+            追記<br>
+            動画が再生されないのを修正しました。申し訳ありませんでした。
+          </p>
         </div>
         <!--ここまで本文-->
 
