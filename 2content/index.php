@@ -37,7 +37,7 @@
          $a04 = 'h29_winter';
          $a05 = 'h30_spring';
          $allblog = array(
-           $a03,
+           $a03,$a04
            //季節変わったらここに変数追加 新しいものほど後に来るように
          );
          echo file_get_contents("大記事/".$allblog[count($allblog) - 1].".html");//配列の最後の要素を表示
