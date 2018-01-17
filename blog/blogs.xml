@@ -180,4 +180,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>21</id>
+    <title>再翻訳</title>
+    <link>/blog/21.php</link>
+    <date>2018/01/17</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
