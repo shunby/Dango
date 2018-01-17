@@ -63,7 +63,7 @@
          <a href="index.php?article=h29_autumn" class="a">1.平成29年度秋号(=ﾟωﾟ)ﾉ</a>
        </li>
        <li style="list-style: none" class="li">
-         <a href="" class="a"></a>
+         <a href="index.php?article=h29_winter" class="a">2.平成29年度冬号ノ</a>
        </li>
      </ul>
     </main>
