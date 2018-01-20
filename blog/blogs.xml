@@ -189,4 +189,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>22</id>
+    <title>ほめる機能追加</title>
+    <link>/blog/22.php</link>
+    <date>2018/01/20</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>
