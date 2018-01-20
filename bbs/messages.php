@@ -93,6 +93,7 @@
          <?php
           $messageid = 0;
           $statement =$pdo->prepare("SELECT * FROM user where name=?");
+          $stmt_for_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
           while($row = $st->fetch()){
             $statement->execute(array($row['name']));
             $mail = "";
@@ -122,7 +123,21 @@ EOM;
                     <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
                   </form>
 EOM;
-            }
+}
+            //ほめるボタン
+            $stmt_for_good->execute(array($row['messageid']));
+            $row_for_good = $stmt_for_good->fetch();
+            $good_cnt = empty($row) ? 0 : $row_for_good['cnt'];
+            echo <<<EOM
+              <form name="good_form" action="message_good.php" method="post">
+              <input name="good" style="width:5em;" type="submit" value="ほめる" id="submit">
+              <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
+              <input type="hidden" name="roomid" value="{$_GET['roomid']}"></input>
+              <input type="hidden" name="threadid" value="{$_GET['threadid']}"></input>
+              <label for="good">{$good_cnt}</label>
+              </form>
+EOM;
+
             echo <<<EOM
                 </div>
               </div>
