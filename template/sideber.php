@@ -84,6 +84,7 @@
     <li> <a href="http://www.sakaehigashi.ed.jp/">栄東official</a> </li>
     <li> <a href="/questionnaire/questionnaire.php">お問い合わせ</a> </li>
     <li> <a href="/recruitment.php">記事応募</a> </li>
+    <li> <a href="/maid/">メイドさん募集</a> </li>
     <li> <a href="/olaf/loginforolaf.php">おらふ用入口</a> </li>
     <li> <a href="/blog/privacy.php">プライバシーポリシー</a> </li>
   </ul>
