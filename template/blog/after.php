@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT']."/bbs/access/access.php" ?>
 <div id="iine"><!--いいね機構-->
   <input type="button" value="good" id="button"><!--ボタン-->
   <a id="goodcount"></a>
@@ -38,6 +39,42 @@
   </script>
 </div>
 
+<!--コメント機構-->
+<!--コメント一覧-->
+<?php
+  $pdo = Access::getPDO("bbs");
+
+  $url = $_SERVER["REQUEST_URI"];
+  $postnum = preg_replace('/[^0-9]/','',$url);
+
+  $sql = "SELECT * FROM comment WHERE postnum = ?";
+  $data = $pdo->prepare($sql);
+  $data->execute(array($postnum));
+?>
+<div class="commentlist">
+  <p>コメント一覧</p>
+    <?php
+    foreach ($data as $value) {
+      echo <<<EOM
+      <div style="padding-bottom: 50px;">
+        名前:{$value['username']}  登校日: {$value['time']}<br>
+        {$value['content']}
+      </div>
+EOM;
+    }
+    ?>
+</div>
+
+<!--フォーム-->
+
+<form name="comment_form" action="/comment.php" method="post" id="comment" onsubmit="return check_comment();">
+  <p>コメントをどうぞ</p>
+  <textarea name="content" rows="10" cols="80"></textarea>
+  <p><input type="submit" name="submit" value="コメントを送信" class="submit"></p>
+  <input type="hidden" name="postnum" value=" <?php echo $postnum; ?> ">
+  <input type="hidden" name="url" value=" <?php echo $url; ?> ">
+</form>
+
 <div class="main-before">
   <img src="/image/blog/trn.png" alt="" id="trn">
   <div class="before-blog">
@@ -63,6 +100,19 @@
 <div class="wtf">
 
 </div>
+
+<script type="text/javascript">
+
+  function check_comment(){
+    var comment = document.comment_form.content.value;
+
+    if(comment.length < 1 || comment.length > 1024){
+      alert("コメントは1024文字以内で入力してください");
+      return false;
+    }
+    return true;
+  }
+</script>
 
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];

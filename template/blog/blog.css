@@ -1,3 +1,25 @@
+.commentlist{
+  margin: 30px;
+}
+
+#comment{
+  margin: 30px;
+}
+
+#comment textarea{
+  resize: none;
+  border-radius: 5px;
+  border-color: black;
+}
+
+.submit{
+  background-color: #fff;
+  border: 1px solid #333;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+}
 
 .main-title{
  text-align: center;

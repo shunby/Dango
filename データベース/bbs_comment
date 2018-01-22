@@ -1,0 +1,8 @@
+CREATE TABLE comment(
+ num SERIAL,
+ postnum INT,
+ content TEXT,
+ time TIMESTAMP,
+ userid INT,
+ username TEXT
+)
