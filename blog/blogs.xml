@@ -198,4 +198,13 @@
       <tag>アップデートヒストリー</tag>
     </tags>
   </blog>
+  <blog>
+    <id>23</id>
+    <title>コメント機能追加</title>
+    <link>/blog/23.php</link>
+    <date>2018/01/22</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>
