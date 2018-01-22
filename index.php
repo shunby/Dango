@@ -76,6 +76,44 @@ EOM;
             <div class="blog_content">
               <!---ここにブログ記事の内容を表示-->
             </div>
+
+            <!--コメント一覧-->
+              <?php
+              //blog.xmlの処理
+              $xml = ($_SERVER['DOCUMENT_ROOT'].'/blog/blogs.xml');
+              $xmldata = simplexml_load_file($blog_xml);
+              $idarr = array();
+              foreach ($xmldata as $blog) {
+                # code...
+                array_push($idarr,''.$blog->id);
+                //var_dump(''.$blog->id);
+              }
+              rsort($idarr);
+              $topid = $idarr[0];
+
+              //データベース処理
+              $pdo = Access::getPDO("bbs");
+              $sql = "SELECT * FROM comment WHERE postnum = $topid";
+              $data = $pdo->prepare($sql);
+              $data->execute(array($topid));
+               ?>
+            <!--HTML部分-->
+            <div style="margin-left: 30px;">
+              <p>コメント一覧</p>
+              <?php
+              foreach ($data as $value) {
+                # code...
+                echo <<<EOM
+                <div style="padding-bottom: 40px;">
+                 名前:{$value['username']}  投稿日: {$value['time']}<br>
+                 {$value['content']}
+                </div>
+
+EOM;
+              }
+               ?>
+            </div>
+
             <p><a href="/blog/index.php" style="text-decoration: none;position: relative;left: 460px;">ブログ目次へ</a></p>
           </div>
         </section>
