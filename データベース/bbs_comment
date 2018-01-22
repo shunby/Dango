@@ -4,5 +4,5 @@ CREATE TABLE comment(
  content TEXT,
  time TIMESTAMP,
  userid INT,
- username TEXT,
-);
+ username TEXT
+)
