@@ -24,6 +24,8 @@
       echo "コメントが投稿されました";
     }
   }
+
+  header("Location: {$_POST['url']}");
+  exit;
   ?>
-  <p> <a href=" <?php echo $_POST['url']; ?> ">閲覧していたブログに戻る</a> </p>
 </div>
