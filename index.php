@@ -92,16 +92,27 @@ EOM;
               <p>コメント一覧</p>
               <?php
               foreach ($data as $value) {
-                # code...
                 echo <<<EOM
                 <div style="padding-bottom: 40px;">
                  名前:{$value['username']}  投稿日: {$value['time']}<br>
                  {$value['content']}
                 </div>
-
 EOM;
               }
-               ?>
+
+              if(!empty($_SESSION['user'])){
+                echo <<<EOM
+                <form name="comment_form" action="/comment.php" method="post" id="comment" onsubmit="return check_comment();">
+                  <p>コメントをどうぞ</p>
+                  <textarea name="content" style="width: 90%;height: 100px;"></textarea>
+                  <p><input type="submit" name="submit" value="コメントを送信" class="submit"></p>
+                  <input type="hidden" name="postnum" value="{$topid}">
+                  <input type="hidden" name="url" value="/index.php">
+                </form>
+EOM;
+              }
+
+              ?>
             </div>
 
             <p><a href="/blog/index.php" style="text-decoration: none;position: relative;left: 460px;">ブログ目次へ</a></p>
