@@ -11,10 +11,7 @@ class User{
 
 
   public function __construct($parm, $type="id"){
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     $statement = $pdo->prepare("SELECT * from user where ?=?");
 
@@ -92,10 +89,7 @@ class User{
 
   //データベースに情報を反映する
   public function push(){
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     $sql = "UPDATE `user` SET `name`=?,`note`=?,`point`=?,`block_until`=? WHERE `id`=?";
     $statement = $pdo->prepare($sql);
@@ -104,10 +98,7 @@ class User{
 
   //データベースからユーザー情報を引っ張ってくる
   public function pull(){
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     $statement = $pdo->query("SELECT * from user where id=".$this->id);
     $result = $statement->fetch(PDO::FETCH_ASSOC);
@@ -132,10 +123,7 @@ class User{
 
   //自動ログイン用トークンを生成
   public function createToken(){
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     //トークンが生成済みの場合は破棄
     self::destroyTokenById($this->id);
@@ -156,10 +144,7 @@ class User{
 
   //自動ログイン用トークンからユーザー情報を読み込んでUserを返す
   public static function readFromToken($token){
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     //トークンからユーザーIDを取得
     $sql = "SELECT * from login_token where token=?";
@@ -178,10 +163,7 @@ class User{
 
   //自動ログイン用トークンを破棄
   public static function destroyToken($token){
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     $sql = "DELETE from login_token where token=?";
     $statement = $pdo->prepare($sql);
@@ -191,10 +173,7 @@ class User{
   }
   //該当するユーザーの自動ログイン用トークンを破棄
   public static function destroyTokenById($id){
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     $sql = "DELETE from login_token where userid=?";
     $statement = $pdo->prepare($sql);

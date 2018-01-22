@@ -96,10 +96,7 @@ EOM;
             <h1>運営からのお知らせ</h1>
             <?php
               require_once $webroot."/bbs/access/access.php";
-              $pdo;
-              $ac = new Access("bbs");
-              if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-              else $pdo = new PDO($ac->dsn, $ac->username);
+              $pdo = Access::getPDO("bbs");
 
               if(isset($_SESSION['user'])){
                 $role = $_SESSION['user']->getRole();

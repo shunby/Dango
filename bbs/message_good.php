@@ -9,10 +9,7 @@
 
   $userid = $_SESSION['user']->id;
 
-  $pdo;
-  $ac = new Access("bbs");
-  if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-  else $pdo = new PDO($ac->dsn, $ac->username);
+  $pdo = Access::getPDO("bbs");
 
   $statement = $pdo->prepare("SELECT * FROM message_good where messageid=? AND userid=?");
   $statement->execute(array($messageid, $userid));

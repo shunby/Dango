@@ -77,10 +77,7 @@
 
             $user->push();
 
-            $pdo;
-            $ac = new Access("bbs");
-            if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-            else $pdo = new PDO($ac->dsn, $ac->username);
+            $pdo = Access::getPDO("bbs");
 
             $sql = "INSERT INTO `admin_action`(`userid`, `act`) VALUES (?, ?)";
             $statement = $pdo->prepare($sql);

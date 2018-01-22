@@ -5,11 +5,7 @@
 <?php
 require_once "access/access.php";
 
-$pdo;
-
-$ac = new Access("bbs");
-if($ac->password != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-else $pdo = new PDO($ac->dsn, $ac->username);
+$pdo = Access::getPDO("bbs");
 
 
 $search = "select * from chatroom where deleted!=1";

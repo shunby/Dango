@@ -21,10 +21,7 @@ function login(){
     $name = $_POST['name'];
     $password = $_POST['password'];
 
-    $pdo;
-    $ac = new Access("bbs");
-    if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-    else $pdo = new PDO($ac->dsn, $ac->username);
+    $pdo = Access::getPDO("bbs");
 
     $statement = $pdo->query("select * from user WHERE name='".$name."'");
 

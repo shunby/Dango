@@ -7,10 +7,7 @@
 <?php
 
 
-  $pdo;
-  $ac = new Access("bbs");
-  if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-  else $pdo = new PDO($ac->dsn, $ac->username);
+  $pdo = Access::getPDO("bbs");
 
    $search = "select * from message where deleted!=1";
 

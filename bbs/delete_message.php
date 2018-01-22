@@ -11,10 +11,7 @@ $messageid = key_exists("messageid", $_POST) ? $_POST['messageid'] : null;
 if(is_null($messageid)){
   exit;
 }
-$pdo;
-$ac = new Access("bbs");
-if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-else $pdo = new PDO($ac->dsn, $ac->username);
+$pdo = Access::getPDO("bbs");
 
 $sql = "UPDATE message SET deleted = 1 WHERE messageid = ?";
 $statement = $pdo->prepare($sql);

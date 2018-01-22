@@ -15,10 +15,7 @@
   $last_modified = date("Y/m/d H:i:s e");
 
 
-  $pdo;
-  $ac = new Access("bbs");
-  if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-  else $pdo = new PDO($ac->dsn, $ac->username);
+  $pdo = Access::getPDO("bbs");
 
   $st = $pdo->prepare("INSERT INTO `thread`(`roomid`, `threadid`, `name`, `last_modified`, `settings`, `canbedeleted`, `deleted`, `userid`) VALUES (?,?,?,?,?,?,?,?)");
   $st->execute(array($roomid, $threadid, $name, $last_modified,$settings, $canbedeleted, $deleted, $_SESSION['user']->id));
