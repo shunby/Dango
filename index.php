@@ -79,17 +79,7 @@ EOM;
 
             <!--コメント一覧-->
               <?php
-              //blog.xmlの処理
-              $xml = ($_SERVER['DOCUMENT_ROOT'].'/blog/blogs.xml');
-              $xmldata = simplexml_load_file($blog_xml);
-              $idarr = array();
-              foreach ($xmldata as $blog) {
-                # code...
-                array_push($idarr,''.$blog->id);
-                //var_dump(''.$blog->id);
-              }
-              rsort($idarr);
-              $topid = $idarr[0];
+              $topid = $id;
 
               //データベース処理
               $pdo = Access::getPDO("bbs");
