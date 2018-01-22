@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT']."/bbs/access/access.php" ?>
 <div id="iine"><!--いいね機構-->
   <input type="button" value="good" id="button"><!--ボタン-->
   <a id="goodcount"></a>
@@ -41,7 +42,8 @@
 <!--コメント機構-->
 <!--コメント一覧-->
 <?php
-  $pdo = new PDO("mysql:dbname=paysestbbs_bbs;charset=utf8;","root");
+  $pdo = Access::getPDO("bbs");
+  
   $url = $_SERVER["REQUEST_URI"];
   $postnum = preg_replace('/[^0-9]/','',$url);
   $sql = "SELECT * FROM comment WHERE postnum = $postnum";
