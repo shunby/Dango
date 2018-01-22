@@ -1,15 +1,11 @@
-<div style="font-size:30px; text-align:center">
-  <?php
+<?php
   require_once($_SERVER['DOCUMENT_ROOT']."/bbs/access/access.php");
   require_once($_SERVER['DOCUMENT_ROOT'].'/core/user_util.php');
-
   session_start();
-
   $postnum = $_POST['postnum'];
   $error = '';
   if (@$_POST['submit']) {
     if ($_POST['content'] == $error) {
-      echo "コメントがありません";
     } else {
       $userid = $_SESSION['user']->id;
       $username = $_SESSION['user']->name;
@@ -21,11 +17,8 @@
       $userid,
       $username,
       ));
-      echo "コメントが投稿されました";
     }
   }
-
   header("Location: {$_POST['url']}");
-  exit;
-  ?>
-</div>
+  exit();
+?>

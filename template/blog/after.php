@@ -57,7 +57,7 @@
     foreach ($data as $value) {
       echo <<<EOM
       <div style="padding-bottom: 50px;">
-        名前:{$value['username']}  登校日: {$value['time']}<br>
+        名前:{$value['username']}  投稿日: {$value['time']}<br>
         {$value['content']}
       </div>
 EOM;
