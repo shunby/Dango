@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  //include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -43,24 +43,16 @@
         <?php include $webroot."/template/blog/before.php" ?>
 
         <?php
-          $id = 22;
+          $id = 24;
          ?>
 
         <!--ここから本文-->
         <div class="main-main">
+          <img src="/image/blog/blog24.jpg">
           <p>
-            ねこです。
-          </p>
-          <p>
-            掲示板に褒める機能が付きました。掲示板の書き込み横の「ほめる」ボタンを押すとその書き込みをほめることができます。<br>
-            もう一回押すとほめたのを取り消します。それだけです。
-          </p>
-          <p>
-            現在、<a href="/user/?userid=9">卍氏</a>がブログコメント機能を作ってくれているので、ご期待ください。
-          </p>
-          <p>
-            ねこでした。
-          </p>
+            それでもしりとりは続いていく...　ただそれだけのことでした<br>
+            そのうちデータベース重くなって読み込み遅くなりそうだw<br>
+          </P>
         </div>
         <!--ここまで本文-->
 
