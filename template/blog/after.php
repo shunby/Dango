@@ -67,7 +67,7 @@ EOM;
 
 <!--フォーム-->
 
-<form action="/comment.php" method="post" id="comment">
+<form name="comment_form" action="/comment.php" method="post" id="comment" onsubmit="return check_comment();">
   <p>コメントをどうぞ</p>
   <textarea name="content" rows="10" cols="80"></textarea>
   <p><input type="submit" name="submit" value="コメントを送信" class="submit"></p>
@@ -100,6 +100,19 @@ EOM;
 <div class="wtf">
 
 </div>
+
+<script type="text/javascript">
+
+  function check_comment(){
+    var comment = document.comment_form.content.value;
+
+    if(comment.length < 1 || comment.length > 1024){
+      alert("コメントは1024文字以内で入力してください");
+      return false;
+    }
+    return true;
+  }
+</script>
 
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
