@@ -76,7 +76,7 @@ EOM;
             <div class="blog_content">
               <!---ここにブログ記事の内容を表示-->
             </div>
-            <a href="/blog/index.php" style="text-decoration: none;text-align: right;display: block;margin-right: 20px;">ブログ目次へ</a>
+            <p><a href="/blog/index.php" style="text-decoration: none;position: relative;left: 460px;">ブログ目次へ</a></p>
           </div>
         </section>
         <section>
