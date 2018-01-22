@@ -9,11 +9,16 @@
     } else {
       $userid = $_SESSION['user']->id;
       $username = $_SESSION['user']->name;
+
+      $content = $_POST['content'];
+      $content = htmlspecialchars($content);
+      $content = nl2br($content);
+
       $pdo = Access::getPDO("bbs");
       $set = $pdo->prepare("INSERT INTO comment(postnum,content,userid,username) VALUES(?,?,?,?)");
       $set->execute(array(
       $_POST['postnum'],//postnum
-      $_POST['content'],//coutent
+      $content,
       $userid,
       $username,
       ));
