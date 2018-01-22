@@ -42,6 +42,7 @@ class Access{
     $dsn = "mysql:dbname=".$dbname.";".$hoststr;
 
     $pdo = new PDO($dsn, $username, $password);
+    return $pdo;
   }
 
 
