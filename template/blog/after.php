@@ -43,11 +43,13 @@
 <!--コメント一覧-->
 <?php
   $pdo = Access::getPDO("bbs");
-  
+
   $url = $_SERVER["REQUEST_URI"];
   $postnum = preg_replace('/[^0-9]/','',$url);
-  $sql = "SELECT * FROM comment WHERE postnum = $postnum";
-  $data = $pdo->query($sql);
+
+  $sql = "SELECT * FROM comment WHERE postnum = ?";
+  $data = $pdo->prepare($sql);
+  $data->execute(array($postnum));
 ?>
 <div class="commentlist">
   <p>コメント一覧</p>
