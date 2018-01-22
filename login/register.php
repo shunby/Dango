@@ -71,10 +71,7 @@
           $re_password = $_POST['re_password'];
 
 
-          $pdo;
-          $ac = new Access("bbs");
-          if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-          else $pdo = new PDO($ac->dsn, $ac->username);
+          $pdo = Access::getPDO("bbs");
 
           $statement = $pdo->query("SELECT * from user where name='".$name."'");
 

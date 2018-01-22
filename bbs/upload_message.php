@@ -7,10 +7,7 @@
 
   $message = nl2br(htmlspecialchars($_POST['message']));
 
-  $pdo;
-  $ac = new Access("bbs");
-  if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-  else $pdo = new PDO($ac->dsn, $ac->username);
+  $pdo = Access::getPDO("bbs");
 
   $host = (!isset($_SERVER['REMOTE_HOST']) || $_SERVER['REMOTE_HOST'] == "") ? gethostbyaddr($_SERVER['REMOTE_ADDR']): $_SERVER['REMOTE_HOST'];
 

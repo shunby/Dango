@@ -9,10 +9,7 @@
   $quality = htmlspecialchars($_POST['quality']);
   $appearance = htmlspecialchars($_POST['appearance']);
 
-  $pdo;
-  $ac = new Access("bbs");
-  if($ac->username != "")$pdo = new PDO($ac->dsn, $ac->username, $ac->password);
-  else $pdo = new PDO($ac->dsn, $ac->username);
+  $pdo = Access::getPDO("bbs");
 
   $st = $pdo->prepare("INSERT INTO kansou VALUES(?, ?, ?, ?, ?, ?, ?)");
   $st->execute(array($name, $gender, $grade, $email, $kansou, $quality, $appearance));
