@@ -127,7 +127,7 @@ EOM;
               <li>ページが読み込めない！・表示がおかしい！→<a href="/bbs/messages.php?roomid=0&threadid=1">問題報告等</a></li>
               <li>こんなページがほしい！・この機能つけて！→<a href="/bbs/messages.php?roomid=0&threadid=2">感想・要望板</a></li>
               <li>これどうなってるの？・誰にも知られずに相談したい→<a href="/questionnaire/questionnaire.php">お問い合わせ</a>(ログイン不要)</li>
-              <li>運営に協力したい・サイト管理をしてみたい→<a href="/maid/">メイドさん募集</a></li>
+              <li>運営に協力したい・サイト管理をしてみたい→<a href="/document/maid.php">メイドさん募集</a></li>
             </ul>
           </p>
 
