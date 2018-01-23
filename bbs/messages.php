@@ -20,7 +20,7 @@
   $statement_thread->execute(array($_GET['threadid'], $_GET['roomid']));
 
   $thread = $statement_thread->fetch();
-  if(empty($thread))exit("存在しないスレッドです");
+  if(empty($thread) || $thread['deleted'])exit("存在しないスレッドです");
 
   $role = $_SESSION['user']->getRole();
   $editable = strcmp($role, "一般ユーザー") != 0;
