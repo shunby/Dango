@@ -87,5 +87,6 @@
     <li> <a href="/document/maid.php">メイドさん募集</a> </li>
     <li> <a href="/olaf/loginforolaf.php">おらふ用入口</a> </li>
     <li> <a href="/blog/privacy.php">プライバシーポリシー</a> </li>
+    <li> <a href="/document/delete.php">処罰の基準</a> </li>
   </ul>
 </div>
