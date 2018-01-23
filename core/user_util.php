@@ -47,6 +47,14 @@ class User{
       $this->block_until = new DateTime($result['block_until']);
     }
 
+    if(empty($this->name) || empty($this->id)){
+      $this->name = "";
+      $this->id = 0;
+      $this->note = array();
+      $this->point = 15;
+      $this->block_until = new DateTime();
+    }
+
   }
 
   //権限を表す文字列を返す
