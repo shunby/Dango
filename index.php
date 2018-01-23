@@ -119,7 +119,7 @@ EOM;
           </div>
         </section>
         <section>
-          <h1 style="display:inline;">だんご三兄弟(仮)へようこそ</h1>
+          <h1 style="display:inline;">だんご三兄弟へようこそ</h1>
 
           <p>
             現在このブログはβ版です。何かあれば以下から気軽にご報告ください。
