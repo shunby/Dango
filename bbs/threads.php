@@ -11,12 +11,8 @@ if(is_null($_GET['roomid']))exit("クエリが不正です。");
 $pdo = Access::getPDO("bbs");
 
 $search = "SELECT * from thread where deleted!=1 AND roomid=? AND name LIKE ? order by threadid asc";
-$name;
-if(!key_exists('name', $_GET)){
-  $name = '';
-}else {
-  $name = $_GET['name'];
-}
+
+$name = key_exists('name', $_GET) ? $_GET['name'] : '';
 
 $statement_thread = $pdo->prepare($search);
 $statement_thread->execute(array($_GET['roomid'], "%{$name}%"));

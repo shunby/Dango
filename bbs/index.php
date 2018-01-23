@@ -1,25 +1,18 @@
 <?php
-  $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
- ?>
-<?php
+$webroot = $_SERVER['DOCUMENT_ROOT'];
+include $webroot."/template/check_login.php";
 require_once "access/access.php";
 
 $pdo = Access::getPDO("bbs");
 
 
-$search = "select * from chatroom where deleted!=1";
+$search = "SELECT * from chatroom where deleted!=1 AND name LIKE ? AND type LIKE ?";
 
+$name = array_key_exists('name', $_GET) ? $_GET['name'] : '';
+$type = array_key_exists('type', $_GET) ? $_GET['type'] : '';
 
-
-if(array_key_exists('name', $_GET) &&  $_GET['name'] != ""){
-  $search = $search." AND name LIKE '%".$_GET['name']."%'";
-}
-if(array_key_exists('type', $_GET) && $_GET['type'] != ""){
-  $search = $search." AND type='".$_GET['type']."'";
-}
-
-$st = $pdo->query($search);
+$st = $pdo->prepare($search);
+$st->execute(array("%{$name}%", "%{$type}%"));
 
 ?>
 
