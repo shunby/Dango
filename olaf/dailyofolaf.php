@@ -56,6 +56,7 @@
           <li><a href="/olaf/olafblog06.php">第六回</li>
           <li><a href="/olaf/olafblog07.php">第七回</li>
           <li><a href="/olaf/wolafblog01.php">ヲラフの日記帳　第一回</li>
+          <li><a href="/olaf/olafblog08.php">第八回</li>
         </ul>
       </section>
     </article>
