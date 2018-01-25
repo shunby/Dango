@@ -1,7 +1,7 @@
 <script>
 $(function(){
   $.ajax(blog_url, {
-    timeout : 1000,
+    timeout : 10000,
     datatype: 'html'
   }).then(
   function(data){

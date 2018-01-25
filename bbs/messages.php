@@ -5,37 +5,25 @@
   include $webroot."/template/check_login.php";
  ?>
 <?php
+  if(is_null($_GET['roomid']) || is_null($_GET['threadid']))exit("クエリが異常です！");
 
 
   $pdo = Access::getPDO("bbs");
 
-   $search = "select * from message where deleted!=1";
+  $search = "SELECT * from message where deleted!=1  AND roomid=? AND threadid=?";
 
-   if(array_key_exists('roomid', $_GET) &&  $_GET['roomid'] != "-1"){
-     $search = $search." AND roomid= ".$_GET['roomid'];
-   }else{
-     exit("クエリが異常です。部屋番号がセットされていません。");
-   }
+  $statement_msg = $pdo->prepare($search);
+  $statement_msg->execute(array($_GET['roomid'], $_GET['threadid']));
 
-   if(array_key_exists('threadid', $_GET) &&  $_GET['threadid'] != "-1"){
-     $search = $search." AND threadid= ".$_GET['threadid'];
-   }else{
-     exit("クエリが異常です。スレッド番号がセットされていません。");
-   }
-   //
-  //  if(array_key_exists('name', $_GET) &&  $_GET['name'] != ""){
-  //    $search = $search." AND name LIKE '%".$_GET['name']."%'";
-  //  }
-   $st = $pdo->query($search);
 
-   $st1 = $pdo->query("select * from thread where threadid={$_GET['threadid']} AND roomid={$_GET['roomid']}");
-   $threadName = "";
-   while($row = $st1->fetch()){
-     $threadName = $row['name'];
-   }
+  $statement_thread = $pdo->prepare("SELECT * from thread where threadid=? AND roomid=? AND deleted = 0");
+  $statement_thread->execute(array($_GET['threadid'], $_GET['roomid']));
 
-   $role = $_SESSION['user']->getRole();
-   $editable = strcmp($role, "一般ユーザー") != 0;
+  $thread = $statement_thread->fetch();
+  if(empty($thread) || $thread['deleted'])exit("存在しないスレッドです");
+
+  $role = $_SESSION['user']->getRole();
+  $editable = strcmp($role, "一般ユーザー") != 0;
 ?>
 
 <!DOCTYPE html>
@@ -77,30 +65,29 @@
          <form name="search" action="threads.php" method="get">
            <?php
            //メッセージ送信用の部屋番号とスレッド番号
-            echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
-            echo "<input type=\"hidden\" name=\"threadid\" value=\"".(array_key_exists('threadid', $_GET) ?  $_GET['threadid'] : "-1")."\"></input>";
+           echo <<<EOM
+           <input type="hidden" name="roomid" value={$_GET['roomid']}></input>
+           <input type="hidden" name="threadid" value={$_GET['threadid']}></input>
+EOM;
            ?>
          </form>
 
          <?php
-          echo "<h1>{$threadName}</h1>";
+          echo "<h1>{$thread['name']}</h1>";
          ?>
          <!--ここから投稿------------------------>
          <ul class="messages">
          <?php
-          $messageid = 0;
-          $statement =$pdo->prepare("SELECT * FROM user where name=?");
-          $stmt_for_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
-          while($row = $st->fetch()){
-            $statement->execute(array($row['name']));
-            $mail = "";
-            if($postusr = $statement->fetch()){
-                $mail = "/user/?userid=".$postusr['id'];
-            }
+          $statement_user = $pdo->prepare("SELECT * FROM user where name=?");
+          $statement_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
+          while($row = $statement_msg->fetch()){
+            $statement_user->execute(array($row['name']));
 
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
+
             $user = new User($row['name'], "name");
             $usrname = $user->getDisplayName();
+            $usrpage = "/user/?userid={$user->id}";
             echo <<<EOM
             <li>
               <div class="message_content">
@@ -108,7 +95,7 @@
                   {$msg}
                 </div>
                 <div class="message_info">
-                  <div class="name"><a href="{$mail}">{$usrname}</a></div>
+                  <div class="name"><a href="{$usrpage}">{$usrname}</a></div>
                   <div class="date">{$row['date']}</div><br/>
 EOM;
             if($editable){
@@ -122,8 +109,8 @@ EOM;
 EOM;
 }
             //ほめるボタン
-            $stmt_for_good->execute(array($row['messageid']));
-            $row_for_good = $stmt_for_good->fetch();
+            $statement_good->execute(array($row['messageid']));
+            $row_for_good = $statement_good->fetch();
             $good_cnt = empty($row) ? 0 : $row_for_good['cnt'];
             echo <<<EOM
               <form name="good_form" action="message_good.php" method="post">
@@ -140,7 +127,6 @@ EOM;
               </div>
             </li>
 EOM;
-            $messageid++;
           }
          ?>
          </ul>
@@ -158,7 +144,6 @@ EOM;
             $date = date("Y/m/d H:i:s e");
             echo "<input type=\"hidden\" name=\"roomid\" value=\"". $_GET['roomid'] ."\"></input>";
             echo "<input type=\"hidden\" name=\"threadid\" value=\"". $_GET['threadid'] ."\"></input>";
-            echo "<input type=\"hidden\" name=\"messageid\" value=\"". $messageid ."\"></input>";
             echo "<input type=\"hidden\" name=\"date\" value=\"". $date ."\"></input>";
            ?>
 

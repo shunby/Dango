@@ -6,27 +6,22 @@
 
 <?php
 
+if(is_null($_GET['roomid']))exit("クエリが不正です。");
+
 $pdo = Access::getPDO("bbs");
 
-$search = "select * from thread where deleted!=1";
+$search = "SELECT * from thread where deleted!=1 AND roomid=? AND name LIKE ? order by threadid asc";
 
-if(array_key_exists('roomid', $_GET) &&  $_GET['roomid'] != "-1"){
-  $search = $search." AND roomid= ".$_GET['roomid'];
-}else{
-  exit("クエリが異常です。部屋番号がセットされていません。");
-}
+$name = key_exists('name', $_GET) ? $_GET['name'] : '';
 
-if(array_key_exists('name', $_GET) &&  $_GET['name'] != ""){
-  $search = $search." AND name LIKE '%".$_GET['name']."%'";
-}
+$statement_thread = $pdo->prepare($search);
+$statement_thread->execute(array($_GET['roomid'], "%{$name}%"));
 
-$search = $search." order by threadid asc";
-
-$st = $pdo->query($search);
-
-$st1 = $pdo->query("select * from chatroom where roomid=".$_GET['roomid']);
-$room = $st1->fetch();
+$statement_room = $pdo->prepare("select * from chatroom where roomid=?");
+$statement_room->execute(array($_GET['roomid']));
+$room = $statement_room->fetch();
 $roomname = $room['name'];
+
 $system = strcmp($room['type'], 'system') == 0;
 ?>
 
@@ -82,7 +77,10 @@ EOM;
           <input type="checkbox" name="show_all" value="true"> 5日間更新がないスレッドも表示<br>
           <input class = button type="submit" value="検索"></input><br>
           <?php
-          echo "<input type=\"hidden\" name=\"roomid\" value=\"".(array_key_exists('roomid', $_GET) ?  $_GET['roomid'] : "-1")."\"></input>";
+          echo <<<EOM
+          <input type="hidden" name="roomid" value={$_GET['roomid']}></input>
+EOM;
+
           ?>
         </form>
 
@@ -96,9 +94,7 @@ EOM;
           <?php
           $show_all = key_exists('show_all', $_GET) ? $_GET['show_all'] : false;
           $today = new DateTime();
-          $last_threadid;
-          while($row = $st->fetch()){
-            $last_threadid = $row['threadid'];
+          while($row = $statement_thread->fetch()){
             $datearr = explode(" ",$row['last_modified']);
             $date = new DateTime($datearr[0]." ".$datearr[1]);
             if(!$show_all && !$system){
@@ -133,9 +129,9 @@ EOM;
         スレッド名
         <input type="input" name="name"></input>
         <?php
-        $last_threadid++;
-        echo "<input type=\"hidden\" name=\"roomid\" value=\"".$_GET['roomid']."\"></input>";
-        echo "<input type=\"hidden\" name=\"threadid\" value=\"".$last_threadid."\"></input>";
+        echo <<<EOM
+        <input type="hidden" name="roomid" value={$_GET['roomid']}></input>
+EOM;
         ?>
         <input type="submit" value="作成"></input>
       </form>

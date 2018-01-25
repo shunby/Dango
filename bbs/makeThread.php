@@ -17,12 +17,20 @@
 
   $pdo = Access::getPDO("bbs");
 
+  $sql = "SELECT MAX(threadid) AS cnt from thread where roomid=?";
+  $st = $pdo->prepare($sql);
+  $st->execute(array($roomid));
+  $threadid = $st->fetch()['cnt'];
+  $threadid+=1;
+
   $st = $pdo->prepare("INSERT INTO `thread`(`roomid`, `threadid`, `name`, `last_modified`, `settings`, `canbedeleted`, `deleted`, `userid`) VALUES (?,?,?,?,?,?,?,?)");
   $st->execute(array($roomid, $threadid, $name, $last_modified,$settings, $canbedeleted, $deleted, $_SESSION['user']->id));
 
   $sql = "UPDATE chatroom SET last_modified = ? WHERE roomid = ?";
   $st = $pdo->prepare($sql);
   $st->execute(array(htmlspecialchars($last_modified), htmlspecialchars($roomid)));
+
+
 
   header("Location: messages.php?roomid={$roomid}&threadid={$threadid}");
   exit();
