@@ -122,7 +122,15 @@ EOM;
           <h1 style="display:inline;">だんご三兄弟へようこそ</h1>
 
           <p>
-            現在このブログはβ版です。何かあれば以下から気軽にご報告ください。
+            <?php
+              if(empty($_SESSION['user'])){
+                echo <<<EOM
+                <b>このサイトは会員制です。利用するには<a href="login/register.php">ユーザー登録</a>するか、<a href="login/login.php">ログイン</a>してください。</b>
+EOM;
+              }else{
+                echo "ようこそ、{$_SESSION['user']->name}さん！";
+              }
+            ?>
             <ul>
               <li>ページが読み込めない！・表示がおかしい！→<a href="/bbs/messages.php?roomid=0&threadid=1">問題報告等</a></li>
               <li>こんなページがほしい！・この機能つけて！→<a href="/bbs/messages.php?roomid=0&threadid=2">感想・要望板</a></li>
