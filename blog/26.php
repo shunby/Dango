@@ -55,14 +55,14 @@
             怖いものって、たまーに見たくなりますよね。私は基本ホラー系苦手なんですけど、たまーに思い出したように見たりします。
           </p>
           <p>
-            私がそんな感じで見たり見なかったりを繰り返してるのが、<a href="http://ja.scp-wiki.net/">SCP財団</a>です。<br>
+            私がそんな感じで見たり見なかったりを繰り返してるのが、<a href="http://ja.scp-wiki.net/" target="_blank">SCP財団</a>です。<br>
             これは、「SCP」と呼ばれる異常なものたちを確保、収容、保護し、現実世界を平和に保つため暗躍する
             世界規模の団体「SCP財団」によるSCPについての報告書...という体でホラーな文章を読んだり書いたりする、恐怖系創作サイトです。
           </p>
           <p>
-            <a href="http://ja.scp-wiki.net/scp-173">少しでも目を離したら超高速で動いて首をへし折ってくる彫刻</a>や、
-            <a href="http://ja.scp-wiki.net/scp-682">すべての生命を憎悪し酸にも耐える最強の爬虫類</a>、
-            <a href="http://ja.scp-wiki.net/scp-240-jp">現実改変能力を駆使して絶対に死なない0匹のイナゴ</a>などなど、
+            <a href="http://ja.scp-wiki.net/scp-173" target="_blank">少しでも目を離したら超高速で動いて首をへし折ってくる彫刻</a>や、
+            <a href="http://ja.scp-wiki.net/scp-682" target="_blank">すべての生命を憎悪し酸にも耐える最強の爬虫類</a>、
+            <a href="http://ja.scp-wiki.net/scp-240-jp" target="_blank">現実改変能力を駆使して絶対に死なない0匹のイナゴ</a>などなど、
             多種多様なホラーだったり面白かったり謎だったりするSCPがいて、割と面白いです。暇だったら一度読んでみてください。
           </p>
           <p>
@@ -71,7 +71,7 @@
           <p>
             <figure id="scp_096">
               <img style="border:solid 1px" width=50% src="/image/blog/blog26_096.jpg" alt="scp-096" />
-              <figcaption><a href="http://ja.scp-wiki.net/scp-096">特に何かあるわけではないですが、この綺麗な山の写真を張っておきますね。</a></figcaption>
+              <figcaption><a href="http://ja.scp-wiki.net/scp-096" target="_blank">特に何かあるわけではないですが、この綺麗な山の写真を張っておきますね。</a></figcaption>
             </figure><br>
           </p>
           <p>
