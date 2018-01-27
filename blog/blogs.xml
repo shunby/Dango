@@ -225,4 +225,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>26</id>
+    <title>SCP財団</title>
+    <link>/blog/26.php</link>
+    <date>2018/01/28</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
