@@ -19,6 +19,7 @@ class User{
     switch($type){
       case "id":
         $statement = $pdo->query("SELECT * from user where id=".$parm);
+        if(!$statement)exit;
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
         $this->id = $result['id'];
@@ -26,6 +27,7 @@ class User{
         break;
       case "name":
         $statement = $pdo->query("SELECT * from user where name='".$parm."'");
+        if(!$statement)exit;
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
         $this->name = $result['name'];
