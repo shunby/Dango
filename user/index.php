@@ -94,14 +94,21 @@
         <?php
 
           if($adminFlag){
+
             echo <<<EOM
             <form action=" " method="POST" name="point">
               <input type="text" name="point"></input>
               <input type="submit" value="減点" onsubmit="return confirm('本当に減点しますか?')"></input>
             </form>
 EOM;
-
           }
+          $current_id = key_exists('userid', $_GET) ? $_GET['userid'] : $_SESSION['user']->id;
+          $prev_id = $current_id - 1;
+          $next_id = $current_id + 1;
+          echo <<<EOM
+          <br>
+          <-<a href="/user/?userid={$prev_id}">前のユーザー</a> | <a href="/user/?userid={$next_id}">次のユーザー</a>->
+EOM;
         ?>
 
 
