@@ -43,7 +43,7 @@
         <?php include $webroot."/template/blog/before.php" ?>
 
         <?php
-          $id = 26;
+          $id = 27;
          ?>
 
         <!--ここから本文-->
