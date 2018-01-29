@@ -33,7 +33,7 @@
     <link>/blog/4.php</link>
     <date>2017/12/17</date>
     <tags>
-      <tag>趣味</tag>
+      <tag>雑記</tag>
     </tags>
   </blog>
   <blog>
@@ -42,7 +42,7 @@
     <link>/blog/5.php</link>
     <date>2017/12/18</date>
     <tags>
-      <tag>趣味</tag>
+      <tag>雑記</tag>
     </tags>
   </blog>
   <blog>
@@ -51,7 +51,7 @@
     <link>/blog/6.php</link>
     <date>2017/12/20</date>
     <tags>
-      <tag>趣味</tag>
+      <tag>雑記</tag>
     </tags>
   </blog>
   <blog>
@@ -230,6 +230,24 @@
     <title>SCP財団</title>
     <link>/blog/26.php</link>
     <date>2018/01/28</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
+  <blog>
+    <id>26</id>
+    <title>SCP財団</title>
+    <link>/blog/26.php</link>
+    <date>2018/01/28</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
+  <blog>
+    <id>27</id>
+    <title>ねこが今度はゲームを作りたいそうです</title>
+    <link>/blog/27.php</link>
+    <date>2018/01/29</date>
     <tags>
       <tag>雑記</tag>
     </tags>
