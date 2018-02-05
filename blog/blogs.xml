@@ -243,4 +243,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>28</id>
+    <title>Z会を終えて…</title>
+    <link>/blog/28.php</link>
+    <date>2018/02/05</date>
+    <tags>
+      <tag>栄東</tag>
+    </tags>
+  </blog>
 </blogs>
