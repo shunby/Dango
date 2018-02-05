@@ -46,6 +46,9 @@
            日々のネタを不定期更新する「おらふの日常」は<a href="dailyofolaf.php">こちら</a><br>
            ネットの話題をお届けする「おらふのネット情報局」は<a href="informationblog.php">こちら</a>
          </p>
+         <p>
+           近日中にここで最新のブログを見られるようにするつもりです
+         </p>
 
 
      </section>
