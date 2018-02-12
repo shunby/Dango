@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  //include $webroot."/template/check_login.php"
+  include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@
         <?php include $webroot."/template/blog/before.php" ?>
 
         <?php
-          $id = 29;
+          $id = 30;
          ?>
 
         <!--ここから本文-->
