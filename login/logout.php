@@ -55,7 +55,7 @@
          <?php include $webroot."/template/header.html" ?>
          <?php include $webroot."/template/navi.html" ?>
          <?php include $webroot."/template/sideber.php" ?>
-         <article id="main">
+         <article id="sidemain">
            <section>
              ログアウトしました。
            </section>
