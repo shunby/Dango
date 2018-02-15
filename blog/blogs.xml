@@ -288,4 +288,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>33</id>
+    <title>UIの生態</title>
+    <link>/blog/33.php</link>
+    <date>2018/02/15</date>
+    <tags>
+      <tag>栄東</tag>
+    </tags>
+  </blog>
 </blogs>
