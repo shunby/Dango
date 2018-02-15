@@ -3,6 +3,7 @@
 }
 
 #button{
+  -webkit-appearance: none;
   background:    #37093a;
   border-radius: 1000px;
   padding:       8px 20px;

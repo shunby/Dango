@@ -22,6 +22,29 @@
   text-decoration: none;
 }
 
+input[type="button"]{
+  -webkit-appearance: none;
+  outline: 0;
+  border: 0px;
+  background: transparent;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+#sideber .user li:first-child{
+  text-align: center;
+}
+
+.user li{
+  border: 2px double gray;
+  border-top: none;
+}
+
+.user li:first-child{
+  border-left: none;
+  border-right: none;
+}
+
 #sideber .type li:first-child{
   text-align: center;
 }
