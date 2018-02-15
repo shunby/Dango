@@ -1,4 +1,11 @@
 <div id="sideber">
+  <ul class="user">
+    <li>ユーザー関連</li>
+    <li><input type="button" value="ログイン" onclick="window.location.href='/login/login.php';"></input></li>
+    <li><input type="button" value="ログアウト" onclick="window.location.href='/login/logout.php';"></input></li>
+    <li><input type="button" value="ユーザ登録" onclick="window.location.href='/login/register.php';"></input></li>
+    <li><input type="button" value="ユーザーページ" onclick="window.location.href='/user/';"></input></li>
+  </ul>
   <ul class="type">
     <li>記事タイプ</li>
     <li> <a href="/blog/">・目次</a> </li>
