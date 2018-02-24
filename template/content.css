@@ -1,5 +1,12 @@
 html{
-  background: #cdd1c6;
+  background-color: #9966FF;
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, #FF0099), color-stop(.5, transparent), to(transparent));
+  background-image: -moz-linear-gradient(left, #FF0099 50%, transparent 50%, transparent);
+  background-image: -o-linear-gradient(left, #FF0099 50%, transparent 50%, transparent);
+  background-image: linear-gradient(left, #FF0099 50%, transparent 50%, transparent);
+  -webkit-gradient-size: 35px 35px;
+  -moz-background-size: 35px 35px;
+  background-size: 35px 35px;
 }
 
 #content{
