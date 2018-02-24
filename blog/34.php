@@ -56,7 +56,7 @@
             <br>
             ・歴史の課題範囲&emsp; <a href="/image/PDF/3学期学年末/歴史範囲.pdf">見る</a> <br>
             <br>
-            ・公民の課題範囲&emsp; <a href="/image/PDF/3学期学年末/公民範囲.pdf">見る</a> <br>
+            ・公民の課題範囲&emsp; <a href="/image/PDF/3学期学年末/公民.pdf">見る</a> <br>
             <br>
             ・体育SHIPプリント&emsp; <a href="/image/PDF/3学期学年末/体育プリント.pdf">見る</a> <br>
             <br>
