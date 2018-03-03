@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  //include $webroot."/template/check_login.php"
+  include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -60,11 +60,13 @@
             <br>
             ・体育SHIPプリント&emsp; <a href="/image/PDF/3学期学年末/体育プリント.pdf">見る</a> <br>
             <br>
+            ・試験時間割&emsp; <a href="/image/PDF/3学期学年末/試験時間割.pdf">見る</a><br>
             <br>
             おまけ&emsp;今日の英語の課題&emsp; <a href="/image/PDF/3学期学年末/英語-readプリント.pdf">見る</a>
           </p>
           <p>
-            ※公民の課題範囲を最新のに変更しました
+            ※公民の課題範囲を最新のに変更しました<br>
+            ※試験時間割を追加しました
           </p>
         </div>
         <!--ここまで本文-->
