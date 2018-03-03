@@ -48,7 +48,7 @@
 
         <!--ここから本文-->
         <div class="main-main">
-          <video src="/image/blog/blog35.mp4" controls width="500" poster="/image/blog/blog35.png"></video>
+          <video src="/image/blog/blog35.mp4" controls width="500" poster="/image/blog/blog35.png" preload="none"></video>
           <p>
             この前の動画を入手しましたので、さっそく公開ですよー((*´∀｀*))ｴﾍﾍｯ<br>
             と思ったんだけど、これ謝恩会で流して本当に盛り上がるのだろうか…&emsp;ブログに載せてる俺が恐くなってきた((((；゜Д゜)))<br>
