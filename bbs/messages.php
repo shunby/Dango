@@ -17,7 +17,7 @@
 
 
   $statement_thread = $pdo->prepare("SELECT * from thread where roomid=? AND threadid=? AND deleted = 0");
-  $statement_thread->execute(array($_GET['threadid'], $_GET['roomid']));
+  $statement_thread->execute(array($_GET['roomid'], $_GET['threadid']));
 
   $thread = $statement_thread->fetch();
   if(empty($thread) || $thread['deleted'])exit("存在しないスレッドです");
