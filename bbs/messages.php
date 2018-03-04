@@ -38,7 +38,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
 
-    <?php include "../template/analytics.html" ?>
+
     <link href="messages.css" rel="stylesheet" type="text/css">
     <link href="../template/header.css" rel="stylesheet" type="text/css">
     <link href="../template/footer.css" rel="stylesheet" type="text/css">
@@ -171,5 +171,6 @@ EOM;
       window.scrollTo(0,y);
     }
    </script>
+   <?php include "../template/analytics.html" ?>
   </body>
 </html>

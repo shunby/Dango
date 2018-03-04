@@ -12,7 +12,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width">
 
-  <?php include "../template/analytics.html" ?>
+
   <link href="questionnaire.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
@@ -98,5 +98,6 @@
     <script src="questionnaire.js"></script>
     <noscript>ブラウザがjavascriptに対応していないか、javascriptが無効化されています。</noscript>
   </div>
+  <?php include "../template/analytics.html" ?>
 </body>
 </html>

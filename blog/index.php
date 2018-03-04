@@ -14,7 +14,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width">
 
-  <?php include "../template/analytics.html" ?>
+
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="../template/header.css" rel="stylesheet" type="text/css">
   <link href="../template/footer.css" rel="stylesheet" type="text/css">
@@ -65,6 +65,7 @@ EOM;
 
 
   </div>
+  <?php include "../template/analytics.html" ?>
 </body>
 
 </html>
