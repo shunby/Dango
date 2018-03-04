@@ -11,7 +11,7 @@
 　　<meta name="author" content="だんご三兄弟">
     <meta name="http-equiv" content="300">
 
-    <?php include "../template/analytics.html" ?>
+
     <link rel="stylesheet" href="list.css" type="text/css">
     <link href="../template/header.css" rel="stylesheet" type="text/css">
     <link href="../template/footer.css" rel="stylesheet" type="text/css">
@@ -70,5 +70,6 @@
     <footer>
     </footer>
    </div>
+   <?php include "../template/analytics.html" ?>
   </body>
 </html>
