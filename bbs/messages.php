@@ -81,13 +81,16 @@ EOM;
 
 
           $statement_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
+          $statement_user = $pdo->prepare("SELECT `name`,`point` from user where id=?");
           while($row = $statement_msg->fetch()){
 
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
 
-            $user = new User($row['userid']);
-            $usrname = $user->getDisplayName();
-            $usrpage = "/user/?userid=".$user->id;
+            $usrid   = $row['userid'];
+            $statement_user->execute(array($usrid));
+            $row_for_usr = $statement_user->fetch();
+            $usrname = User::makeDisplayName($row_for_usr['name'], $row_for_usr['point']);
+            $usrpage = "/user/?userid=".$usrid;
             echo '<li><div class="message_content"><div class="message_text">',
                   $msg,
                 '</div><div class="message_info"><div class="name"><a href="',$usrpage,'">',$usrname,'</a></div><div class="date">',$row['date'],'</div><br/>';

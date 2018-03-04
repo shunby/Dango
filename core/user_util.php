@@ -73,8 +73,11 @@ class User{
 
   //色付きの名前を返す
   public function getDisplayName(){
-    $point = $this->point;
+    return self::makeDisplayName($this->name, $this->point);
+  }
 
+  //色付きの名前を返す
+  public static function makeDisplayName($name, $point){
     $color = "";
 
     if($point <= 5){
@@ -91,7 +94,7 @@ class User{
       $color = "fuchsia";//紫
     }
 
-    return "<span style='color:{$color};'>{$this->name}</span>";
+    return "<span style='color:{$color};'>{$name}</span>";
   }
 
   //データベースに情報を反映する
