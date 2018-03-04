@@ -46,7 +46,7 @@ class User{
     if(!isset($result['block_until'])){
       $this->block_until = new DateTime();
     }else{
-      $this->block_until = new DateTime($result['block_until']);
+      $this->block_until = DateTime::createFromFormat("Y-m-d H:i:s", $result['block_until']);
     }
 
     if(empty($this->name) || empty($this->id)){
@@ -66,12 +66,9 @@ class User{
 
   //ブロックされているか返す
   public function isBlocked(){
-    $now = new DateTime();
-
-
-    $interval = $now->getTimeStamp() - $this->block_until->getTimeStamp();
-
-    return $interval < 0;
+    date_default_timezone_set('Asia/Tokyo');
+    $now = new DateTime('now');
+    return $now < $this->block_until;
   }
 
   //色付きの名前を返す
@@ -127,7 +124,7 @@ class User{
     if(!isset($result['block_until'])){
       $this->block_until = new DateTime();
     }else{
-      $this->block_until = new DateTime($result['block_until']);
+      $this->block_until = DateTime::createFromFormat("Y-m-d H:i:s", $result['block_until']);
     }
   }
 
