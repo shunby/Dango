@@ -78,49 +78,43 @@ EOM;
          <!--ここから投稿------------------------>
          <ul class="messages">
          <?php
-          $statement_user = $pdo->prepare("SELECT * FROM user where name=?");
+
+
           $statement_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
           while($row = $statement_msg->fetch()){
-            $statement_user->execute(array($row['name']));
 
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
 
-            $user = new User($row['name'], "name");
+            $user = new User($row['userid']);
             $usrname = $user->getDisplayName();
-            $usrpage = "/user/?userid={$user->id}";
-            echo <<<EOM
-            <li>
-              <div class="message_content">
-                <div class="message_text">
-                  {$msg}
-                </div>
-                <div class="message_info">
-                  <div class="name"><a href="{$usrpage}">{$usrname}</a></div>
-                  <div class="date">{$row['date']}</div><br/>
-EOM;
+            $usrpage = "/user/?userid=".$user->id;
+            echo '<li><div class="message_content"><div class="message_text">',
+                  $msg,
+                '</div><div class="message_info"><div class="name"><a href="',$usrpage,'">',$usrname,'</a></div><div class="date">',$row['date'],'</div><br/>';
+
             if($editable){
               //削除フォーム
-              echo <<<EOM
-                  <form name="delete_form" action="delete_message.php" method="post" onsubmit="return window.confirm('本当に削除しますか？')">
-                    <input type="submit" value="削除" id="submit">
-                    <input type="hidden" name="key" value="kill_olaf_rapidly"></input>
-                    <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
-                  </form>
-EOM;
+              echo
+                  "<form name=\"delete_form\" action=\"delete_message.php\" method=\"post\" onsubmit=\"return window.confirm('本当に削除しますか？')\">",
+                    '<input type="submit" value="削除" id="submit">',
+                    '<input type="hidden" name="key" value="kill_olaf_rapidly"></input>',
+                    '<input type="hidden" name="messageid" value="',$row["messageid"], '"></input>',
+                  '</form>';
+
 }
             //ほめるボタン
             $statement_good->execute(array($row['messageid']));
             $row_for_good = $statement_good->fetch();
             $good_cnt = empty($row) ? 0 : $row_for_good['cnt'];
-            echo <<<EOM
-              <form name="good_form" action="message_good.php" method="post">
-              <input name="good" style="width:5em;" type="submit" value="ほめる" id="submit">
-              <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
-              <input type="hidden" name="roomid" value="{$_GET['roomid']}"></input>
-              <input type="hidden" name="threadid" value="{$_GET['threadid']}"></input>
-              <label for="good">{$good_cnt}</label>
-              </form>
-EOM;
+            echo
+              '<form name="good_form" action="message_good.php" method="post">',
+              '<input name="good" style="width:5em;" type="submit" value="ほめる" id="submit">',
+              '<input type="hidden" name="messageid" value="', $row["messageid"], '"></input>',
+              '<input type="hidden" name="roomid" value="', $_GET["roomid"], '"></input>',
+              '<input type="hidden" name="threadid" value="', $_GET["threadid"] , '"></input>',
+              '<label for="good">', $good_cnt ,'</label>',
+              '</form>';
+
 
             echo <<<EOM
                 </div>
