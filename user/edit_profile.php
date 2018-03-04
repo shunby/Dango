@@ -1,8 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
- ?>
- <?php
+  include $webroot."/template/check_login.php";
    checkPost();
    function checkPost(){
      if(!key_exists('profile', $_POST))return;
