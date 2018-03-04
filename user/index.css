@@ -6,3 +6,6 @@
   border-width: thin;
   border-color: orange;
 }
+#self_introduction h1,#self_introduction h2,#self_introduction h3,#self_introduction h4,#self_introduction h5,#self_introduction h6{
+  margin: auto;
+}
