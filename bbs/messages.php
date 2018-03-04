@@ -16,7 +16,7 @@
   $statement_msg->execute(array($_GET['roomid'], $_GET['threadid']));
 
 
-  $statement_thread = $pdo->prepare("SELECT * from thread where threadid=? AND roomid=? AND deleted = 0");
+  $statement_thread = $pdo->prepare("SELECT * from thread where roomid=? AND threadid=? AND deleted = 0");
   $statement_thread->execute(array($_GET['threadid'], $_GET['roomid']));
 
   $thread = $statement_thread->fetch();
