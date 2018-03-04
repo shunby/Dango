@@ -1,8 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
- ?>
- <?php
+  include $webroot."/template/check_login.php";
    checkPost();
    function checkPost(){
      if(!key_exists('profile', $_POST))return;
@@ -38,10 +36,9 @@
    ?>
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
-  <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
+  <link href="/template/main.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
-  <link href="/template/sideber.css" rel="stylesheet" type="text/css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
   <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
@@ -57,8 +54,7 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <?php include $webroot."/template/sideber.php" ?>
-    <main id="sidemain">
+    <main id="main">
       <div>
 
         <h1>自己紹介を編集</h1>

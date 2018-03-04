@@ -119,6 +119,7 @@ EOM;
                 $prof_stmt = $pdo->prepare($sql);
                 $prof_stmt->execute(array($user->id));
                 $profile = $prof_stmt->fetch()['profile'];
+                $profile = nl2br($profile);
                 $profile = json_encode($profile);
                 echo <<<EOM
                 var profile={$profile};
