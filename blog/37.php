@@ -53,7 +53,7 @@
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
           <?php
             echo "<script>";
-            require $webroot.'/simplemde.min.js';
+            echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/simplemde.min.js');
             echo "</script>";
           ?>
           <textarea id="mde_target">
@@ -66,7 +66,7 @@
 <font color="gray">※この記事を読む前に、文章のすぐ上のツールバーにある目のアイコンを押してください</font>
 
 編集ウィンドウの中からこんにちは、ねこです。
-[ユーザーページ](/user/)に自己紹介欄が追加されました。早速[顔文字を書いたりして使いこなしてる人](/user/?userid=23)とかもいましたが、どう編集すればよくわからない人も<font color=gray><s>そもそも自己紹介に興味ない人も</s></font>いるかと思います。
+[ユーザーページ](/user/)に自己紹介欄が追加されました。早速[AAを書いたりして使いこなしてる人](/user/?userid=23)とかもいましたが、どう編集すればよくわからない人も<font color=gray><s>そもそも自己紹介に興味ない人も</s></font>いるかと思います。
 
 今回は、そんな人でも自己紹介できるように自己紹介文の文法を解説したいと思います。
 より詳しい解説がほしい人は「markdown記法」で検索してみると幸せになれると思います。
@@ -93,7 +93,7 @@
 それぞれ、
 \`**太字の内容**\`
 \`*打消し線の内容*\`
-と書きます。太字が\*\*で、打消し線が\*です。間違えないようにしましょう。
+と書きます。
 
 ### 4.リンク
 
