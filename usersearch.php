@@ -48,11 +48,11 @@
       $data->execute(array('%'.$username.'%'));
        ?>
        <div>
-         <p>検索結果</p>
+         <h3 style="font-size: larger; font-weight: 300; margin-left: 5px;">検索結果</h3>
          <?php
          foreach ($data as $value) {
            echo <<<EOM
-           <div style="border: 1px solid #000000; border-radius: 3px; padding: 20px; margin-bottom: 10px;">
+           <div style="border: 1px solid #000000; border-radius: 3px; padding: 20px; margin: 10px; margin-bottom: 30px;">
            名前:　{$value['name']}　　　id:　{$value['id']}<br>
            リンク:　<a href="/user/?userid={$value['id']}">こちらからどうぞ</a>
            </div>
