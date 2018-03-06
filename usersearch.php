@@ -39,7 +39,8 @@
     <?php include "template/navi.html" ?>
     <?php include $webroot."/template/sideber.php" ?>
     <article id="sidemain">
-      <?php//データベース接続
+      <?php
+      //データベース接続
       $username = $_POST['name'];
       $pdo = Access::getPDO("bbs");
       $sql = "SELECT * FROM user WHERE name LIKE ?";
