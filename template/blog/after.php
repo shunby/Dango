@@ -50,7 +50,6 @@
   $sql = "SELECT * FROM comment WHERE postnum = ?";
   $data = $pdo->prepare($sql);
   $data->execute(array($postnum));
-  var_dump($data);
 ?>
 <div class="commentlist">
   <p>コメント一覧</p>
