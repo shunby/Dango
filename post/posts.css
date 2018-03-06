@@ -1,15 +1,17 @@
-#posts{
-  list-style: none;
+#search{
+  margin: 30px;
 }
 
-#posts li{
-  border-style: solid;
-  border-width: 1.3px;
-  border-radius: 8px;
-  margin: 10px 0;
-  width: 80%;
+.searchbox{
+  height: 25px;
+  width: 200px;
 }
 
-#posts li span{
-  margin: 5px;
+.nakama{
+  margin:30px;
+  margin-top: none;
+}
+
+.intro{
+  margin-bottom: 50px;
 }
