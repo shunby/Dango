@@ -37,7 +37,7 @@ $system = strcmp($room['type'], 'system') == 0;
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width">
 
-  <?php include "../template/analytics.html" ?>
+
   <link href="threads.css" rel="stylesheet" type="text/css">
   <link href="../template/header.css" rel="stylesheet" type="text/css">
   <link href="../template/footer.css" rel="stylesheet" type="text/css">
@@ -163,6 +163,7 @@ EOM;
   echo '<script type="text/javascript">';
   require "threads.js";
   echo '</script>';
+  include "../template/analytics.html"
   ?>
 </body>
 </html>

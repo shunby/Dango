@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
 
-    <?php include "../template/analytics.html" ?>
+
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
     <link href="/template/header.css" rel="stylesheet" type="text/css">
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
@@ -71,8 +71,7 @@
             なかむらおさなくなったかわいい(><)!!
             <br>
           </p>
-          <p>
-          　誰かさんの一言コメントより引用、写すの疲れた。。。
+          <p>誰かさんの一言コメントより引用、写すの疲れた。。。
           </p>
         </div>
         <!--ここまで本文-->
@@ -83,5 +82,6 @@
       </div>
 
     </div>
+    <?php include "../template/analytics.html" ?>
   </body>
 </html>

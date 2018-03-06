@@ -29,6 +29,8 @@
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
   <link href="" rel="shortcut icon">
+
+  <script src='/marked.js'></script>
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -102,6 +104,34 @@
             </form>
 EOM;
           }
+        ?>
+        <div>
+          <h1 style='display:inline'>自己紹介</h1>
+          <?php
+            if($user->id == $_SESSION['user']->id)
+            echo '<a href="/user/edit_profile.php" style="font-size:0.7em">編集する</a>';
+          ?>
+          <div id="self_introduction">
+            <script>
+              <?php
+                $pdo = Access::getPDO('bbs');
+                $sql = "SELECT * from user where id=?";
+                $prof_stmt = $pdo->prepare($sql);
+                $prof_stmt->execute(array($user->id));
+                $profile = htmlspecialchars_decode($prof_stmt->fetch()['profile']);
+                $profile = nl2br($profile);
+                $profile = json_encode($profile);
+                echo <<<EOM
+                var profile={$profile};
+EOM;
+              ?>
+              document.getElementById('self_introduction').innerHTML=marked(profile);
+            </script>
+
+          </div>
+        </div>
+
+        <?php
           $current_id = key_exists('userid', $_GET) ? $_GET['userid'] : $_SESSION['user']->id;
           $prev_id = $current_id - 1;
           $next_id = $current_id + 1;

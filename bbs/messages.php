@@ -16,8 +16,8 @@
   $statement_msg->execute(array($_GET['roomid'], $_GET['threadid']));
 
 
-  $statement_thread = $pdo->prepare("SELECT * from thread where threadid=? AND roomid=? AND deleted = 0");
-  $statement_thread->execute(array($_GET['threadid'], $_GET['roomid']));
+  $statement_thread = $pdo->prepare("SELECT * from thread where roomid=? AND threadid=? AND deleted = 0");
+  $statement_thread->execute(array($_GET['roomid'], $_GET['threadid']));
 
   $thread = $statement_thread->fetch();
   if(empty($thread) || $thread['deleted'])exit("存在しないスレッドです");
@@ -38,7 +38,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
 
-    <?php include "../template/analytics.html" ?>
+
     <link href="messages.css" rel="stylesheet" type="text/css">
     <link href="../template/header.css" rel="stylesheet" type="text/css">
     <link href="../template/footer.css" rel="stylesheet" type="text/css">
@@ -78,49 +78,46 @@ EOM;
          <!--ここから投稿------------------------>
          <ul class="messages">
          <?php
-          $statement_user = $pdo->prepare("SELECT * FROM user where name=?");
+
+
           $statement_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
+          $statement_user = $pdo->prepare("SELECT `name`,`point` from user where id=?");
           while($row = $statement_msg->fetch()){
-            $statement_user->execute(array($row['name']));
 
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
 
-            $user = new User($row['name'], "name");
-            $usrname = $user->getDisplayName();
-            $usrpage = "/user/?userid={$user->id}";
-            echo <<<EOM
-            <li>
-              <div class="message_content">
-                <div class="message_text">
-                  {$msg}
-                </div>
-                <div class="message_info">
-                  <div class="name"><a href="{$usrpage}">{$usrname}</a></div>
-                  <div class="date">{$row['date']}</div><br/>
-EOM;
+            $usrid   = $row['userid'];
+            $statement_user->execute(array($usrid));
+            $row_for_usr = $statement_user->fetch();
+            $usrname = User::makeDisplayName($row_for_usr['name'], $row_for_usr['point']);
+            $usrpage = "/user/?userid=".$usrid;
+            echo '<li><div class="message_content"><div class="message_text">',
+                  $msg,
+                '</div><div class="message_info"><div class="name"><a href="',$usrpage,'">',$usrname,'</a></div><div class="date">',$row['date'],'</div><br/>';
+
             if($editable){
               //削除フォーム
-              echo <<<EOM
-                  <form name="delete_form" action="delete_message.php" method="post" onsubmit="return window.confirm('本当に削除しますか？')">
-                    <input type="submit" value="削除" id="submit">
-                    <input type="hidden" name="key" value="kill_olaf_rapidly"></input>
-                    <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
-                  </form>
-EOM;
+              echo
+                  "<form name=\"delete_form\" action=\"delete_message.php\" method=\"post\" onsubmit=\"return window.confirm('本当に削除しますか？')\">",
+                    '<input type="submit" value="削除" id="submit">',
+                    '<input type="hidden" name="key" value="kill_olaf_rapidly"></input>',
+                    '<input type="hidden" name="messageid" value="',$row["messageid"], '"></input>',
+                  '</form>';
+
 }
             //ほめるボタン
             $statement_good->execute(array($row['messageid']));
             $row_for_good = $statement_good->fetch();
             $good_cnt = empty($row) ? 0 : $row_for_good['cnt'];
-            echo <<<EOM
-              <form name="good_form" action="message_good.php" method="post">
-              <input name="good" style="width:5em;" type="submit" value="ほめる" id="submit">
-              <input type="hidden" name="messageid" value="{$row["messageid"]}"></input>
-              <input type="hidden" name="roomid" value="{$_GET['roomid']}"></input>
-              <input type="hidden" name="threadid" value="{$_GET['threadid']}"></input>
-              <label for="good">{$good_cnt}</label>
-              </form>
-EOM;
+            echo
+              '<form name="good_form" action="message_good.php" method="post">',
+              '<input name="good" style="width:5em;" type="submit" value="ほめる" id="submit">',
+              '<input type="hidden" name="messageid" value="', $row["messageid"], '"></input>',
+              '<input type="hidden" name="roomid" value="', $_GET["roomid"], '"></input>',
+              '<input type="hidden" name="threadid" value="', $_GET["threadid"] , '"></input>',
+              '<label for="good">', $good_cnt ,'</label>',
+              '</form>';
+
 
             echo <<<EOM
                 </div>
@@ -177,5 +174,6 @@ EOM;
       window.scrollTo(0,y);
     }
    </script>
+   <?php include "../template/analytics.html" ?>
   </body>
 </html>
