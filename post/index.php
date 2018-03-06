@@ -38,20 +38,24 @@
     <?php include "../template/navi.html" ?>
     <?php include $webroot."/template/sideber.php" ?>
     <article id="sidemain">
-      <section>
-        <h2>みんなの記事</h2>
-        <p>
-          記事を投稿したい場合は<a href="/questionnaire/questionnaire.php">お問い合わせ</a>から。
-        </p>
-        <ul id="posts">
-          <?php include "posts.html" ?>
-        </ul>
-
-      </section>
+      <form id="search" name="search_form" action="/usersearch.php" method="post" onsubmit="return on();">
+        <h3>名前検索</h3>
+        <p>自己紹介を見る際などに活用してください!</p>
+        <input type="text" name="name" class="searchbox" id="name">
+        <p><input type="submit" name="submit" value="超卍検索！"></p>
+      </form>
+      <script type="text/javascript">
+        function on(){
+          if (document.getElementById("name").value == "") {
+            alert("検索欄は未入力です")
+            return false;
+          }
+          else {
+            return true;
+          }
+        }
+      </script>
     </article>
-
-
-
   </div>
   <?php include "../template/analytics.html" ?>
 </body>
