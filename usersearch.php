@@ -19,11 +19,11 @@
 
 
   <link href="index.css" rel="stylesheet" type="text/css">
-  <link href="../template/header.css" rel="stylesheet" type="text/css">
-  <link href="../template/footer.css" rel="stylesheet" type="text/css">
-  <link href="../template/sidemain.css" rel="stylesheet" type="text/css">
-  <link href="../template/content.css" rel="stylesheet" type="text/css">
-  <link href="../template/navi.css" rel="stylesheet" type="text/css">
+  <link href="/template/header.css" rel="stylesheet" type="text/css">
+  <link href="/template/footer.css" rel="stylesheet" type="text/css">
+  <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
+  <link href="/template/content.css" rel="stylesheet" type="text/css">
+  <link href="/template/navi.css" rel="stylesheet" type="text/css">
   <link href="posts.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
@@ -35,11 +35,12 @@
 
 <body>
   <div id="content">
-    <?php include "../template/header.html" ?>
-    <?php include "../template/navi.html" ?>
+    <?php include "template/header.html" ?>
+    <?php include "template/navi.html" ?>
     <?php include $webroot."/template/sideber.php" ?>
     <article id="sidemain">
-      <?php//データベース接続
+      <?php
+      //データベース接続
       $username = $_POST['name'];
       $pdo = Access::getPDO("bbs");
       $sql = "SELECT * FROM user WHERE name LIKE ?";
@@ -61,7 +62,7 @@ EOM;
        </div>
     </article>
   </div>
-  <?php include "../template/analytics.html" ?>
+  <?php include "template/analytics.html" ?>
 </body>
 
 </html>
