@@ -59,7 +59,7 @@
 
         <h1>自己紹介を編集</h1>
         <form method="post" action="/user/edit_profile.php" name="profile_form" onsubmit="return checkTextarea();">
-          <textarea id="editor" name="profile" rows="8" cols="40"></textarea>
+          <textarea id="editor" name="profile" style="width: 100%;height: 100em;font-size: 1.2em"></textarea>
           <input type="submit" value="投稿"></input>
         </form>
         <script>
@@ -75,13 +75,29 @@
             var profile={$profile};
 EOM;
           ?>
-          //textareaにSimpleMDEのスタイルを適用
-          var simplemde = new SimpleMDE({ element: document.getElementById("editor") });
-          simplemde.value(profile);
+          var ua = navigator.userAgent;
+          var ios = ua.indexOf("iOS") != -1;
+          var simplemde;
+          if(!ios){//iOS以外
+            //textareaにSimpleMDEのスタイルを適用
+            simplemde = new SimpleMDE({ element: document.getElementById("editor") });
+            simplemde.value(profile);
+
+          }else{//iOSは地のtextareaを表示
+            profile_form.profile.value = profile;
+          }
+
 
           //送信時に内容を確認 1文字以上5000文字以内ならTrueを返す
           function checkTextarea(){
-            var text_length = simplemde.value().length;
+            var text_length;
+            if(!iOS){
+              text_length = simplemde.value().length;
+            }else{
+              text_length = profile_form.profile.value.length;
+            }
+
+
             if(text_length < 1){
               alert("1文字以上入力してください。");
               return false;
