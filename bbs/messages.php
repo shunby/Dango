@@ -82,6 +82,7 @@ EOM;
 
           $statement_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
           $statement_user = $pdo->prepare("SELECT `name`,`point` from user where id=?");
+          $session_user_id = $_SESSION['user']->id;
           while($row = $statement_msg->fetch()){
 
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
@@ -104,7 +105,19 @@ EOM;
                     '<input type="hidden" name="messageid" value="',$row["messageid"], '"></input>',
                   '</form>';
 
-}
+            }
+            if($usrid == $session_user_id){
+              //変更フォーム
+              echo
+                  "<form name=\"change_form\" action=\"change_message.php\" method=\"post\">",
+                    '<input type="submit" value="編集" id="submit">',
+                    '<input type="hidden" name="userid" value="', $usrid,'" id="submit">',
+                    '<input type="hidden" name="messageid" value="',$row["messageid"], '"></input>',
+                    '<input type="hidden" name="threadid" value="',$_GET["threadid"], '"></input>',
+                    '<input type="hidden" name="roomid" value="',$_GET["roomid"], '"></input>',
+                    '<input type="hidden" name="finish" value=0 ></input>',
+                  '</form>';
+            }
             //ほめるボタン
             $statement_good->execute(array($row['messageid']));
             $row_for_good = $statement_good->fetch();
@@ -132,7 +145,7 @@ EOM;
        </section>
        <section id="form">
          <h5>このスレッドに書き込む</h5>
-         <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore();">
+         <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore(msgform.message.value);">
            <textarea name="message" placeholder="400字以内で入力"></textarea>
            <br>
            <input type="submit" value="投稿" id="submit"></input>
