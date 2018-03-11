@@ -46,6 +46,9 @@
 
 
   </div>
+  <?php
+    include $webroot."/template/analytics.html"
+   ?>
 </body>
 
 </html>
