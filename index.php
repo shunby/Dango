@@ -73,8 +73,8 @@ EOM;
         <section>
           <h2>まずは最新のブログ記事をどうぞ</h2>
           <div id="blog_tab_link">
-            <a href="#blog_top">ブログ</a>
-            <a href="#olafblog_top">おらふ</a>
+            <a href="#blog_top" onclick="return ontab('blog');">ブログ</a>
+            <a href="#olafblog_top" onclick="return ontab('olaf');">おらふ</a>
           </div>
           <div id="blog_tab_body">
             <div id="blog_top"><!-- ここから通常ブログ-->
@@ -122,9 +122,60 @@ EOM;
 
               <p><a href="/blog/index.php" style="text-decoration: none;position: relative;left: 460px;">ブログ目次へ</a></p>
             </div><!--ここまで通常ブログ-->
-            <div id="olafblog_top">
-            </div>
+            <div id="olafblog_top"><!--ここからおらふ-->
+              <div id="olafblog_content">
+                <script>
+                  <?php
+                    $files = glob($webroot.'/olaf/*');
+                    $latest_blog = -1;//filesのうち最新のブログのブログ番号
+                    foreach($files as $file){
+                      //例外処理：ファイルが存在しないかolafblogでないならスルー
+                      if(!is_file($file))continue;
+                      if(strpos($file, '/olafblog') === FALSE)continue;
+
+                      //パス文字列が/olaf/olafblog##.phpの形式なら番号を抜き取る
+                      $file = str_replace($webroot.'/olaf/olafblog', "", $file);
+                      $file = str_replace('.php', '', $file);
+
+
+                      if(!ctype_digit($file))continue;
+
+                      if($latest_blog < $file)$latest_blog = $file;
+                    }
+                    if($latest_blog == -1)exit;
+
+                    $olafblog = new DOMDocument();
+                    libxml_use_internal_errors( true );
+                    $olafblog->loadHTML(mb_convert_encoding(file_get_contents($webroot.'/olaf/olafblog'.$latest_blog.'.php'), "HTML-ENTITIES", "UTF-8"));
+                    libxml_clear_errors();
+
+                    echo 'var olafblog_content = '.json_encode(mb_convert_encoding($olafblog->saveHTML(), "UTF-8","HTML-ENTITIES")).';';
+                   ?>
+                   var olafblog = $(olafblog_content).find('main').html();
+                   $('#olafblog_content').html(olafblog);
+                </script>
+
+              </div>
+            </div><!--ここまでおらふ-->
           </div>
+
+          <!--タブ用JavaScript-->
+          <script>
+          ontab("blog");//最初は通常ブログを表示
+          function ontab(blog_type){
+            switch(blog_type){
+              case "blog":
+                document.getElementById("blog_top").style.display="block";
+                document.getElementById("olafblog_top").style.display="none";
+                break;
+              case "olaf":
+                document.getElementById("blog_top").style.display="none";
+                document.getElementById("olafblog_top").style.display="block";
+                break;
+            }
+            return false;
+          }
+          </script>
 
         </section>
         <section>

@@ -72,6 +72,6 @@
            <img src="olafsimage/あいうえお.jpg"><br>
       ではまたお会いしましょう<br>
     </p>
-
+  </main>
   </body>
   </html>
