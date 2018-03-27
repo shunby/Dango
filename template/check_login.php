@@ -11,11 +11,16 @@
         $token = $_COOKIE['rememberme'];
         $user = User::readFromToken($token);
         if(!$user){
-          //header("Location: /login/logout.php");
-          echo print_r($user);
+          header("Location: /login/logout.php");
+          //echo print_r($user);
           exit;
         }
         $_SESSION['user'] = $user;
+        //入場ログ
+        $pdo = Access::getPDO("bbs");
+        $sql = "INSERT into enter_log (userid, ipaddress, type) VALUES (?,?, ?)";
+        $statement = $pdo->prepare($sql);
+        $statement->execute(array($_SESSION['user']->id, $_SERVER['REMOTE_ADDR'], "auto_login"));
         return;
       }
       header("Location: /login/logout.php");

@@ -41,6 +41,12 @@ function login(){
         if(isset($_POST['rememberme'])){
           $user->createToken();
         }
+        //入場ログ
+        $statement->closeCursor();
+        $sql = "INSERT into enter_log (userid, ipaddress, type) VALUES (?,?,?)";
+        $statement = $pdo->prepare($sql);
+        $statement->execute(array($_SESSION['user']->id, $_SERVER['REMOTE_ADDR'], "manual_login"));
+
         header("Location: ../index.php");
         return;
       }
