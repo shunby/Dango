@@ -100,6 +100,21 @@ login();
           <section>
             <h1>ログイン</h1>
             <span style="color:red;"><?php echo $msg; ?></span>
+            <span style="color:blue;">
+              <?php
+
+                if(isset($_SESSION['user'])){
+                  echo "既にログインしています。";
+                }else if(isset($_COOKIE['rememberme'])){
+                  $token = $_COOKIE['rememberme'];
+                  $pdo = Access::getPDO("bbs");
+                  $sql = "SELECT userid from login_token where token=?";
+                  $stmt = $pdo->prepare($sql);
+                  $stmt->execute(array($token));
+                  if($stmt->fetch())echo "既にログインしています。";
+                }
+              ?>
+            </span>
             <form id="login" name="login" action=" " method="POST">
               <label for="name">ユーザ名</label><br><input type="text" name='name'></input><br><br>
               <label for="password">パスワード</label><br><input type="password" name='password'></input><br>
