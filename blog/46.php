@@ -56,7 +56,7 @@
             3Dモデルのファイル（需要あるのか）は<a href="/image/blog/blog46.zip">こちら(.obj)</a>をどうぞ。<br>
             <figure>
               <img style="border:solid 1px" width=50% src="/image/blog/blog46.jpg" alt="2.5Dってなんや" />
-              <figcaption>猫派 2.5D（写真移りが悪いのは仕様です）</figcaption>
+              <figcaption>猫派 2.5D（写真うつりが悪いのは仕様です）</figcaption>
             </figure>
           </p>
         </div>
