@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  //include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -43,21 +43,20 @@
         <?php include $webroot."/template/blog/before.php" ?>
 
         <?php
-          $id = 46;
+          $id = 47;
          ?>
 
         <!--ここから本文-->
         <div class="main-main">
           <p>
-            ものすごく久しぶりのねこです。<br>
-            <a href="https://www.amazon.co.jp/ALUNAR-M508-%E3%80%90%E5%B7%A5%E5%A0%B4%E7%9B%B4%E8%B2%A9%E3%80%913D%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BF%E3%83%BC%E3%82%AD%E3%83%83%E3%83%88-%EF%BC%90-%EF%BC%93mm%E3%83%8E%E3%82%BA%E3%83%AB-3%EF%BC%A4%E9%80%A0%E5%BD%A2%E3%82%B5%E3%82%A4%E3%82%BA7200cm%C2%B3-%E7%B5%84%E7%AB%8B%E3%81%A6%E3%83%93%E3%83%87%E3%82%AASD%E3%82%AB%E3%83%BC%E3%83%89%E4%BB%98%E5%B1%9E/dp/B01JZ4GS16">
-              3Dプリンター</a>を買いました。amazonで30000円くらいのやつ。<br>
-            特に何も設定をいじらないまま一つ印刷してみました。題して「猫派 2.5D」です。<br>
-            3Dモデルのファイル（需要あるのか）は<a href="/image/blog/blog46.zip">こちら(.obj)</a>をどうぞ。<br>
-            <figure>
-              <img style="border:solid 1px" width=50% src="/image/blog/blog46.jpg" alt="2.5Dってなんや" />
-              <figcaption>猫派 2.5D（写真移りが悪いのは仕様です）</figcaption>
-            </figure>
+            いつもは外で勉強するとしたら図書館なんですけど、ジョナサンのドリンクバーのクーポンもらったのでそこで勉強してみることに…<br>
+            <br>
+            まず入って思ったのが、ファミレス音楽でかすぎる。　iPhoneの付属イヤホンだと自分で音楽流しててもバリバリ入ってくる　しね（暴言は吐いてない）<br>
+            それから大人同士がファミレスでなんか大事な話とかよくするじゃん。　それで俺が行ったときはなんか怖いお兄さんたちが喝飛ばしまくってた　しね（もう一度言うが、暴言は吐いてない）<br>
+            あと夕食の時間になってカップルが入ってきて、席結構すいてたのに店員が向かいのテーブルに案内しやがった。　男のほうがめっちゃコミュ障なくせに、女がかなり美形だった　しね。　たいして面白い話してないのに女のほう爆笑するし…ね<br>
+            リア充爆ぜろよ　てか彼女いなくてもリアル充実してればリア充じゃん？　リア充なろ。<br>
+            <br>
+            （次回　卍爆ぜる）
           </p>
         </div>
 
