@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT']."/core/user_util.php";
-session_start(); ?>
+require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
+?>
 <!DOCTYPE html>
 <!--テンプレート-->
 <html>
