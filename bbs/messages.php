@@ -2,7 +2,7 @@
   $webroot = $_SERVER['DOCUMENT_ROOT'];
   require_once $webroot."/core/user_util.php";
   require_once "access/access.php";
-  include $webroot."/template/check_login.php";
+  include $webroot."/template/autologin_nologout.php";
  ?>
 <?php
   if(is_null($_GET['roomid']) || is_null($_GET['threadid']))exit("クエリが異常です！");
@@ -22,7 +22,9 @@
   $thread = $statement_thread->fetch();
   if(empty($thread) || $thread['deleted'])exit("存在しないスレッドです");
 
-  $role = $_SESSION['user']->getRole();
+  $login_user = key_exists('user', $_SESSION) ? $_SESSION['user'] : NULL;
+
+  $role = $login_user ? $login_user->getRole() : "非ユーザー";
   $editable = strcmp($role, "一般ユーザー") != 0;
 ?>
 
@@ -82,7 +84,7 @@ EOM;
 
           $statement_good = $pdo->prepare("SELECT count(*) AS cnt FROM message_good where messageid=?");
           $statement_user = $pdo->prepare("SELECT `name`,`point` from user where id=?");
-          $session_user_id = $_SESSION['user']->id;
+          $session_user_id = $login_user ? $login_user->id : -1;
           while($row = $statement_msg->fetch()){
 
             $msg = $row['deleted'] == 1 ? "削除されました" : $row['message'];
@@ -144,17 +146,23 @@ EOM;
 
        </section>
        <section id="form">
-         <h5>このスレッドに書き込む</h5>
-         <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore(msgform.message.value);">
-           <textarea name="message" placeholder="400字以内で入力"></textarea>
-           <br>
-           <input type="submit" value="投稿" id="submit"></input>
-           <?php
-            date_default_timezone_set('Asia/Tokyo');
-            $date = date("Y/m/d H:i:s e");
-            echo "<input type=\"hidden\" name=\"roomid\" value=\"". $_GET['roomid'] ."\"></input>";
-            echo "<input type=\"hidden\" name=\"threadid\" value=\"". $_GET['threadid'] ."\"></input>";
-            echo "<input type=\"hidden\" name=\"date\" value=\"". $date ."\"></input>";
+         <?php
+         if($login_user){
+           echo <<<EOF
+           <h5>このスレッドに書き込む</h5>
+           <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore(msgform.message.value);">
+             <textarea name="message" placeholder="400字以内で入力"></textarea>
+             <br>
+             <input type="submit" value="投稿" id="submit"></input>
+EOF;
+              date_default_timezone_set('Asia/Tokyo');
+              $date = date("Y/m/d H:i:s e");
+              echo "<input type=\"hidden\" name=\"roomid\" value=\"". $_GET['roomid'] ."\"></input>";
+              echo "<input type=\"hidden\" name=\"threadid\" value=\"". $_GET['threadid'] ."\"></input>";
+              echo "<input type=\"hidden\" name=\"date\" value=\"". $date ."\"></input>";
+
+         }
+
            ?>
 
          </form>
