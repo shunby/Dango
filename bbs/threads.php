@@ -93,7 +93,7 @@ EOM;
         <table>
           <?php
           $role = key_exists('user', $_SESSION) ? $_SESSION['user']->getRole() : "非ユーザー";
-          $isadmin = strcmp($role, "一般ユーザー") != 0 ?>
+          $isadmin = strcmp($role, "一般ユーザー") != 0 && strcmp($role, "非ユーザー") != 0;?>
 
           <tr><th width=70%>名前</th><th width=70%>最終更新日時</th><?php if($isadmin)echo "<th>作成者のID</th>";  ?></tr>
           <?php
