@@ -120,18 +120,21 @@ EOM;
                     '<input type="hidden" name="finish" value=0 ></input>',
                   '</form>';
             }
-            //ほめるボタン
-            $statement_good->execute(array($row['messageid']));
-            $row_for_good = $statement_good->fetch();
-            $good_cnt = empty($row) ? 0 : $row_for_good['cnt'];
-            echo
-              '<form name="good_form" action="message_good.php" method="post">',
-              '<input name="good" style="width:5em;" type="submit" value="ほめる" id="submit">',
-              '<input type="hidden" name="messageid" value="', $row["messageid"], '"></input>',
-              '<input type="hidden" name="roomid" value="', $_GET["roomid"], '"></input>',
-              '<input type="hidden" name="threadid" value="', $_GET["threadid"] , '"></input>',
-              '<label for="good">', $good_cnt ,'</label>',
-              '</form>';
+            if($login_user){
+              //ほめるボタン
+              $statement_good->execute(array($row['messageid']));
+              $row_for_good = $statement_good->fetch();
+              $good_cnt = empty($row) ? 0 : $row_for_good['cnt'];
+              echo
+                '<form name="good_form" action="message_good.php" method="post">',
+                '<input name="good" style="width:5em;" type="submit" value="ほめる" id="submit">',
+                '<input type="hidden" name="messageid" value="', $row["messageid"], '"></input>',
+                '<input type="hidden" name="roomid" value="', $_GET["roomid"], '"></input>',
+                '<input type="hidden" name="threadid" value="', $_GET["threadid"] , '"></input>',
+                '<label for="good">', $good_cnt ,'</label>',
+                '</form>';
+            }
+
 
 
             echo <<<EOM
