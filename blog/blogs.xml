@@ -432,4 +432,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>49</id>
+      <title>爆ぜろSCC</title>
+    <link>/blog/49.php</link>
+    <date>2018/04/04</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>
