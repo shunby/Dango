@@ -58,16 +58,16 @@
     <main id="main">
       <h1>自己紹介を編集</h1>
       <p id="tabcontrol">
-        <a href="#tabpage_edit">編集</a>
-        <a href="#tabpage_preview">プレビュー</a>
+        <a href="#tabpage_edit" style="color: #00CCCC;">編集</a>
+        <a href="#tabpage_preview" style="color: #FF6666;">プレビュー</a>
       </p>
       <div id="tabbody">
         <div id="tabpage_edit">
 
 
           <form method="post" action="/user/edit_profile.php" name="profile_form" onsubmit="return checkTextarea();">
-            <textarea id="editor" name="profile" style="width: 100%;height: 100em;font-size: 1.2em"></textarea>
-            <input type="submit" value="投稿"></input>
+            <textarea id="editor" name="profile"></textarea>
+            <input id="button" type="submit" value="更新する！"></input>
           </form>
           <script>
             <?php
@@ -89,7 +89,7 @@ EOM;
             //送信時に内容を確認 1文字以上5000文字以内ならTrueを返す
             function checkTextarea(){
               var text_length = profile_form.profile.value.length;
-              
+
               if(text_length < 1){
                 alert("1文字以上入力してください。");
                 return false;

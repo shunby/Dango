@@ -1,23 +1,57 @@
 #tabcontrol a{
+  width: 100px;
   display: inline-block;
   border-width: 1px 1px 0 1px;
   border-style: solid;
   border-color: black;
-  padding: 0.75em 1em;
+  padding: 0.5em 1em;
   text-decoration: none;
   color: black;
   background-color: white;
-  font-weight: bold;
   position:relative;
+  left: 25px;
+  font-weight: lighter;
+  font-size: larger;
+  border-radius: 15px 0 0 0 / 15px 0 0 0;
 }
+
 #tabcontrol{
   margin-bottom: 0;
 }
+
 #tabbody{
    border: 1px solid black;
    margin-top: -1px;
+   margin-left: 25px;
+   margin-right: 25px;
    padding: 1em;
    background-color: white;
    position: relative;
    z-index: 0;
+}
+
+h1{
+  font-weight: lighter;
+  margin-left: 10px;
+}
+
+#editor{
+  height: 250px;
+  width: 100%;
+  resize: none;
+}
+
+#button{
+  margin-top: 10px;
+  -webkit-appearance: none;
+  border-radius: 20px;
+  color: #ff6347;
+  font-size: 16px;
+  padding: 8px 15px;
+  border: solid #2f4f4f 1px;
+  text-decoration: none;
+}
+
+#tabpage_preview{
+  min-height: 300px;
 }
