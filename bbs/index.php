@@ -1,6 +1,6 @@
 <?php
 $webroot = $_SERVER['DOCUMENT_ROOT'];
-include $webroot."/template/check_login.php";
+include $webroot."/template/autologin_nologout.php";
 require_once "access/access.php";
 
 $pdo = Access::getPDO("bbs");
