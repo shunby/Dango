@@ -25,7 +25,7 @@
   $login_user = key_exists('user', $_SESSION) ? $_SESSION['user'] : NULL;
 
   $role = $login_user ? $login_user->getRole() : "非ユーザー";
-  $editable = strcmp($role, "一般ユーザー") != 0;
+  $editable = strcmp($role, "一般ユーザー") != 0 && strcmp($role, "非ユーザー") != 0;
 ?>
 
 <!DOCTYPE html>
