@@ -450,4 +450,13 @@
       <tag>栄東</tag>
     </tags>
   </blog>
+  <blog>
+    <id>51</id>
+      <title>予期せぬ幸運</title>
+    <link>/blog/51.php</link>
+    <date>2018/04/09</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
