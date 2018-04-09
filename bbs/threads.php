@@ -1,7 +1,7 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
   require_once $webroot."/core/user_util.php";
-  include $webroot."/template/check_login.php";
+  include $webroot."/template/autologin_nologout.php";
  ?>
 
 <?php
@@ -62,8 +62,13 @@ $system = strcmp($room['type'], 'system') == 0;
 
 
       <section>
-        <?php echo <<<EOM
+        <?php
+
+        echo <<<EOM
         <h1 style='display: inline;'>{$roomname}</h1>
+EOM;
+        if(key_exists('user', $_SESSION))
+        echo <<<EOM
         <span class='makeNew'>
           [<a href="#">新規スレッド</a>]
         </span>
@@ -87,8 +92,8 @@ EOM;
         <!--スレッド一覧  -->
         <table>
           <?php
-          $role = $_SESSION['user']->getRole();
-          $isadmin = strcmp($role, "一般ユーザー") != 0 ?>
+          $role = key_exists('user', $_SESSION) ? $_SESSION['user']->getRole() : "非ユーザー";
+          $isadmin = strcmp($role, "一般ユーザー") != 0 && strcmp($role, "非ユーザー") != 0;?>
 
           <tr><th width=70%>名前</th><th width=70%>最終更新日時</th><?php if($isadmin)echo "<th>作成者のID</th>";  ?></tr>
           <?php

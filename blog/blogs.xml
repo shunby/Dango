@@ -432,4 +432,31 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>49</id>
+      <title>爆ぜろSCC</title>
+    <link>/blog/49.php</link>
+    <date>2018/04/04</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
+  <blog>
+    <id>50</id>
+      <title>新学年団発表です</title>
+    <link>/blog/50.php</link>
+    <date>2018/04/06</date>
+    <tags>
+      <tag>栄東</tag>
+    </tags>
+  </blog>
+  <blog>
+    <id>51</id>
+      <title>予期せぬ幸運</title>
+    <link>/blog/51.php</link>
+    <date>2018/04/09</date>
+    <tags>
+      <tag>雑記</tag>
+    </tags>
+  </blog>
 </blogs>
