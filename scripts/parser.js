@@ -186,7 +186,7 @@ parser = /*
         peg$c21 = function(head, t) {
         	let len = head.length;
             if(len > 6)len = 6;
-            return "<h" + len + " class='sub_title'>" + t + "</h>"
+            return "<h" + len + " class='sub_title'>" + t + "</h" + len + ">"
         },
         peg$c22 = "]",
         peg$c23 = peg$literalExpectation("]", false),

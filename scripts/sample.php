@@ -25,6 +25,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
   <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
   <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
   <link rel="stylesheet" href="/template/sideber.css" type="text/css">
+  <link rel="stylesheet" href="/wiki/contents.css" type="text/css">
   <link href="" rel="shortcut icon">
   <script src="parser.js"></script>
  </head>
@@ -41,16 +42,25 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
         var sidemain = document.getElementById("sidemain");
         sidemain.innerHTML = parser.parse(<?php echo json_encode(
 <<<EOM
-a
-aw\
-\
-dwd
+#団子三兄弟
+団子三兄弟とは3人の学友が作ったサイトページのことである。
 {\
-[wd](awd)sw\(wa\)aw
-![123,130](URL)aw
-{a}
+　　目次　
+
+　1.ねこ　
+　2.卍　
+　3.おらふ　
+
 }
-####a###a
+##ねこ
+ねこである
+![a,a](http://ramen-koizumi.com/img/character/chara1_thum.png)
+
+##卍
+卍である
+##おらふ
+おらふである
+
 EOM
 )?>);
       </script>
