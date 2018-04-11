@@ -459,4 +459,13 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>52</id>
+      <title>新サービスの決定</title>
+    <link>/blog/52.php</link>
+    <date>2018/04/10</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 </blogs>
