@@ -7,7 +7,7 @@ doc = t:(text)+{
     return str;
 }
 
-text = t:((sentence/img/link/block/br))+{
+text = t:((sentence/heading/img/link/block/br))+{
 	let str = "";
     for(let i in t){
     	str += t[i];
@@ -16,7 +16,7 @@ text = t:((sentence/img/link/block/br))+{
 }
 
 block = !("\\") "{" t:text "}"{
-	return "<div>" + t + "</div>"
+	return "<div class='contents_table'>" + t + "</div>"
 }
 
 
@@ -29,6 +29,12 @@ img = !("\\")"!["siz:sentence"]("url:sentence")"{
     let x = size[0] * 1;
     let y = size[1] * 1;
     return "<img src='" + url + "' width=" + x + " height=" + y + ">"
+}
+
+heading = !("\\")head:("#"+)t:sentence{
+	let len = head.length;
+    if(len > 6)len = 6;
+    return "<h" + len + " class='sub_title'>" + t + "</h>"
 }
 
 
