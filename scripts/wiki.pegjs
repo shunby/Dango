@@ -46,13 +46,14 @@ sentence = t:(escape/char)+{
     return str;
 }
 
-escape = "\\" t:("\n" / "[" / "]" / "\\" / "(" / ")" / "#" / "{" / "}"/"!"){
-	if(t == "\n")return "";
+escape = "\\" t:(newline / "[" / "]" / "\\" / "(" / ")" / "#" / "{" / "}"/"!"){
+	if(t == "\n" || t == "\r\n" || t == "\r")return "";
     return t;
 }
 
-br = [\n]{
+br = newline{
 	return "<br>"
 }
+newline = "\r\n" /"\n" / "\r"
 
-char = [^\n!\[\]\\()#{}]
+char = [^\n\r!\[\]\\()#{}]
