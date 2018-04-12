@@ -1,8 +1,7 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT']."/bbs/access/access.php");
-require_once($_SERVER['DOCUMENT_ROOT'].'/core/user_util.php');
-session_start();
+require_once($_SERVER['DOCUMENT_ROOT']."/template/check_login.php");
+
 $checkbox_arr = $_POST['checkbox'];
 //var_dump($checkbox_arr);
 $checkbox_string = serialize($checkbox_arr);
@@ -13,7 +12,7 @@ if (@$_POST['submit']) {
   $pdo = Access::getPDO("bbs");
   $username = $_SESSION['user']->name;
   $userid = $_SESSION['user']->id;
-  $wikinum = $_POST['wikinum'];
+  $wikinum = mysql_insert_id() + 1;
 
   //wikiテーブルへの更新
   $set1 = $pdo->prepare("INSERT INTO wiki(title,easydes,maindes,tag) VALUES(?,?,?,?)");

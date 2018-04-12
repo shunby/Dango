@@ -1,5 +1,6 @@
 <?php   $webroot = $_SERVER['DOCUMENT_ROOT']; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT']."/bbs/access/access.php" ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT']."/template/check_login.php");?>
+
 
 <!DOCTYPE html>
 <html>
@@ -42,24 +43,13 @@
       <?php
 
       //新しい場合
-      $pdo = Access::getPDO("bbs");
-      $sql = "SELECT * FROM wiki";
-      $data = $pdo->query($sql);
-      $id_arr = array();
-      foreach ($data as $value) {
-        # code...
-        array_push($id_arr,$value['num']);
-      }
-      $lastnum = end($id_arr);
-      $lastnum = $lastnum + 1;
-
       //更新の場合
       //作れませんーん
 
        ?>
 
 
-      <form class="wikiform" action="/wiki/wikiform.php" method="post">
+      <form class="wikiform" action="/wiki/wikiform.php" method="post" onsubmit="return chkform();">
         <!--エディタ-->
         <div class="editor" style="border: 1px solid gray; min-height: 200px; margin: 20px;">
 
@@ -112,20 +102,21 @@
 
         <!--送信ボタンとwikinum-->
         <input type="submit" name="submit" value="送信する" style="margin-left: 10px; width: 120px;">
-        <input type="hidden" name="wikinum" value="<?php echo $lastnum; ?>">
 
         <!--jQueryのチェック数制限-->
         <script type="text/javascript">
+        function chkform(){
+          var checks = count_checks();
+          if(checks > 3 || checks < 1){
+            alert("タグは3つまで選択してください");
+            return false;
+          }
+          return true;
+        }
+
         function click_cb(){
-          var check_count = 0;
+          var check_count = count_checks();
 
-          $(".tag ul li").each(function(){
-            var parent_checkbox = $(this).children("input[type='checkbox']");
-
-            if(parent_checkbox.prop('checked')){
-              check_count = check_count+1;
-            }
-          });
 
            if(check_count == 0){
              $(".tag ul li").each(function(){
@@ -147,6 +138,17 @@
              });
            }
           return false;
+        }
+
+        function count_checks(){
+          var count = 0;
+          $(".tag ul li").each(function(){
+            var parent_checkbox = $(this).children("input[type='checkbox']");
+
+            if(parent_checkbox.prop('checked'))count++;
+
+          });
+          return count;
         }
         </script>
       </form>
