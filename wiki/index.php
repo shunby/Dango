@@ -42,7 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
         <div class="newarticle">
           <h3>新しい記事を作成</h3>
           <a>あたらしい記事の作成は&emsp;</a>
-          <a href="" style="font-weight: 10px;">こちらからどうぞ</a>
+          <a href="/wiki/editing.php" style="font-weight: 10px;">こちらからどうぞ</a>
           <a>
             <br>
             新しいページを作るうえで最初に<br>

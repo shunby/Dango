@@ -1,1 +1,2 @@
 CREATE TABLE wiki(num SERIAL, title TEXT, easydes TEXT, maindes TEXT, time TIMESTAMP);
+ALTER TABLE wiki ADD tag varchar(32);
