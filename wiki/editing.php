@@ -55,7 +55,7 @@
        ?>
 
 
-      <form class="wikiform" action="/wiki/wikiform.php" method="post">
+      <form class="wikiform" action="/wiki/wikiform.php" method="post" onsubmit="return chkform();">
         <!--エディタ-->
         <div class="editor" style="border: 1px solid gray; min-height: 200px; margin: 20px;">
 
@@ -112,16 +112,18 @@
 
         <!--jQueryのチェック数制限-->
         <script type="text/javascript">
+        function chkform(){
+          var checks = count_checks();
+          if(checks > 3 || checks < 1){
+            alert("タグは3つまで選択してください");
+            return false;
+          }
+          return true;
+        }
+
         function click_cb(){
-          var check_count = 0;
+          var check_count = count_checks();
 
-          $(".tag ul li").each(function(){
-            var parent_checkbox = $(this).children("input[type='checkbox']");
-
-            if(parent_checkbox.prop('checked')){
-              check_count = check_count+1;
-            }
-          });
 
            if(check_count == 0){
              $(".tag ul li").each(function(){
@@ -143,6 +145,17 @@
              });
            }
           return false;
+        }
+
+        function count_checks(){
+          var count = 0;
+          $(".tag ul li").each(function(){
+            var parent_checkbox = $(this).children("input[type='checkbox']");
+
+            if(parent_checkbox.prop('checked'))count++;
+
+          });
+          return count;
         }
         </script>
       </form>
