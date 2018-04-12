@@ -1,8 +1,7 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT']."/bbs/access/access.php");
-require_once($_SERVER['DOCUMENT_ROOT'].'/core/user_util.php');
-session_start();
+require_once($_SERVER['DOCUMENT_ROOT']."/template/check_login.php");
+
 $checkbox_arr = $_POST['checkbox'];
 //var_dump($checkbox_arr);
 $checkbox_string = serialize($checkbox_arr);

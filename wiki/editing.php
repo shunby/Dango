@@ -1,5 +1,6 @@
 <?php   $webroot = $_SERVER['DOCUMENT_ROOT']; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT']."/bbs/access/access.php" ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT']."/template/check_login.php");?>
+
 
 <!DOCTYPE html>
 <html>
