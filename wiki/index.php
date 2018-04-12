@@ -68,14 +68,14 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
         </div>
 
         <!--検索システム-->
-        <form class="search" action="" method="post">
+        <form class="search" action="article_list.php" method="get">
             <h3>記事検索</h3>
-            <select name="selectbox">
+            <select name="type">
               <option value="tag">タグ検索</option>
               <option value="name">名前検索</option>
             </select>
             <input id="searchbox" type="text" name="text">
-            <input id="searchbutton" type="submit" name="submit" value="検索">
+            <input id="searchbutton" type="submit"value="検索">
         </form>
 
         <!--検索結果-->

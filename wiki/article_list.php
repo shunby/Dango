@@ -1,5 +1,30 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
+
+  $list = NULL;
+
+  if(!key_exists('type', $_GET))exit("不正なクエリ");
+  if(!key_exists('text', $_GET))exit("不正なクエリ");
+
+  $search_text = $_GET['text'];
+  $pdo = Access::getPDO("bbs");
+
+  if(strcmp($_GET['type'], 'name') == 0){
+    $sql = "SELECT * from wiki where title LIKE ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array('%'.$search_text.'%'));
+    $list = $stmt->fetchAll();
+  }else if(strcmp($_GET['type'], 'tag') == 0){
+    $sql = "SELECT * from wiki where tag LIKE ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array('%'.$search_text.'%'));
+    $list = $stmt->fetchAll();
+  }else{
+    $sql = "SELECT * from wiki where 1";
+    $stmt = $pdo->query($sql);
+    $list = $stmt->fetchAll();
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,8 +60,20 @@
       <?php include $webroot."/template/navi.html" ?>
       <?php include $webroot."/template/sideber.php" ?>
       <article id="sidemain">
-
-
+        <ul>
+          <?php
+            foreach ($list as $article) {
+              $easydes = substr($article['easydes'], 0, 20);
+              if(strlen($article['easydes']) > 20)$easydes .= '…';
+              echo <<<EOM
+<li>
+  <a href="">{$article['title']}</a><hr>
+  <span class="easydes">{$easydes}</span>
+</li>
+EOM;
+            }
+           ?>
+        </ul>
       </article>
     </div>
  </body>
