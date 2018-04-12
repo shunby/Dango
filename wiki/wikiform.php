@@ -12,7 +12,7 @@ if (@$_POST['submit']) {
   $pdo = Access::getPDO("bbs");
   $username = $_SESSION['user']->name;
   $userid = $_SESSION['user']->id;
-  $wikinum = $_POST['wikinum'];
+  $wikinum = mysql_insert_id() + 1;
 
   //wikiテーブルへの更新
   $set1 = $pdo->prepare("INSERT INTO wiki(title,easydes,maindes,tag) VALUES(?,?,?,?)");

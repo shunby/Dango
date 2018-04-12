@@ -43,12 +43,6 @@
       <?php
 
       //新しい場合
-      $pdo = Access::getPDO("bbs");
-      $sql = "SELECT MAX(num) AS maxnum FROM wiki";
-      $data = $pdo->query($sql);
-      $lastnum = $data->fetch()['maxnum'];
-      $lastnum = $lastnum + 1;
-
       //更新の場合
       //作れませんーん
 
@@ -108,7 +102,6 @@
 
         <!--送信ボタンとwikinum-->
         <input type="submit" name="submit" value="送信する" style="margin-left: 10px; width: 120px;">
-        <input type="hidden" name="wikinum" value="<?php echo $lastnum; ?>">
 
         <!--jQueryのチェック数制限-->
         <script type="text/javascript">
