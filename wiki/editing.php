@@ -43,14 +43,9 @@
 
       //新しい場合
       $pdo = Access::getPDO("bbs");
-      $sql = "SELECT * FROM wiki";
+      $sql = "SELECT MAX(num) AS maxnum FROM wiki";
       $data = $pdo->query($sql);
-      $id_arr = array();
-      foreach ($data as $value) {
-        # code...
-        array_push($id_arr,$value['num']);
-      }
-      $lastnum = end($id_arr);
+      $lastnum = $data->fetch()['maxnum'];
       $lastnum = $lastnum + 1;
 
       //更新の場合
