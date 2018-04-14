@@ -17,6 +17,7 @@
   <?php
     include $webroot."/template/analytics.html"
    ?>
+   <link href="editing.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
   <link href="/template/main.css" rel="stylesheet" type="text/css">
@@ -49,14 +50,18 @@
        ?>
 
 
-      <form class="wikiform" action="/wiki/wikiform.php" method="post" onsubmit="return chkform();">
-        <!--エディタ-->
-        <div class="editor" style="border: 1px solid gray; min-height: 200px; margin: 20px;">
+      <form name="wikiform" class="wikiform" action="/wiki/wikiform.php" method="post" onsubmit="return chkform();">
+        <h3><label for="title">タイトル</label></h3>
+        <input type="text" name="title"></input><br>
 
-        </div>
+        <h3><label for="easydes">概要</label></h3>
+        <textarea name="easydes"></textarea><br>
+        <!--エディタ-->
+        <h3><label for="text">本文</label></h3>
+        <textarea class="editor" name="text"></textarea>
 
         <!--タグフォーム-->
-        <h3 style="margin-left: 10px; margin-top: 50px;">タグを選択</h3>
+        <h3 style="margin-top: 50px;">タグを選択</h3>
         <p style="margin-left: 10px;">タグを3つまで選択してください</p>
 
         <!--HTMLコーティングとCSS装飾-->
@@ -107,10 +112,27 @@
         <script type="text/javascript">
         function chkform(){
           var checks = count_checks();
+          var text = wikiform.text.value;
+          var title = wikiform.title.value;
+          var easydes = wikiform.easydes.value;
+
+          if(text < 1 || text > 30000){
+            alert("本文は30000文字以内で入力してください");
+            return false;
+          }
+          if(title < 1 || title > 32){
+            alert("タイトルは32文字以内で入力してください");
+            return false;
+          }
+          if(easydes < 1 || easydes > 2000){
+            alert("概要は2000文字以内で入力してください");
+            return false;
+          }
           if(checks > 3 || checks < 1){
             alert("タグは3つまで選択してください");
             return false;
           }
+
           return true;
         }
 
