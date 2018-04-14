@@ -179,7 +179,7 @@ EOM;
 
         </section>
         <section>
-          <h1 style="display:inline;">だんご三兄弟へようこそ</h1>
+          <h1 style="display:inline;">栄東生専用掲示板「爆ぜろSCC」へようこそ</h1>
 
           <p>
             <?php
