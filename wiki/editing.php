@@ -47,6 +47,7 @@
   <link href="/template/main.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/wiki/contents.css" type="text/css">
   <link href="" rel="shortcut icon">
   <script src="/scripts/parser.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
