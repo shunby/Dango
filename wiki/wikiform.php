@@ -47,7 +47,7 @@ if (@$_POST['submit']) {
     $wikinum,
   ));
 
-
-
+  header("Location: /wiki/article.php?wikinum=".$wikinum);
+  exit();
 }
 exit();
