@@ -42,6 +42,7 @@
   $webroot = $_SERVER['DOCUMENT_ROOT'];
   include $webroot."/template/analytics.html"
   ?>
+  <link href="article_list.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
   <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
@@ -65,11 +66,23 @@
             foreach ($list as $article) {
               $easydes = substr($article['easydes'], 0, 20);
               if(strlen($article['easydes']) > 20)$easydes .= '…';
+
+              $tags = unserialize($article['tag']);
+              $tag_str = "";
+              foreach ($tags as $tag) {
+                if(strcmp($tag, "arr") === 0)continue;
+                $tag_str .= $tag." ";
+              }
+
+
               echo <<<EOM
-<li>
-  <a href="">{$article['title']}</a><hr>
-  <span class="easydes">{$easydes}</span>
+<a href="article.php?wikinum={$article['num']}">
+<li class="article_list">
+  <a href="article.php?wikinum={$article['num']}">{$article['title']}</a><hr>
+  <span class="easydes">{$easydes}</span><br>
+  <span class="tags">{$tag_str}</span>
 </li>
+</a>
 EOM;
             }
            ?>

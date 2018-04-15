@@ -1,7 +1,31 @@
-<?php   $webroot = $_SERVER['DOCUMENT_ROOT']; ?>
-<?php require_once($_SERVER['DOCUMENT_ROOT']."/template/check_login.php");?>
+<?php
+  $webroot = $_SERVER['DOCUMENT_ROOT'];
+  require_once($webroot."/template/check_login.php");
 
+  $postnum_hidden = "";
+  $post_title = "";
+  $post_easydes = "";
+  $post_text = "";
+  $post_tags = array("arr");
+  if(@$_GET['postnum']){
+    $postnum = $_GET['postnum'];
 
+    $pdo = Access::getPDO("bbs");
+
+    $postnum_hidden =
+      '<input type="hidden" name="postnum" value="'.$postnum.'"></input>';
+
+    $stmt = $pdo->prepare("SELECT * from wiki where num=?");
+    $stmt->execute(array($postnum));
+    $post_data = $stmt->fetch();
+
+    $post_title = $post_data['title'];
+    $post_easydes = $post_data['easydes'];
+    $post_text = $post_data['maindes'];
+    $post_tags = unserialize($post_data['tag']);
+  }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,25 +64,15 @@
     <main id="main">
       <h2 style="margin-left: 10px; font-weight: lighter;">記事を編集</h2>
 
-      <!--wikinum取得-->
-      <?php
-
-      //新しい場合
-      //更新の場合
-      //作れませんーん
-
-       ?>
-
-
       <form name="wikiform" class="wikiform" action="/wiki/wikiform.php" method="post" onsubmit="return chkform();">
         <h3><label for="title">タイトル</label></h3>
-        <input type="text" name="title"></input><br>
+        <input type="text" name="title" value="<?php echo $post_title; ?>"></input><br>
 
         <h3><label for="easydes">概要</label></h3>
-        <textarea name="easydes"></textarea><br>
+        <textarea name="easydes"><?php echo $post_easydes; ?></textarea><br>
         <!--エディタ-->
         <h3><label for="text">本文</label></h3>
-        <textarea class="editor" name="text"></textarea>
+        <textarea class="editor" name="text"><?php echo $post_text ?></textarea>
 
         <!--タグフォーム-->
         <h3 style="margin-top: 50px;">タグを選択</h3>
@@ -102,6 +116,16 @@
               <input value="栄東全般" type="checkbox" id="7" name="checkbox[]" onclick="click_cb();" style="width: 17px; height: 17px;">
               <label for="7" style="position: relative; top: -3px;">栄東全般</label>
             </li>
+            <?php echo $postnum_hidden; ?>
+            <script>
+              var tags = JSON.parse('<?php echo json_encode($post_tags); ?>');
+              wikiform.elements['checkbox[]'].forEach(function(val){
+                if(tags.includes(val.value)){
+                  val.checked = true;
+                }
+              });
+
+            </script>
           </ul>
         </div>
 
@@ -116,19 +140,19 @@
           var title = wikiform.title.value;
           var easydes = wikiform.easydes.value;
 
-          if(text < 1 || text > 30000){
+          if(text.length < 1 || text.length > 30000){
             alert("本文は30000文字以内で入力してください");
             return false;
           }
-          if(title < 1 || title > 32){
+          if(title.length < 1 || title.length > 32){
             alert("タイトルは32文字以内で入力してください");
             return false;
           }
-          if(easydes < 1 || easydes > 2000){
+          if(easydes.length < 1 || easydes.length > 2000){
             alert("概要は2000文字以内で入力してください");
             return false;
           }
-          if(checks > 3 || checks < 1){
+          if(checks.length > 3 || checks.length < 1){
             alert("タグは3つまで選択してください");
             return false;
           }
@@ -174,9 +198,6 @@
         }
         </script>
       </form>
-
-
-
     </main>
   </div>
   </body>
