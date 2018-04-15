@@ -8,7 +8,6 @@ if (@$_POST['submit']) {
   $checkbox_arr = $_POST['checkbox'];
   array_push($checkbox_arr, "arr");
   $checkbox_string = serialize($checkbox_arr);
-  echo $checkbox_string;
 
   $title = $_POST['title'];
   $easydes = $_POST['easydes'];
