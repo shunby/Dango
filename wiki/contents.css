@@ -25,7 +25,7 @@ h3{
   text-align: center;
 }
 
-.contents{
+.wiki_contents{
   margin-left: 10px;
   margin-bottom: 10px;
 }
@@ -33,4 +33,11 @@ h3{
 .sub_des{
   position: relative;
   top: -15px;
+}
+ol.code-writer{
+position:relative;
+margin-left: 0px;
+padding:30px 20px 10px 45px;
+border:none;
+background:#2F3437;
 }

@@ -50,15 +50,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
           </a>
         </div>
 
-        <!--最近更新されたページ-->
-        <div class="newupdate">
-          <h3>最新更新ページ</h3>
-          <ol>
-            <li> <a href="/wiki/だんご三兄弟.php">だんご三兄弟</a> </li>
-            <li></li>
-            <li></li>
-          </ol>
-        </div>
+  
 
 
         <!--運営おすすめページ-->
@@ -68,8 +60,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
         </div>
 
         <!--検索システム-->
-        <form class="search" action="article_list.php" method="get">
-            <h3>記事検索</h3>
+        <form class="search" action="index.php" method="get">
+            <h3>記事一覧</h3>
             <select name="type">
               <option value="tag">タグ検索</option>
               <option value="name">名前検索</option>
@@ -79,9 +71,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
         </form>
 
         <!--検索結果-->
-        <div class="result">
-
-        </div>
+        <?php include $webroot."/wiki/article_list.php"; ?>
 
 
       </article>
