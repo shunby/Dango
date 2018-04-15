@@ -78,6 +78,7 @@
 
         </script>
         <div style="text-align:right;"><a href="/wiki/editing.php?postnum=<?php echo $wiki['num'] ?>">編集する</a></div>
+        <br><br><br>
       </article>
     </div>
  </body>
