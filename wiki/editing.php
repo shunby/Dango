@@ -48,6 +48,7 @@
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
   <link href="" rel="shortcut icon">
+  <script src="/scripts/parser.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
 
   </script>
@@ -64,16 +65,70 @@
     <main id="main">
       <h2 style="margin-left: 10px; font-weight: lighter;">記事を編集</h2>
 
+
+
       <form name="wikiform" class="wikiform" action="/wiki/wikiform.php" method="post" onsubmit="return chkform();">
         <h3><label for="title">タイトル</label></h3>
         <input type="text" name="title" value="<?php echo $post_title; ?>"></input><br>
 
         <h3><label for="easydes">概要</label></h3>
         <textarea name="easydes"><?php echo $post_easydes; ?></textarea><br>
+
+
         <!--エディタ-->
         <h3><label for="text">本文</label></h3>
-        <textarea class="editor" name="text"><?php echo $post_text ?></textarea>
+        <div id="tab_btn">
+          <a href="#tab_btn" onclick="changetab('edit')">編集</a>
+          <a href="#tab_btn" onclick="changetab('preview')">プレビュー</a>
+        </div>
+        <div id="tab_body">
+          <div id="edit_content" style="display: none">
+            <button onclick="insertAtCaret('[テキスト](URL)');return false;">リンク</button>
+            <button onclick="insertAtCaret('![縦,横](URL)');return false;">画像</button>
+            <button onclick="insertAtCaret('#テキスト');return false;">見出し</button>
+            <button onclick="insertAtCaret('{テキスト}');return false;">囲み</button>
+            <br>
+            <textarea id="edit" class="editor" name="text"><?php echo $post_text ?></textarea>
+          </div>
+          <div id="preview_content" style="display: none">
 
+          </div>
+        </div>
+        <script>
+          function changetab(tab){
+            var edit = $("div#edit_content")[0];
+            var preview = $("div#preview_content")[0];
+
+            edit.style.display="none";
+            preview.style.display = "none";
+
+            switch(tab){
+              case "edit":
+                edit.style.display="block";
+                break;
+              case "preview":
+                preview.style.display="block";
+                var src = htmlspecialchars(wikiform.text.value);
+                try{
+                  preview.innerHTML = parser.parse(src);
+                }catch(e){
+                  var errstr = e.location.start.line + "行" + e.location.start.column + "文字目でエラー: <br>" + e.toString() + "<br><hr>";
+                  errstr += src.replace(/\r\n|[\r\n]/g, "<br>");
+
+                  preview.innerHTML = errstr;
+                }
+                break;
+            }
+          }
+          function htmlspecialchars(str){
+            return (str + '').replace(/&/g,'&amp;')
+                   .replace(/"/g,'&quot;')
+                   .replace(/'/g,'&#039;')
+                   .replace(/</g,'&lt;')
+                   .replace(/>/g,'&gt;');
+          }
+          changetab("edit");
+        </script>
         <!--タグフォーム-->
         <h3 style="margin-top: 50px;">タグを選択</h3>
         <p style="margin-left: 10px;">タグを3つまで選択してください</p>
@@ -134,6 +189,21 @@
 
         <!--jQueryのチェック数制限-->
         <script type="text/javascript">
+        function insertAtCaret(str) {
+          var obj = $(".editor");
+          obj.focus();
+          if(navigator.userAgent.match(/MSIE/)) {
+            var r = document.selection.createRange();
+            r.text = str;
+            r.select();
+          } else {
+            var s = obj.val();
+            var p = obj.get(0).selectionStart;
+            var np = p + str.length;
+            obj.val(s.substr(0, p) + str + s.substr(p));
+            obj.get(0).setSelectionRange(np, np);
+          }
+        }
         function chkform(){
           var checks = count_checks();
           var text = wikiform.text.value;

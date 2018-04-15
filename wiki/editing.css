@@ -16,3 +16,17 @@ form textarea{
     width: 80%;
     font-size: 1.2em;
 }
+.editor{
+  min-height: 400px;
+}
+#tab_btn a{
+  border: 1px solid gray;
+  border-bottom: 0;
+  padding: 3px;
+}
+#tab_btn{
+    margin: 1px;
+}
+#tab_body{
+  border: 1px solid gray;
+}

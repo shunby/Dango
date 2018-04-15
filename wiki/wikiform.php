@@ -47,6 +47,10 @@ if (@$_POST['submit']) {
     $wikinum,
   ));
 
+  $sql = "INSERT INTO wikilog (userid, wikinum, content, easydes, title) VALUES (?,?,?,?,?)";
+  $set3 = $pdo->prepare($sql);
+  $set3->execute(array($userid, $wikinum, $text, $easydes, $title));
+
   header("Location: /wiki/article.php?wikinum=".$wikinum);
   exit();
 }
