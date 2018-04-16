@@ -1,2 +1,3 @@
 CREATE TABLE wiki(num SERIAL, title TEXT, easydes TEXT, maindes TEXT, time TIMESTAMP);
 ALTER TABLE wiki ADD tag varchar(32);
+ALTER TABLE `wiki` CHANGE `tag` `tag` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
