@@ -1,0 +1,19 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `wikilog` (
+  `logid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `wikinum` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `easydes` text NOT NULL,
+  `title` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `wikilog`
+  ADD PRIMARY KEY (`logid`);
+COMMIT;
