@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  //include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -43,23 +43,22 @@
         <?php include $webroot."/template/blog/before.php" ?>
 
         <?php
-          $id = 56;
+          $id = 57;
          ?>
 
         <!--ここから本文-->
         <div class="main-main">
           <p>
-            栄東の <a href="http://www.sakaehigashi.ed.jp/">officiaホームページ</a> にも部活動紹介がありましてですね、ネタ探しにいろいろ見てたわけなんですけど、部活動紹介に出てこなかったちょっと特殊な部活をみつけましたのでご紹介。<br>
-            タイトル通りインターアクト部なんですけど、「インターアクトクラブ」ってのが <a href="https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%82%A2%E3%82%AF%E3%83%88%E3%82%AF%E3%83%A9%E3%83%96">wiki</a>にあって...<br>
-            インターアクトクラブ（Interact Club、IAC、IC）は、ロータリークラブにより提唱された、12歳から18歳までの青少年または高校生のための社会奉仕クラブである。<br>
-            と説明されてます。ボランティア集団みたいですね。<br>
+            ブログさぼりまくって早半月。　そんなことより〇木キモくね？と言いたいですど、そこを抑えて少し反省。<br>
+            最近Amazonを使い始めて、手軽にお買い物ができるようになったのでもともと3万もなかった預金が1/2に…　まぁ俺のおかげで日本経済回ってるし？？？いいよね？<br>
+            <img src="/image/blog/blog57.jpg" alt="">
+            <img src="/image/blog/blog57 (2).jpg" alt="">
+            <img src="/image/blog/blog57 (3).jpg" alt="">
             <br>
-            そして<a href="http://www.sakaehigashi.ed.jp/club/">栄東の部活紹介では...</a><br>
-            本校インターアクトクラブは、大宮東ロータリークラブの提唱により、昭和58年9月に結成されました。
-            吹奏楽部との兼部という形で活動しています。“Think Globally, Act Locally”のスローガンの下、国際理解と社会奉仕を目的としたインターアクトクラブの意義を理解して、身近のできることから一つ一つ地道に取り組んでいます。<br>
-            とのこと。<br>
-            インターアクト部ほんとにあんの？　吹奏楽部と兼部らしいですけど、吹奏楽部の人たちはなにか詳しいことを知ってるんかな。<br>
-            なにか分かった人はコメント欄によろしくー　それから勇者の人は生徒総会で聞いてみてくれw<br>
+            自分の趣味をそのままさらけ出してる感じでなんかはずい。
+            ラーメン大好き小泉さん、たしか次巻は今年秋です。みんな見てね(灬╹ω╹灬)<br>
+            <br>
+            言いたかったのは、Amazonいいから使ってみ？　でした！
           </p>
         </div>
 
