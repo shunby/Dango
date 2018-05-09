@@ -24,6 +24,7 @@
    height: auto;/*autoに変更:猫派*/
    background-color: white;
    line-height: 1.7;
+   display: block
   }
 }
 
