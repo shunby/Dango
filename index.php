@@ -28,6 +28,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
   <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
   <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js" ></script>
 
   <!--ここからブログ記事呼び出し処理-->
   <?php
@@ -68,6 +69,8 @@ EOM;
     <div id="content">
       <?php include $webroot."/template/header.html" ?>
       <?php include $webroot."/template/navi.html" ?>
+
+      </script>
       <?php include $webroot."/template/sideber.php" ?>
       <article id="sidemain">
         <section>
@@ -180,6 +183,113 @@ EOM;
         </section>
         <section>
           <h1 style="display:inline;">栄東生専用掲示板「爆ぜろSCC」へようこそ</h1>
+
+
+
+          <div class="sideber_rmk">
+
+            <ul class="user_rmk">
+              <li>ユーザー関連</li>
+              <li><input type="button" value="ログイン" onclick="window.location.href='/login/login.php';"></input></li>
+              <li><input type="button" value="ログアウト" onclick="window.location.href='/login/logout.php';"></input></li>
+              <li><input type="button" value="ユーザ登録" onclick="window.location.href='/login/register.php';"></input></li>
+              <li><input type="button" value="ユーザーページ" onclick="window.location.href='/user/';"></input></li>
+            </ul>
+
+            <ul class="type_rmk">
+              <li>記事タイプ</li>
+              <li> <a href="/blog/">・目次</a> </li>
+              <li> <a href="/blog/?tag=栄東">・栄東</a> </li>
+              <li> <a href="/blog/?tag=雑記">・雑記</a> </li>
+              <li> <a href="/blog/?tag=みんなの記事">・みんなの記事</a> </li>
+              <li> <a href="/blog/?tag=アップデートヒストリー">・アップデートヒストリー</a> </li>
+            </ul>
+
+            <?php
+            //good.xmlの処理
+            $xml = ($_SERVER['DOCUMENT_ROOT'].'/good/good.xml');
+            $good_xmldata = simplexml_load_file($xml);
+            $good_arr = get_object_vars($good_xmldata->blog);
+
+            arsort($good_arr);//いいね数でソート
+
+            $good_val_arr = array_values($good_arr);
+
+            $good_key_arr = array_keys($good_arr);
+            $good_key_arr1 = mb_substr($good_key_arr[0],1);//1位のブログのid
+            $good_key_arr2 = mb_substr($good_key_arr[1],1);//2位のブログのid
+            $good_key_arr3 = mb_substr($good_key_arr[2],1);//3位のブログのid
+
+            //blogs.xmlの処理
+            $blog_xml = ($_SERVER['DOCUMENT_ROOT'].'/blog/blogs.xml');
+            $blog_xmldata = simplexml_load_file($blog_xml);
+
+            $id_content = array();//idがkeyでtitleとlinkがvalueの配列
+            foreach ($blog_xmldata as $blog) {
+              # code...
+              //var_dump(''.$blog->id);
+              $tl = array('title' => $blog->title, 'link' => $blog->link );
+              $id_content [''.$blog->id] = $tl;//$id_contentにkeyとvalueを追加
+            }
+            ?>
+            <ul class="rank_rmk">
+              <li>記事ランキング</li>
+              <li>
+                <div class="goodnum_rmk">
+                  <a>いいね数：<?php echo $good_val_arr[0]; ?></a>
+
+                </div>
+                <a href="
+                <?php echo $id_content[$good_key_arr1]["link"]; ?>
+                ">
+                  <?php
+                  echo $id_content[$good_key_arr1]["title"];
+                   ?>
+                </a>
+                <a href="<?php echo $id_content[$good_key_arr1]["link"]; ?>"><img class="neko_rmk"></a>
+              </li>
+              <li>
+                <div class="goodnum_rmk">
+                  <a>いいね数：<?php echo $good_val_arr[1]; ?></a>
+
+                </div>
+                <a href="
+                <?php echo $id_content[$good_key_arr2]["link"]; ?>
+                ">
+                  <?php
+                  echo $id_content[$good_key_arr2]["title"];
+                   ?>
+                </a>
+                <a href="<?php echo $id_content[$good_key_arr2]["link"]; ?>"> <img class="neko_rmk"> </a>
+              </li>
+              <li>
+                <div class="goodnum_rmk">
+                  <a>いいね数：<?php echo $good_val_arr[2]; ?></a>
+
+                </div>
+                <a href="
+                <?php echo $id_content[$good_key_arr3]["link"]; ?>
+                ">
+                  <?php
+                  echo $id_content[$good_key_arr3]["title"];
+                   ?>
+                </a>
+                <a href="<?php echo $id_content[$good_key_arr3]["link"]; ?>"> <img class="neko_rmk"></a>
+              </li>
+            </ul>
+
+            <ul class="footer_rmk">
+              <li> <a href="http://www.sakaehigashi.ed.jp/">栄東official</a> </li>
+              <li> <a href="/questionnaire/questionnaire.php">お問い合わせ</a> </li>
+              <li> <a href="/recruitment.php">記事応募</a> </li>
+              <li> <a href="/document/maid.php">メイドさん募集</a> </li>
+              <li> <a href="/blog/privacy.php">プライバシーポリシー</a> </li>
+              <li> <a href="/document/delete.php">処罰の基準</a> </li>
+            </ul>
+
+          </div>
+
+
 
           <p>
             <?php
