@@ -234,6 +234,10 @@
   .footer_rmk li{
     border-bottom: 1px dotted gray;
     margin-bottom: 10px;
-    width: 200px;
+    padding-top: 10px;
+  }
+
+  .footer_rmk li a{
+    font-size: 25px;
   }
 }
