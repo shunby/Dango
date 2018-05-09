@@ -1,23 +1,59 @@
 <nav id="nav">
-  <div class="navi_menu">
-    <a href="/index.php" id="top" style="text-decoration:none;">ブログ</a>
-  </div>
-  <div class="navi_menu">
-    <a href="/wiki/index.php" id="blog" style="text-decoration:none;">栄ペディア</a>
-  </div>
-  <div class="navi_menu">
-    <a href="/olaf/" id="olaf" style="text-decoration:none;">おらふのブログ</a>
-  </div>
-  <div class="navi_menu">
-    <a href="/2content/index.php" id="hot_topic" style="text-decoration:none;">話題の画像・動画</a>
-    <ul class="sub-menu">
-      <li class="sub-menu-item" style="list-style: none"><a href="/2content/list.php">目次</a></li>
-    </ul>
-  </div>
-  <div class="navi_menu">
-    <a href="/user_search/index.php" id="useful" style="text-decoration:none;">ユーザー検索</a>
-  </div>
-  <div class="navi_menu">
-    <a href="/bbs/index.php" id="board" style="text-decoration:none;">掲示板</a>
-  </div>
+
+  <ul style="list-style: none;" class="ul1">
+    <li>
+      <p><a href="/index.php" id="top" style="text-decoration:none;">ブログ</a></p>
+
+    </li>
+
+    <li>
+      <p><a href="/wiki/index.php" id="blog" style="text-decoration:none;">栄ペディア</a></p>
+
+    </li>
+
+    <li>
+      <p><a href="/olaf/" id="olaf" style="text-decoration:none;">おらふのブログ</a></p>
+
+    </li>
+
+    <li>
+      <p><a href="/2content/index.php" id="hot_topic" style="text-decoration:none;">話題の画像・動画</a></p>
+
+    </li>
+
+    <li>
+      <p><a href="/user_search/index.php" id="useful" style="text-decoration:none;">ユーザー検索</a></p>
+
+    </li>
+
+    <li>
+      <p><a href="/bbs/index.php" id="board" style="text-decoration:none;">掲示板</a></p>
+
+    </li>
+  </ul>
+
+  <ul style="list-style: none;" class="ul2">
+    <li>
+      <p> <a href="/login/login.php" style="text-decoration:none;">ログイン</a> </p>
+    </li>
+    <li>
+      <p> <a href="/login/logout.php" style="text-decoration:none;">ログアウト</a> </p>
+    </li>
+    <li>
+      <p> <a href="/login/register.php" style="text-decoration:none;">ユーザ登録</a> </p>
+    </li>
+    <li>
+      <p> <a href="/user/" style="text-decoration:none;">ユーザーページ</a> </p>
+    </li>
+  </ul>
+
 </nav>
+
+<script type="text/javascript">
+  $(function(){
+    $("#nav").css("display","none");
+    $(".menu_button").on("click",function(){
+      $("#nav").slideToggle();
+    });
+  });
+  </script>

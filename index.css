@@ -106,3 +106,138 @@
 .news{
   margin-bottom: 0px;
 }
+
+@media screen and (min-width: 770px){
+  .sideber_rmk{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 769px){
+  .sideber_rmk{
+    border: 2px double gray;
+    width: 97%;
+    margin: auto;
+    border-radius: 6px;
+  }
+
+  .sideber_rmk ul{
+    list-style: none;
+    position: relative;
+    width: 195px;
+    position: relative;
+    right: 20px;
+  }
+
+  .sideber_rmk ul li a{
+    text-decoration: none;
+  }
+
+  input[type="button"]{
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0px;
+    background: transparent;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 25px;
+  }
+
+  .sideber_rmk .user_rmk li:first-child{
+    text-align: center;
+  }
+
+  .user_rmk{
+    display: inline-block;
+    float: left;
+  }
+
+  .user_rmk li{
+    border: 2px double gray;
+    border-top: none;
+  }
+
+  .user_rmk li:first-child{
+    border-left: none;
+    border-right: none;
+  }
+
+  .sideber_rmk .type_rmk li:first-child{
+    text-align: center;
+  }
+
+  .sideber_rmk .type_rmk li a{
+    color: green;
+    font-size: 25px;
+  }
+
+  .type_rmk{
+    display: inline-block;
+    float: left;
+  }
+
+  .type_rmk li{
+    border: 2px double pink;
+    border-top: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .type_rmk li:first-child{
+    border-left: none;
+    border-right: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .rank_rmk{
+    display: inline-block;
+  }
+
+  .rank_rmk li{
+    border: 2px double #ff8400;
+    border-top: none;
+    height: 150px;
+  }
+
+  .rank_rmk li:first-child{
+    border-left: none;
+    border-right: none;
+    height: auto;
+    text-align: center;
+  }
+
+  .rank_rmk li a{
+    display: block;
+    padding: 10px;
+    padding-top: none;
+    font-size: 25px;
+  }
+
+  .goodnum_rmk a{
+    padding: 10px;
+    padding-bottom: none;
+    font-size: 25px;
+  }
+
+  .neko_rmk{
+    max-width: 135px;
+    height: auto;
+    margin-left: 20px;
+  }
+
+  .footer_rmk{
+    display: inline-block;
+    float: left;
+  }
+
+  .footer_rmk li{
+    border-bottom: 1px dotted gray;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .footer_rmk li a{
+    font-size: 25px;
+  }
+}

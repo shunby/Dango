@@ -56,52 +56,98 @@
   left: 5px;
 }
 
-.before-blog{
- display: inline-block;
- width: 150px;
- text-align: center;
- position: relative;
- top: -15px;
- left: 10px;
- height: auto;
- line-height: 25px;
+
+
+
+
+@media screen and (min-width: 770px){
+  .main-after{
+   border: 1px solid black;
+   border-left: none;
+   display: inline-block;
+   float: right;
+   width: 328px;
+   margin-right: 20px;
+   height: 120px;
+  }
+
+  #trn2{
+    position: relative;
+    top: 21px;
+    left: 20px;
+  }
+
+  .next-blog{
+    display: inline-block;
+    width: 150px;
+    margin-left: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+    right:10px
+    height: auto;
+    line-height: 25px;
+  }
+
+  .before-blog{
+   display: inline-block;
+   width: 150px;
+   text-align: center;
+   position: relative;
+   top: -15px;
+   left: 10px;
+   height: auto;
+   line-height: 25px;
+  }
 }
 
-.before-blog a{
-  font-size: smaller;
+@media screen and (max-width: 769px){
+  .main-after{
+   border: 1px solid black;
+   border-left: none;
+   display: inline-block;
+   float: right;
+   width: 473px;
+   margin-right: 20px;
+   height: 120px;
+  }
+
+  #trn2{
+    position: relative;
+    top: 21px;
+    left: 140px;
+  }
+
+  .next-blog{
+    display: inline-block;
+    width: 150px;
+    margin-left: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+    left: 50px;
+    height: auto;
+    line-height: 25px;
+  }
+
+  .before-blog{
+   display: inline-block;
+   width: 150px;
+   text-align: center;
+   position: relative;
+   top: -15px;
+   left: 50px;
+   height: auto;
+   line-height: 25px;
+  }
 }
 
-.main-after{
- border: 1px solid black;
- border-left: none;
- display: inline-block;
- float: right;
- width: 328px;
- margin-right: 20px;
- height: 120px;
-}
 
-#trn2{
-  position: relative;
-  top: 21px;
-  left: 20px;
-}
 
-.next-blog{
-  display: inline-block;
-  width: 150px;
-  margin-left: 20px;
-  text-align: center;
-  position: relative;
-  bottom: 15px;
-  right:10px
-  height: auto;
-  line-height: 25px;
-}
 
-.next-blog a{
-  font-size: smaller;
-}
+
+
+
 
 .main-tocontents{
   text-align: right;

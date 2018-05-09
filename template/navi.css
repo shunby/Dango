@@ -1,85 +1,41 @@
-
 #nav{
-  width: 939.5px;
-  margin: 0px 46px 0px  47px;
-}
-#nav::after{
-  clear: both;
-}
-
-.navi_menu a{
-  display: block;
-  width: 100%;
-}
-
-.navi_menu{
-  float: left;
-  text-align: center;
-  width: 15.97%;/*95.8 / 項目数*/
-  border: 1px solid gray;
-  border-right: 0;
-  padding-top: 5px;
-  height: 28px;
-  background-color: #edf0a1;
-  margin: 0;
-}
-.navi_menu:last-child{
-  border-right: 1px solid gray;
-}
-
-.navi_menu a:active{
-  color: #5197ed;
-}
-
-.navi_menu:hover{
-  background-color:#d5eba7;
-}
-
-.navi_menu:hover > .sub-menu{
-  display: block;
-  color: ;
-  background-color:#edf0a1;
+  background-color: #ffca91;
   position: relative;
-  top: 5px;
-  right: 1px;
-  width: 100.5%;
-  z-index: 20000;
-}
-
-.sub-menu{
-  padding-left: 0px;
-  display: none;
-  margin: 0px;
-}
-
-.sub-menu:hover{
+  padding-top: 20px;
+  padding-bottom: -100px;
+  width: 95%;
+  margin: auto;
   display: block;
+  height: 310px;
 }
 
-.sub-menu-item{
-  border:1px solid gray;
-  border-bottom: none;
-  padding-top:5px;
-  padding-bottom: ;
-  padding-left: ;
-  padding-right: ;
+#nav li p a{
+  font-size: 21px;
 }
 
-
-.sub-menu-item:last-child{
-  border-bottom:1px solid gray;
-}
-.sub-menu-item:first-child{
-  border-top: none;
-  margin-top: 0;
+#nav li p{
+  border-bottom: 1px solid black;
 }
 
-
-.sub-menu-item:hover{
-  color: ;
-  background-color:#d5eba7;
+#nav ul{
+  padding-right: 30px;
 }
 
-.sub-menu-item > a{
-  text-decoration: none;
+.ul1{
+  width: 40%;
+}
+
+@media screen and (max-width: 769px){
+  .ul2{
+    position: relative;
+    left: 450px;
+    width: 40%;
+    bottom: 290px;
+  }
+}
+
+@media screen and (min-width: 770px){
+  .ul2{
+    display: none;
+  }
 }
