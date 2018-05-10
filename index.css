@@ -111,6 +111,12 @@
   .sideber_rmk{
     display: none;
   }
+  #blog_top p a{
+    text-decoration: none;
+    position: relative;
+    left: 400px;
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 769px){
@@ -138,8 +144,10 @@
     outline: 0;
     border: 0px;
     background: transparent;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-top: 20px;
     font-size: 25px;
   }
 
@@ -179,8 +187,8 @@
   .type_rmk li{
     border: 2px double pink;
     border-top: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .type_rmk li:first-child{
@@ -197,7 +205,7 @@
   .rank_rmk li{
     border: 2px double #ff8400;
     border-top: none;
-    height: 150px;
+    height: 130px;
   }
 
   .rank_rmk li:first-child{
@@ -210,13 +218,8 @@
   .rank_rmk li a{
     display: block;
     padding: 10px;
-    padding-top: none;
-    font-size: 25px;
-  }
-
-  .goodnum_rmk a{
-    padding: 10px;
-    padding-bottom: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
     font-size: 25px;
   }
 
@@ -240,4 +243,21 @@
   .footer_rmk li a{
     font-size: 25px;
   }
+
+  #blog_top p a{
+    text-decoration: none;
+    position: relative;
+    left: 700px;
+    font-size: 25px;
+  }
+}
+
+section h1{
+  margin-bottom: 25px;
+  margin-top: 60px;
+  font-size: 28px;
+}
+
+section h1:first-child{
+  margin-top: 10px;
 }

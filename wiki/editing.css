@@ -25,8 +25,29 @@ form textarea{
   padding: 3px;
 }
 #tab_btn{
-    margin: 1px;
+    margin-left: 10px;
 }
 #tab_body{
   border: 1px solid gray;
+}
+#edit_content{
+  padding-top: 10px;
+}
+#edit_content button{
+  -webkit-appearance: none;
+  font-size: 18px;
+  padding: 7px 20px;
+  background-color: 	#33FFCC;
+  border: 1px solid white;
+  border-radius: 15px 0 0 0 / 15px 0 0 0;
+  color: #330033;
+}
+#main form .submit{
+  -webkit-appearance: none;
+  font-size: 18px;
+  padding: 7px 20px;
+  background-color: 	#33FFCC;
+  border: 1px solid white;
+  border-radius: 15px 0 0 0 / 15px 0 0 0;
+  color: #330033;
 }
