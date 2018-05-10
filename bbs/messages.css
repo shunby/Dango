@@ -70,7 +70,10 @@ input#submit{
   border-radius: 15px 0 0 0 / 15px 0 0 0;
   color: #330033;
 }
-
+input#submit:last-child{
+  padding: 10px 40px;
+  font-size: 20px;
+}
 #returnTo{
   z-index: 1500;
   position: fixed;
