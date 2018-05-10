@@ -3,8 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
 ?>
 <!DOCTYPE html>
 <!--テンプレート-->
-<html>
-<head>
+<html> <head>
   <title>だんご三兄弟</title>
 
   <meta name="description" content="">
@@ -74,7 +73,7 @@ EOM;
       <?php include $webroot."/template/sideber.php" ?>
       <article id="sidemain">
         <section>
-          <h2>まずは最新のブログ記事をどうぞ</h2>
+          <h1>まずは最新のブログ記事をどうぞ</h1>
           <div id="blog_tab_link">
             <a href="#blog_top" onclick="return ontab('blog');">ブログ</a>
             <a href="#olafblog_top" onclick="return ontab('olaf');">おらふ</a>
@@ -123,7 +122,7 @@ EOM;
                 ?>
               </div>
 
-              <p><a href="/blog/index.php" style="text-decoration: none;position: relative;left: 460px;">ブログ目次へ</a></p>
+              <p><a href="/blog/index.php">ブログ目次へ</a></p>
             </div><!--ここまで通常ブログ-->
             <div id="olafblog_top"><!--ここからおらふ-->
               <div id="olafblog_content">
@@ -182,7 +181,7 @@ EOM;
 
         </section>
         <section>
-          <h1 style="display:inline;">栄東生専用掲示板「爆ぜろSCC」へようこそ</h1>
+          <h1>栄東生専用掲示板「爆ぜろSCC」へようこそ</h1>
 
 
 
@@ -193,7 +192,7 @@ EOM;
               <li><input type="button" value="ログイン" onclick="window.location.href='/login/login.php';"></input></li>
               <li><input type="button" value="ログアウト" onclick="window.location.href='/login/logout.php';"></input></li>
               <li><input type="button" value="ユーザ登録" onclick="window.location.href='/login/register.php';"></input></li>
-              <li><input type="button" value="ユーザーページ" onclick="window.location.href='/user/';"></input></li>
+              <li><input type="button" value="ユーザページ" onclick="window.location.href='/user/';"></input></li>
             </ul>
 
             <ul class="type_rmk">

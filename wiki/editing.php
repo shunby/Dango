@@ -79,8 +79,8 @@
         <!--エディタ-->
         <h3><label for="text">本文</label></h3>
         <div id="tab_btn">
-          <a href="#tab_btn" onclick="changetab('edit')">編集</a>
-          <a href="#tab_btn" onclick="changetab('preview')">プレビュー</a>
+          <a href="#tab_btn" onclick="changetab('edit')" style="text-decoration: none; padding-left: 8px; padding-right: 8px; font-size: 20px;">編集</a>
+          <a href="#tab_btn" onclick="changetab('preview')" style="text-decoration: none; padding-left: 8px; padding-right: 8px; font-size: 20px;">プレビュー</a>
         </div>
         <div id="tab_body">
           <div id="edit_content" style="display: none">
@@ -186,7 +186,7 @@
         </div>
 
         <!--送信ボタンとwikinum-->
-        <input type="submit" name="submit" value="送信する" style="margin-left: 10px; width: 120px;">
+        <input class="submit" type="submit" name="submit" value="送信する" style="margin-left: 10px; width: 120px;">
 
         <!--jQueryのチェック数制限-->
         <script type="text/javascript">

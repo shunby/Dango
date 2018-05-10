@@ -30,20 +30,21 @@ header h2{/*#headerを追加:猫派*/
 }
 
 .menu_button img{
-  max-width: 30px;
+  max-width: 40px;
 }
 
 @media screen and (min-width: 770px){
   .menu_button img{
     position: relative;
-    bottom: 3px;
-    left: 870px;
+    bottom: 25px;
+    left: 860px;
   }
 }
 
 @media screen and (max-width: 769px){
   .menu_button img{
     position: relative;
-    left: 870px;
+    left: 860px;
+    bottom: 15px;
   }
 }

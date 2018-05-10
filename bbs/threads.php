@@ -123,7 +123,7 @@ EOM;
 
 
       <div id="returnTo">
-        <a href="index.php" rel="nofollow">チャットルーム一覧へ戻る</a><br/>
+        <a href="index.php" rel="nofollow" style="text-decoration: none;">チャットルーム一覧へ戻る</a><br/>
       </div>
     </article>
 

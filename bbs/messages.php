@@ -152,7 +152,7 @@ EOM;
          <?php
          if($login_user){
            echo <<<EOF
-           <h5>このスレッドに書き込む</h5>
+           <h3>このスレッドに書き込む</h3>
            <form name = "msgform" class="noreline" action="upload_message.php" method="post" onSubmit="return checkbefore(msgform.message.value);">
              <textarea name="message" placeholder="400字以内で入力"></textarea>
              <br>
@@ -172,7 +172,7 @@ EOF;
        </section>
        <div id="returnTo">
          <?php
-          echo '<a href="threads.php?roomid='.$_GET['roomid'].'" rel="nofollow">スレッド一覧へ戻る</a><br />';
+          echo '<a href="threads.php?roomid='.$_GET['roomid'].'" rel="nofollow" style="text-decoration: none;">スレッド一覧へ戻る</a><br />';
          ?>
        </div>
      </article>
