@@ -70,7 +70,7 @@ input#submit{
   border-radius: 15px 0 0 0 / 15px 0 0 0;
   color: #330033;
 }
-input#submit:last-child{
+#form form input#submit{
   padding: 10px 40px;
   font-size: 20px;
 }
