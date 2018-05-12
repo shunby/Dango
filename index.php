@@ -122,7 +122,7 @@ EOM;
                 ?>
               </div>
 
-              <p><a href="/blog/index.php">ブログ目次へ</a></p>
+              <p><a href="/blog/index.php" class="to_blog-list">ブログ目次へ</a></p>
             </div><!--ここまで通常ブログ-->
             <div id="olafblog_top"><!--ここからおらふ-->
               <div id="olafblog_content">
