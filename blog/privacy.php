@@ -16,6 +16,7 @@
 
 
     <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
     <link href="/template/header.css" rel="stylesheet" type="text/css">
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
     <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
@@ -37,6 +38,7 @@
         include $webroot."/template/header.html"
       ?>
       <?php include $webroot."/template/navi.html" ?>
+      <?php include $webroot."/template/shortcut/shortcut.php" ?>
       <?php include $webroot."/template/sideber.php" ?>
 
       <div id="sidemain">

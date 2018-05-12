@@ -34,6 +34,7 @@
       ?>
      <link href="index.css" rel="stylesheet" type="text/css">
      <link href="/template/header.css" rel="stylesheet" type="text/css">
+     <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
      <link href="/template/footer.css" rel="stylesheet" type="text/css">
      <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
      <link href="/template/content.css" rel="stylesheet" type="text/css">
@@ -48,21 +49,11 @@
    </head>
 
    <body>
-
-
-     <div id="content">
        <div id="content">
          <?php include $webroot."/template/header.html" ?>
          <?php include $webroot."/template/navi.html" ?>
+         <?php include $webroot."/template/shortcut/shortcut.php" ?>
          <?php include $webroot."/template/sideber.php" ?>
-         <article id="sidemain">
-           <section>
-             ログアウトしました。
-           </section>
-         </article>
-
-
-
        </div>
 
      </div>

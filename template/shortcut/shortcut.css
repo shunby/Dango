@@ -1,0 +1,30 @@
+#shortcut input{
+  font-size: 1.2em;
+  background: #668ad8;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  margin-right: 15px;
+  padding-bottom: 0px;
+  padding-top: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#shortcut input:active{
+  -ms-transform: translateY(4px);
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+  -webkit-appearance: none;
+}
+
+#shortcut input:last-child{
+  margin-right: 0px;
+}
+
+#shortcut{
+  width: 92%;
+  margin: auto;
+  margin-top: 25px;
+}

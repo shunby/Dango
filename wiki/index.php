@@ -24,6 +24,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
   <link rel="stylesheet" href="/template/content.css" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
   <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
   <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link rel="stylesheet" href="/wiki/index.css" type="text/css">
@@ -34,6 +35,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
     <div id="content">
       <?php include $webroot."/template/header.html" ?>
       <?php include $webroot."/template/navi.html" ?>
+      <?php include $webroot."/template/shortcut/shortcut.php" ?>
       <?php include $webroot."/template/sideber.php" ?>
       <article id="sidemain">
         <h2>栄ペディアへようこそ！</h2>
@@ -50,7 +52,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
           </a>
         </div>
 
-  
+
 
 
         <!--運営おすすめページ-->

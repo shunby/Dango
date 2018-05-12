@@ -24,6 +24,7 @@
   <link href="../template/content.css" rel="stylesheet" type="text/css">
   <link href="../template/navi.css" rel="stylesheet" type="text/css">
   <link href="posts.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link rel="stylesheet" href="/template/sideber.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
@@ -36,6 +37,7 @@
   <div id="content">
     <?php include "../template/header.html" ?>
     <?php include "../template/navi.html" ?>
+    <?php include $webroot."/template/shortcut/shortcut.php" ?>
     <?php include $webroot."/template/sideber.php" ?>
     <article id="sidemain">
       <form id="search" name="search_form" action="/usersearch.php" method="post" onsubmit="return on();">

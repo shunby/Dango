@@ -38,6 +38,7 @@
   <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
   <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
   <link rel="stylesheet" href="/template/sideber.css" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link rel="stylesheet" href="/wiki/contents.css" type="text/css">
   <link href="" rel="shortcut icon">
   <script src="/scripts/parser.js"></script>
@@ -47,6 +48,7 @@
     <div id="content">
       <?php include $webroot."/template/header.html" ?>
       <?php include $webroot."/template/navi.html" ?>
+      <?php include $webroot."/template/shortcut/shortcut.php" ?>
       <?php include $webroot."/template/sideber.php" ?>
       <article id="sidemain">
 

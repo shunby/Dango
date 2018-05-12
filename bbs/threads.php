@@ -39,6 +39,7 @@ $system = strcmp($room['type'], 'system') == 0;
 
 
   <link href="threads.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link href="../template/header.css" rel="stylesheet" type="text/css">
   <link href="../template/footer.css" rel="stylesheet" type="text/css">
   <link href="../template/content.css" rel="stylesheet" type="text/css">
@@ -57,6 +58,7 @@ $system = strcmp($room['type'], 'system') == 0;
   <div id="content">
     <?php include "../template/header.html" ?>
     <?php include "../template/navi.html" ?>
+    <?php include $webroot."/template/shortcut/shortcut.php" ?>
 
     <article id="main">
 

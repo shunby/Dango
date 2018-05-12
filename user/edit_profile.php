@@ -35,6 +35,7 @@
     include $webroot."/template/analytics.html"
    ?>
   <link href="/user/edit_profile.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
   <link href="/template/main.css" rel="stylesheet" type="text/css">
@@ -55,6 +56,7 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
+    <?php include $webroot."/template/shortcut/shortcut.php" ?>
     <main id="main">
       <h1>自己紹介を編集</h1>
       <p id="tabcontrol">

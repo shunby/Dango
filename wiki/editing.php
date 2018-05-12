@@ -44,6 +44,7 @@
    <link href="editing.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link href="/template/main.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
@@ -63,6 +64,7 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
+    <?php include $webroot."/template/shortcut/shortcut.php" ?>
     <main id="main">
       <h2 style="margin-left: 10px; font-weight: lighter;">記事を編集</h2>
 

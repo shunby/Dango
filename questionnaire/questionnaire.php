@@ -19,6 +19,7 @@
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
   <link href="/template/main.css" rel="stylesheet" type="text/css">
   <link href="/template/content.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -39,6 +40,7 @@
     <?php
     include "../template/navi.html";
     ?>
+    <?php include $webroot."/template/shortcut/shortcut.php" ?>
 
     <article id="main">
       <section>

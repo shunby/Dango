@@ -42,6 +42,7 @@
 
 
     <link href="messages.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
     <link href="../template/header.css" rel="stylesheet" type="text/css">
     <link href="../template/footer.css" rel="stylesheet" type="text/css">
     <link href="../template/navi.css" rel="stylesheet" type="text/css">
@@ -61,6 +62,7 @@
 
      <?php include "../template/header.html" ?>
      <?php include "../template/navi.html" ?>
+     <?php include $webroot."/template/shortcut/shortcut.php" ?>
 
      <article id="main">
        <section>
