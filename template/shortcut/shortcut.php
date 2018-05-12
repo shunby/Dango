@@ -30,7 +30,7 @@ switch ($val1) {
     $val1_url = "/bbs/index.php";
     break;
 
-  case "ユーザー検索":
+  case "ユーザ検索":
     $val1_url = "/user_search/index.php";
     break;
 
@@ -60,7 +60,7 @@ switch ($val2) {
     $val2_url = "/bbs/index.php";
     break;
 
-  case "ユーザー検索":
+  case "ユーザ検索":
     $val2_url = "/user_search/index.php";
     break;
 
@@ -90,7 +90,7 @@ switch ($val3) {
     $val3_url = "/bbs/index.php";
     break;
 
-  case "ユーザー検索":
+  case "ユーザ検索":
     $val3_url = "/user_search/index.php";
     break;
 

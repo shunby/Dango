@@ -1,8 +1,4 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/template/check_login.php");
- ?>
-
-<?php
 
 
 
@@ -18,9 +14,9 @@ if (@$_POST['submit']) {
     $o = $i + 1;
     setcookie("shortcut[$o]","$checkbox_arr[$i]",time()+60*60);
   }
-  var_dump($_COOKIE['shortcut']);
+  //var_dump($_COOKIE['shortcut']);
 }
-header("Location: index.php");
+header("Location: /index.php");
 exit();
 
 

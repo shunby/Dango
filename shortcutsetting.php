@@ -20,6 +20,7 @@
     <link href="/template/header.css" rel="stylesheet" type="text/css">
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
     <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/template/sideber.css" type="text/css">
