@@ -44,6 +44,7 @@
 
 
   <link href="index.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
   <link href="/template/footer.css" rel="stylesheet" type="text/css">
   <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
@@ -61,8 +62,8 @@
   <div id="content">
     <?php include $webroot."/template/header.html" ?>
     <?php include $webroot."/template/navi.html" ?>
-    <?php include $webroot."/template/sideber.php" ?>
-    <article id="sidemain">
+    <?php include $webroot."/template/shortcut/shortcut.php" ?>
+    <article id="main">
       <section>
         <h1>投稿を書き換える</h1>
         <?php
@@ -79,8 +80,15 @@
               '<input type="hidden" name="threadid" value="',$threadid, '"></input>',
               '<input type="hidden" name="roomid" value="',$roomid, '"></input>',
               '<input type="hidden" name="finish" value=1 ></input>',
-              '<textarea name="text" style="width: 90%;height: 300px;">', $text, '</textarea>','<br>',
-              '<input type="submit" value="投稿" id="submit">',
+              '<textarea name="text" style="width: 90%;height: 150px;">', $text, '</textarea>','<br>',
+              '<input type="submit" value="投稿" id="submit" style="-webkit-appearance: none;
+              font-size: 18px;
+              padding: 2px 40px;
+              background-color: 	#33FFCC;
+              border: 1px solid white;
+              border-radius: 15px 0 0 0 / 15px 0 0 0;
+              color: #330033;
+              margin-bottom: 30px;">',
             '</form>';
          ?>
 

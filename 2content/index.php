@@ -13,6 +13,7 @@
 
 
     <link rel="stylesheet" href="index.css" type="text/css">
+    <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
     <link href="../template/header.css" rel="stylesheet" type="text/css">
     <link href="../template/footer.css" rel="stylesheet" type="text/css">
     <link href="../template/navi.css" rel="stylesheet" type="text/css">
@@ -26,8 +27,9 @@
    <div id="content">
     <?php include "../template/header.html" ?>
     <?php include "../template/navi.html" ?>
+    <?php include $webroot."/template/shortcut/shortcut.php" ?>
     <?php include $webroot."/template/sideber.php" ?>
-    <main id="sidemain">
+    <article id="sidemain">
       <?php
        $article = key_exists("article", $_GET) ? $_GET["article"] : NULL;//クエリからarticleの値を取得
        if(preg_match('/[\\.\\/\\\]/', $article))$article=NULL;//".","/","\"が含まれる場合は弾く(不正アクセスを防ぐため)
@@ -46,8 +48,7 @@
        }
 
        ?>
-       <div id="for_clear"></div>
-    </main>
+    </article>
    </div>
    <?php include "../template/analytics.html" ?>
   </body>

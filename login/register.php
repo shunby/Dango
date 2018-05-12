@@ -23,6 +23,7 @@
     <link href="/template/footer.css" rel="stylesheet" type="text/css">
     <link href="/template/main.css" rel="stylesheet" type="text/css">
     <link href="/template/content.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
     <link href="/template/navi.css" rel="stylesheet" type="text/css">
     <link href="" rel="shortcut icon">
     <!--[if lt IE 9]>
@@ -92,6 +93,7 @@
     <div id="content">
       <?php include $webroot."/template/header.html" ?>
       <?php include $webroot."/template/navi.html" ?>
+      <?php include $webroot."/template/shortcut/shortcut.php" ?>
       <article id="main">
         <section>
           <h1>ユーザー登録</h1>

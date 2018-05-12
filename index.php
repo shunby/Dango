@@ -19,13 +19,13 @@ require_once $_SERVER['DOCUMENT_ROOT']."/template/autologin_nologout.php";
   ?>
   <link href="index.css" rel="stylesheet" type="text/css">
   <link href="/template/header.css" rel="stylesheet" type="text/css">
-  <link href="/template/footer.css" rel="stylesheet" type="text/css">
   <link href="/template/sidemain.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/template/content.css" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
   <link href="/template/blog/blog.css" rel="stylesheet" type="text/css">
   <link href="/template/iine/ajax.css" rel="stylesheet"  type="text/css">
   <link rel="stylesheet" href="/template/sideber.css" type="text/css">
+  <link rel="stylesheet" href="/template/shortcut/shortcut.css" type="text/css">
   <link href="" rel="shortcut icon">
   <script src="http://code.jquery.com/jquery-1.11.1.min.js" ></script>
 
@@ -70,6 +70,7 @@ EOM;
       <?php include $webroot."/template/navi.html" ?>
 
       </script>
+      <?php include $webroot."/template/shortcut/shortcut.php" ?>
       <?php include $webroot."/template/sideber.php" ?>
       <article id="sidemain">
         <section>
