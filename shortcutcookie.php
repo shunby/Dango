@@ -12,7 +12,7 @@ if (@$_POST['submit']) {
   for ($i=0; $i < $count; $i++) {
     // code...
     $o = $i + 1;
-    setcookie("shortcut[$o]","$checkbox_arr[$i]",time()+60*60);
+    setcookie("shortcut[$o]","$checkbox_arr[$i]",time()+60*60*24*7*30);
   }
   //var_dump($_COOKIE['shortcut']);
 }

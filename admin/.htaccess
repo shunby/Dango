@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Input your ID and Password."
-AuthUserFile \xampp\htdocs\admin\.htpasswd
-require valid-user
