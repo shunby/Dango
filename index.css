@@ -111,7 +111,7 @@
   .sideber_rmk{
     display: none;
   }
-  #blog_top p a{
+  .to_blog-list{
     text-decoration: none;
     position: relative;
     left: 400px;
