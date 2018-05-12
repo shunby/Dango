@@ -51,6 +51,7 @@
   <link href="/template/content.css" rel="stylesheet" type="text/css">
   <link href="/template/navi.css" rel="stylesheet" type="text/css">
   <link href="/template/sideber.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/template/main.css" type="text/css">
   <link href="" rel="shortcut icon">
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
