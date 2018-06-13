@@ -1,6 +1,6 @@
 <?php
   $webroot = $_SERVER['DOCUMENT_ROOT'];
-  include $webroot."/template/check_login.php"
+  //include $webroot."/template/check_login.php"
  ?>
 <!DOCTYPE html>
 <html>
@@ -45,26 +45,34 @@
         <?php include $webroot."/template/blog/before.php" ?>
 
         <?php
-          $id = 62;
+          $id = 63;
          ?>
 
         <!--ここから本文-->
         <div class="main-main">
-          <iframe width="510" height="315" src="https://www.youtube.com/embed/rUs7XtyVGJE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           <p>
-            遂にいんたらくちぶな物ができました。
+            WindowsのアップデートでPINによるサインインなるものが追加されました。<br>
+            事実マイクロソフトは従来のパスワードによるログインではなく、PINでのログインを推奨しています。
+          <br>
+            理由としては...<br>
           </p>
+
+          <div style="border: 1px solid black; border-radius: 6px;">
+            <p>
+              PIN はこのデバイスでしか動作しないからです。あらゆるアカウントに開かせすするのに使用する可能性のあるパスワードとは異なり、PIN はこの PC でのみ使用します。PIN は遠くにいるハッカーにとって利用価値はありません。<br>
+            </p>
+          </div>
+
           <p>
-            もはやお馴染みになってきた物理演算シリーズ、第四回目です。<br>
-            今回は、なんと、キー操作で移動できるようになりました。
-            しかも、弾丸を撃てるオマケつき。
+            とのこと。<br>
+            つまり、Microsoftアカウントでログインしてると盗まれたときにいろんなデータ取られちゃう。<br>
+            でもPINだと盗み見されても端末とセットでこアカウントこそそれは生きるので、デバイスさえ盗まれなければ心配いらないということです。<br>
+            もっと単純に言い換えれば、「パソコンでもスマホみたいに数字だけのパスワード設定すればいいのね」って認識で結構でふ、<(_ _)><br>
+            <br>
+            具体的な設定の仕方はこちらからどぞ<br>
+            <a href="https://pc-karuma.net/windows10-pin-signin/">PIN(暗証番号)でサインインする方法</a>
           </p>
-          <p>
-            機能のテストとして、壁を作って壊してみました。<br>
-            中の人の操作が下手であまり爽快感はありませんが、
-            弾丸に箱が吹き飛ばされてるのがわかると思います。
-            こういうのが崩れるのって、見てて楽しくないですか？
-          </p>
+
         </div>
 
         <!--ここまで本文-->
