@@ -50,68 +50,30 @@
 
         <!--ここから本文-->
         <div class="main-main">
-          <div style="min-height:50em;">
-          <span id="target">
-            404 Not Found!*
-            お探しのページは、現在存在していません。*
-            　　　　　　　　　　　　*
-　　　　　　　　　　　　*
-　　　　　　　　　　　　*
-　　　　　　　　　　　　*
-            ...なんてね。*
-            今回はだんだん文字が出てくるようにしてみました。*
-            なってない人はJavaScriptを有効にするか、それでもダメな場合は諦めてください。*
-            しかし書くネタがないので、ここで終わってしまいます。*
-            　　　　　　　　　　　*
-            　　　　　　　　　　　*
-            追伸:これでプログラムをかっこよく表示できないか検証*
-            ***?
-            public class Main{*
-            　　public static void main(String[] args){*
-            　　　　func();*
-            　　}*
-            　　private void func(){*
-            　　　　System.out.println("ばなな");*
-            　　}*
-            }*
-            -...どうでした？
+          <p>
+            WindowsのアップデートでPINによるサインインなるものが追加されました。<br>
+            事実マイクロソフトは従来のパスワードによるログインではなく、PINでのログインを推奨しています。
+          <br>
+            理由としては...<br>
+          </p>
 
-          </span><span id="t2">I</span>
-        </div>
+          <div style="border: 1px solid black; border-radius: 6px;">
+            <p>
+              PIN はこのデバイスでしか動作しないからです。あらゆるアカウントに開かせすするのに使用する可能性のあるパスワードとは異なり、PIN はこの PC でのみ使用します。PIN は遠くにいるハッカーにとって利用価値はありません。<br>
+            </p>
+          </div>
 
-          <script type="text/javascript">
-          var target = document.getElementById("target");
-          var text = target.innerHTML;
-          target.innerHTML = "";
-          text = text.replace('\n', '*');
-          var i = 0;
-          var f = function(){
-            var c = text.charAt(i) == '*' ? '<br>' : text.charAt(i);
-            if(c == "?"){
-              clearInterval(t);
-              t = setInterval(f, 50);
-              c = "";
-            }else if(c == "-"){
-              clearInterval(t);
-              t = setInterval(f, 100);
-              c = "";
-            }
-            document.getElementById("target").innerHTML = document.getElementById("target").innerHTML + c;
-            i++;
-            if(i > text.length)clearInterval(t);
-          };
-          var flag = true;
-          var f2 = function(){
-            document.getElementById("t2").style = "display:" + (flag ? "inline" : "none") + ";";
-            flag = !flag;
-          }
-          t = setInterval(f, 100)
-          t2 = setInterval(f2, 500)
-          </script>
+          <p>
+            とのこと。<br>
+            つまり、Microsoftアカウントでログインしてると盗まれたときにいろんなデータ取られちゃう。<br>
+            でもPINだと盗み見されても端末とセットでこアカウントこそそれは生きるので、デバイスさえ盗まれなければ心配いらないということです。<br>
+            もっと単純に言い換えれば、「パソコンでもスマホみたいに数字だけのパスワード設定すればいいのね」って認識で結構でふ、<(_ _)><br>
+            <br>
+            具体的な設定の仕方はこちらからどぞ<br>
+            <a href="https://pc-karuma.net/windows10-pin-signin/">PIN(暗証番号)でサインインする方法</a>
+          </p>
 
         </div>
-
-
 
         <!--ここまで本文-->
 
