@@ -576,5 +576,14 @@
       <tag>雑記</tag>
     </tags>
   </blog>
+  <blog>
+    <id>65</id>
+    <title>年明けと振り返り</title>
+    <link>/blog/65.php</link>
+    <date>2019/01/06</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 
 </blogs>
