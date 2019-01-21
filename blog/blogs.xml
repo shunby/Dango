@@ -585,5 +585,14 @@
       <tag>アップデートヒストリー</tag>
     </tags>
   </blog>
+  <blog>
+    <id>66</id>
+    <title>桜咲く、予行演習</title>
+    <link>/blog/66.php</link>
+    <date>2019/01/21</date>
+    <tags>
+      <tag>アップデートヒストリー</tag>
+    </tags>
+  </blog>
 
 </blogs>
