@@ -1,0 +1,90 @@
+
+    <canvas class="overlay" id="sakura"></canvas>
+    <canvas class="overlay" id="fore"></canvas>
+    <script type="text/javascript">
+      var canvas, context, sakuraNum, sakuraPos, sakuraWave, forec, fore, sakuraImg;
+      sakuraImg = new Image();
+      sakuraImg.src="../../image/sakura.png";
+      sakuraImg.onload = initSakuras;
+
+      function initSakuras(){
+        // let width = document.getElementsByTagName("body")[0].clientWidth;
+        // let height = document.getElementsByTagName("body")[0].clientHeight;
+        let width = innerWidth;
+        let height = innerHeight;
+
+        fore = document.getElementById("fore");
+        canvas = document.getElementById("sakura");
+        context = canvas.getContext("2d");
+        forec = fore.getContext("2d");
+
+        fore.style.width = "{$width}px";
+        fore.style.height = "{$height}px";
+        canvas.style.width = "{$width}px";
+        canvas.style.height = "{$height}px";
+
+        document.getElementById("fore").setAttribute("width", width);
+        document.getElementById("fore").setAttribute("height", height);
+        document.getElementById("sakura").setAttribute("width", width);
+        document.getElementById("sakura").setAttribute("height", height);
+
+        sakuraNum = 20;
+        // 桜の位置を一番上のランダムな地点に初期化
+        sakuraPos = [];
+        for(let curNum = 0; curNum < sakuraNum; curNum++){
+          sakuraPos[curNum] = [Math.random() * canvas.width, Math.random() * canvas.height];
+        }
+        //桜の軌道を決めるsin波の振幅と周波数
+        sakuraWave = [];
+        for(let curNum = 0; curNum < sakuraNum; curNum++){
+          sakuraWave[curNum] = [Math.random() * 3, Math.random() * 1];
+        }
+        setInterval(draw, 30);
+      }
+      var time = 0;
+      function draw(){
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        forec.clearRect(0, 0, canvas.width, canvas.height);
+        for(let curNum = 0; curNum < sakuraNum; curNum++){
+          let sakurax, sakuray, ampl, freq;
+          [sakurax, sakuray] = sakuraPos[curNum];
+          [amp, freq] = sakuraWave[curNum];
+          sakurax += amp * Math.sin(2 * Math.PI * freq * time);
+          sakuray += canvas.height / 1000;
+
+          if(sakuray > canvas.height){
+            sakuray = 0;
+            sakurax = Math.random() * canvas.width;
+          }
+          if(sakurax > canvas.width){
+            sakurax = 0;
+          }
+          sakuraPos[curNum] = [sakurax, sakuray];
+          drawSingleSakura(canvas, sakurax, sakuray);
+        }
+        imagedata = context.getImageData(0, 0, canvas.width, canvas.height);
+        forec.putImageData(imagedata, 0, 0);
+        time += 0.01;
+      }
+
+      function drawSingleSakura(canvas, xpos, ypos){
+        let width = canvas.width / 30;
+        let height = width;
+        context.drawImage(sakuraImg, xpos, ypos, width, height);
+      }
+
+    </script>
+    <style>
+      canvas.overlay{
+        position:absolute;
+        top:0px;
+        left:0px;
+        z-index: 100000;
+        pointer-events: none;
+      }
+      canvas#sakura{
+        !important display: none;
+      }
+      canvas#fore{
+      }
+    </style>
